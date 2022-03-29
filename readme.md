@@ -1,25 +1,7 @@
-<style>
-    [gray] {
-        color:gray
-    }
-    [lblue] {
-        color:lightblue
-    }
-    [ital] {
-        font-style : italic
-    }
-    [bold] {
-        font-weight : bold
-    }
-    code {
-        font-size : .9em
-    }
-</style>
-
 # Oxidizer
-    The Oxidizer package allows the creation of dynamic web apps entirely using vanilla JS.
+The Oxidizer package allows the creation of dynamic web apps entirely using vanilla JS.
 
-    Oxidizer is a very-lightweight, React-esque type utility and borrows heavily from React concepts – mainly the idea of "props", and prop-inheritance and propogation.
+Oxidizer is a very-lightweight, React-esque type utility and borrows heavily from React concepts – mainly the idea of "props", and prop-inheritance and propogation.
 
 ## Usage
 
