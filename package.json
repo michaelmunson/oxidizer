@@ -1,0 +1,11 @@
+{
+  "name": "oxidizer",
+  "version": "1.0.0",
+  "description": "bare metal react-type package for web development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Munson",
+  "license": "ISC"
+}

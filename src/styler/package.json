@@ -1,0 +1,29 @@
+{
+  "name": "cjs3",
+  "version": "2.0.0",
+  "description": "facilitates usage of the CSS Object Model",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "css",
+    "style",
+    "stylesheet",
+    "styling",
+    "cssom",
+    "jsss"
+  ],
+  "type": "module",
+  "author": {
+    "name": "Michael Munson",
+    "email": "michaelmunsonm@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelmunson/CJS3"
+  },
+  "license": "apache",
+  "credits": {
+    "andyjansson @ github.com/andyjansson/css-unit-converter": "units w/ conversions @ lexicon.units & unit converter function",
+    "david hund @ https://gist.github.com/davidhund/3bd6757d6a36a283b0a2933666bd1976": "css properties referrence"
+  }
+}
