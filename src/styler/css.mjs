@@ -55,9 +55,11 @@ export const css = {
         if (Array.isArray(value)){
             return value; 
         }
-        valueFormatters.forEach(
-            rs => value = value.toString().replace(rs[0],rs[1])
-        )
+        if (isStr(value)){
+            valueFormatters.forEach(
+                rs => value = value.toString().replace(rs[0],rs[1])
+            )
+        }
         return value
     },
     stringify(obj,nl=""){
