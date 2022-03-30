@@ -1,14 +1,20 @@
 {
   "name": "oxidizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "bare metal react-type package for web development",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Michael Munson",
-  "license": "ISC",
+  "author": "Michael Munson <michaelmunsonm@gmail.com>",
+  "license": "Apache-2.0",
   "repository": {
+    "type": "git",
     "url": "https://www.google.com/search?q=git+remove+branch&oq=git+remove+&aqs=chrome.5.69i57j0i20i263i512j0i20i131i263i433i512j0i433i512l2j0i131i433i512j0i433i512j0i512l3.5199j0j4&sourceid=chrome&ie=UTF-8"
-  }
+  },
+  "type": "module",
+  "keywords": [
+    "react"
+  ],
+  "dependencies": {}
 }

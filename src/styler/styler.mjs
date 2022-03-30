@@ -218,6 +218,7 @@ export class Styler {
             throw new TypeError("Styler constructor argument must be type Function or Object"); 
         }
     }
+    static get css(){return css}
     static get sheets(){return sheets}
     static get config(){return config}
     static set config(o){return this.configure(o)}
