@@ -1,10 +1,11 @@
-import { isArr, isFn, isObj, isStr } from "../../../utils/utils.mjs";
+import { isArr, isFn, isObj, isStr } from "../../utils/utils.mjs";
 import { css } from "./css.mjs";
-import configuration from "./config.mjs";
-import $, {defaultCSS} from "../../query.mjs";
+import config from "./config.mjs";
+import $, {defaultCSS} from "../query.mjs";
 import { CSSDeclarationError, CSSStyleSheetError } from "./error.mjs";
+ 
+const sheets = []
 
-const config = configuration; 
 const attachMethods = (node,fn) => {
     node.eventHandlers = (node.eventHandlers) ? node.eventHandlers : []; 
     for (const f in fn){
@@ -20,10 +21,6 @@ const attachMethods = (node,fn) => {
 
     }
 }
-export const css = css; 
-export const Unit = css.Unit;
-export const colors = css.colors; 
-export const $ = $; 
 
 /**
  * @param {Function} cssFactory 
@@ -103,7 +100,7 @@ export class StylerSheet {
         this.eventHandlers = eventHandlers;
         this.styleElement = css.generateStyleElement(); 
         $.head.append(this.styleElement);
-        Styler.sheetMap.push(this); 
+        Styler.sheets.push(this); 
     }
     static compile(object){
         const styles = css.flatten(object);
@@ -220,25 +217,24 @@ export class Styler {
             throw new TypeError("Styler constructor argument must be type Function or Object"); 
         }
     }
-    static css = css; 
-    static Factory = StylerFactory;
-    static Sheet = StylerSheet; 
-    static Declaration = StylerDeclarations;
-    static sheetMap = [] 
-    static config = new Proxy(config,{
-        set(target,key,value){
-            target[key] = value;
-            return true; 
-        }
-    });
-    static init = (()=>{
+    static get sheets(){return sheets}
+    static get config(){return config}
+    static set config(o){return this.configure(o)}
+    
+    static get Factory(){return StylerFactory}
+    static get Sheet(){return StylerSheet}
+    static get Declarations(){return StylerDeclarations}
+    static configure(o){
+        for (const c in o) config[c] = o[c]; 
+    }
+    static init = (()=> {
         const impSty = $.create('style').attr('id','dynamic-imports');
         $.head.append(impSty); 
         $.body.observe({
             childList:function(mut){
                 mut.addedNodes.forEach(node => {
                     if (node.matches === undefined) return 
-                    for (const sht of Styler.sheetMap){
+                    for (const sht of Styler.sheets){
                         for (const e of sht.eventHandlers){
                             const [sel,fn] = e;
                             if (node.matches(sel)){
@@ -254,6 +250,9 @@ export class Styler {
     })(); 
 }
 
-new StylerFactory()
+export {
+    css,
+    $,
+}
 
 export default Styler; 

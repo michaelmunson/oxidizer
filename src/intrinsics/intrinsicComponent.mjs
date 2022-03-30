@@ -1,4 +1,4 @@
-import {  isArr, isFn, objEnforcer, TypeConverter, Argvout} from "../../utils/utils.mjs";
+import {  isArr, isFn, isObj, objEnforcer, TypeConverter} from "../../utils/utils.mjs";
 import config from "../config.mjs";
 import { argvout } from "./icargv.mjs";
 import { NodeProps } from "./props.mjs";
@@ -23,7 +23,7 @@ export const externals = {
         return this; 
     },
     setProperty(key,val){
-        if (config.props.setAttributes){
+        if (config.autoSetAttrs){
             if (this[key] === undefined && typeof val === 'string'){
                 this.setAttribute(key,val); 
             }
@@ -32,6 +32,9 @@ export const externals = {
             }
         }
         else {
+            if (key === "attributes" || key === "attrs"){
+                this.attr(val); 
+            }
             this[key] = val;
         }
         return this; 
@@ -175,7 +178,12 @@ export const externals = {
     },
     /*  Attribute */
     attr(name,value){
-        if (name==null&&value==null){
+        if (isObj(name)){
+            for (const a in name){
+                this.setAttribute(a, name[a]); 
+            }            
+        }
+        else if (name==null&&value==null){
             return this.attributes; 
         }
         else if (name && value==null){
