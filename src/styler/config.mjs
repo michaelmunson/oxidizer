@@ -3,6 +3,7 @@ import { isObj } from "../../utils/utils.mjs";
 const configuration = {
     onError : function(err){},
     onUnsupported : function(err){},
+
     properties : {
         m : v => ({ margin : v}),
         mt : v => ({ marginTop : v}),
@@ -50,4 +51,4 @@ export const config = new Proxy(configuration,{
     }
 })
 
-export default configuration;
+export default config;

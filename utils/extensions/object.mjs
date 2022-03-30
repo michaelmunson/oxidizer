@@ -64,6 +64,11 @@ class Obj extends Object {
     static enforce(object){
         return objEnforcer(object)
     }
+    static create(a,b){
+        const o = {}
+        o[a] = b;
+        return o; 
+    }
 }
 
 const $obj = (obj) => new Obj(obj); 

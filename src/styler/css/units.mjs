@@ -1,4 +1,5 @@
 import lexicon from "./css-data.json";
+import { Str } from "../../../utils/utils.mjs";
 
 export class Unit {
     [Symbol.toPrimitive](hint) {

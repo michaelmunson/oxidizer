@@ -23,6 +23,12 @@ export default class Oxidizer {
     static get Template(){return Template};  
     static get Styler(){return Styler}; 
     static get Intrinsics(){return Intrinsics};
+    static init = (()=>{
+        if (!$.exists('body')){
+            document.querySelector('head').insertAdjacentHTML('afterend', '<body></body>');
+        }
+        
+    })()
 }
 
 export {

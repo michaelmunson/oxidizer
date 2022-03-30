@@ -1,11 +1,11 @@
 
 import { analyzer, isNode, isNum, isStr, strEnforcer } from "../utils/utils.mjs";
-import css from "./styler/css.mjs";
+import {css, styleElementMethods} from "./styler/css.mjs";
 /**
      * @param {}  
      * @returns {HTMLElement} 
     */
-const $assigner = {
+const nodeMethods = {
     defaultCSS(){
         return defaultCSS.getDefaultCSS(this);; 
     }, 
@@ -404,6 +404,9 @@ const $assigner = {
     },
     
 }
+const specialNodeMethods = {
+    "style" : styleElementMethods
+}
 
 export const defaultCSS = {
     getDefaultCSS(element){
@@ -428,6 +431,8 @@ export const defaultCSS = {
  * @param { ... String | ... HTMLElement } nodes - Takes String or HTMLElement 
  * @classdesc Wrapper class for HTMLElement... basically homemade JQuery
 */
+
+
 export class Query extends Array {    
     constructor(...nodes){
         super()
@@ -437,9 +442,16 @@ export class Query extends Array {
         .map(node => Array.isArray(node) ? node : [node])
         .forEach(nodes => {
             nodes.forEach(node => {
-                for (const i in $assigner) {
+                if (node.tagName.toLowerCase() in specialNodeMethods){
+                    const specMethds = specialNodeMethods[node.tagName.toLowerCase()]
+                    for (const i in specMethds) {
+                        if (isNode(node))
+                        if (node[i] === undefined) node[i] = specMethds[i]
+                    }
+                }
+                for (const i in nodeMethods) {
                     if (isNode(node))
-                    if (node[i] === undefined) node[i] = $assigner[i]
+                    if (node[i] === undefined) node[i] = nodeMethods[i]
                 }
                 this.push(node);
             });
@@ -1098,8 +1110,15 @@ Object.defineProperties($, {
             return function(string){
                 strEnforcer(string);
                 const node = document.createElement(string);
-                for (const f in $assigner){
-                    if (node[f] === undefined) node[f] = $assigner[f]
+                if (node.tagName.toLowerCase() in specialNodeMethods){
+                    const specMethds = specialNodeMethods[node.tagName.toLowerCase()]
+                    for (const i in specMethds) {
+                        if (isNode(node))
+                        if (node[i] === undefined) node[i] = specMethds[i]
+                    }
+                }
+                for (const f in nodeMethods){
+                    if (node[f] === undefined) node[f] = nodeMethods[f]
                 } 
                 return node; 
             }
@@ -1108,6 +1127,13 @@ Object.defineProperties($, {
     create : {
         get(){
             return this.new;
+        }
+    },
+    exists : {
+        get(){
+            return function(query){
+                return document.querySelectorAll(query).length > 0
+            }
         }
     }
 })
