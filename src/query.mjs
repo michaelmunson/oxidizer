@@ -418,7 +418,7 @@ export const defaultCSS = {
  * @class 
  * @param { ... String | ... HTMLElement } nodes - Takes String or HTMLElement 
  * @classdesc Wrapper class for HTMLElement... basically homemade JQuery
- * */
+*/
 export class Query extends Array {    
     constructor(...nodes){
         super()

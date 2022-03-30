@@ -301,7 +301,7 @@ export const externals = {
     },
 };
 
-export default class IntrinsicComponent {
+export class IntrinsicComponent {
     constructor(...argv){
         const node = document.createElement(this.constructor.name);  
         for (const a in externals){
@@ -314,3 +314,5 @@ export default class IntrinsicComponent {
         return node;
     }
 }
+
+export default IntrinsicComponent

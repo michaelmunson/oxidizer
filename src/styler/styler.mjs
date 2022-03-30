@@ -193,13 +193,14 @@ export class StylerSheet {
                     styleElement.sheet.insertRule(str); 
                 }
                 catch(e){
-                    config.onError(e);
+                    config.onError(new CSSStyleSheetError(e));
                 }
             });
             this.attachMethods(); 
             return this; 
         }
         catch(e){
+            config.onError(new CSSStyleSheetError(e));
 
         }
         

@@ -1,6 +1,6 @@
-import { str } from "../extensions/str.mjs";
+import { $str } from "../extensions/str.mjs";
 
-const analyzer = function(toAnalyze){ 
+function analyzer(toAnalyze){ 
     return {
         toAnalyze,
         type : function(...types){
@@ -86,12 +86,12 @@ const analyzer = function(toAnalyze){
                 }
             }
             else {
-                parameters = str(head).stack("(",")").str;
+                parameters = $str(head).stack("(",")").str;
             }
             return parameters; 
         },
         functionBody : function(fn = this.toAnalyze){
-            return str(fn).stack("{","}").str; 
+            return $str(fn).stack("{","}").str; 
         },
         get isObj(){
             try {
@@ -169,8 +169,6 @@ const isNan = o => isNaN(o);
 const isNum = o => typeof o === 'number';
 const isBool = o => typeof o === 'boolean';
 const isNode = o => o instanceof HTMLElement; 
-const isUnd = o => o === undefined;
-const isNull = o => o == null; 
 const enforce = (enforceObj = {},messageHandler) => {
     for (let type in enforceObj){
         const object = enforceObj[type];

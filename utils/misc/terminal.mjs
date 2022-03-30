@@ -1,4 +1,4 @@
-import {Str} from "../extensions/str.mjs"; 
+import { Str } from "../extensions/str.mjs";
 
 
 const ft = {

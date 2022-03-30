@@ -3,12 +3,15 @@ class Str extends String {
     constructor(string){
         super(string);
     }
-    stack(ch1,ch2){
+    stack(ch1="(",ch2){
         if (ch2 == null){
-            ch2 = (ch1=="(") ? ")" : (ch1=="[") ? "]" : (ch1=="{") ? "}" : ")";
+            if (ch1 === "(") ch2 = ")";
+            else if (ch1 === "[") ch2 = "]";
+            else if (ch1 === "{") ch2 = "}";
+            else throw new Error("Str.stack requires char of (,[,{")
         }
+        const str = this.slice(this.indexOf(ch1)+1); 
         let stk = 1; let ind = -1;
-        const str = this.slice(this.indexOf(ch1)+1);
         for (let i in str){
             if (str.charAt(i) == ch1){
                 stk += 1;
@@ -23,40 +26,9 @@ class Str extends String {
         }
         return new Str(str.slice(0,ind));
     }
-    stackAnalysis(ch1,ch2){
-        if (ch2 == null){
-            ch2 = (ch1=="(") ? ")" : (ch1=="[") ? "]" : (ch1=="{") ? "}" : ")";
-        }
-        let stk = 1; let ind = -1;
-        const start = this.indexOf(ch1)+1;
-        const str = this.slice(start);
-        for (let i in str){
-            if (str.charAt(i) == ch1){
-                stk += 1;
-            }
-            if (str.charAt(i) == ch2){
-                stk -= 1; 
-            }
-            if (stk == 0){
-                ind = i;
-                break; 
-            }
-        }
-        ind -= 1;
-        const end = start+ind
-        let after = this.slice(end)
-        after = after.slice(after.indexOf(ch2)+1); 
-        return {
-            inner : new Str(str.slice(0,ind)),
-            ind,
-            start,
-            end,
-            after,
-        }
-    }
     camelCaseToDashed(){
         let str = this.replace(/[A-Z]/g, m => "-" + m.toLowerCase())
-        // str = str.startsWith("-") ? str.slice(1) : str; 
+        str = str.startsWith("-") ? str.slice(1) : str; 
         return new Str(str);
     }
     dashedToCamelCase(){
@@ -78,12 +50,17 @@ class Str extends String {
         }
         return str; 
     }
+    removeDup(toRemove){
+            this.split(toRemove);
+            this[0] = this[0] + toRemove;  
+            return new Str(this.join('')); 
+    }
     remove(...rest){
-        let str = this; 
-        for (let i in rest){
-            str = str.replaceAll(rest[i],''); 
+        let newStr = this; 
+        for (const s of rest){
+            newStr = newStr.replaceAll(s,"")
         }
-        return str; 
+        return new Str(newStr); 
     }
     findAndRemove(arr,toRemove){
         for (let s of arr){
@@ -98,18 +75,18 @@ class Str extends String {
         }
         return new Str(this);
     }
-    between(start,end){
+    substr(start,end){
         if (typeof start === 'number'){
             if (!this.includes(end)){
                 return this; 
             }
-            return new Str(this.slice(start+1,this.indexOf(end)));
+            return new Str(this.slice(start,this.indexOf(end))+1);
         }
         else if (typeof end === 'number'){
             if (!this.includes(start)){
                 return this; 
             }
-            return new Str(this.slice(this.indexOf(start)+1,end)); 
+            return new Str(this.slice(this.indexOf(start),end)+1); 
         }
         else {
             if (!this.includes(start)){
@@ -118,9 +95,16 @@ class Str extends String {
             else if (!this.includes(end)){
                 return new Str(this); 
             }
-            return new Str(this.slice(this.indexOf(start)+1,this.indexOf(end))); 
+            return new Str(this.slice(this.indexOf(start),this.indexOf(end)+1)); 
         }
     }
+    between(start,end){
+        if (!end) end = start; 
+        const i0 = (typeof start==="string") ? this.indexOf(start) : start; 
+        const i1 = (typeof end==="string") ? this.slice(i0+1).indexOf(end) : end; 
+        return new Str(this.slice(i0+1,i1+1));  
+    }
+
     innerStack(ch1,ch2){
         if (ch2 == null){
             ch2 = (ch1=="(") ? ")" : (ch1=="[") ? "]" : (ch1=="{") ? "}" : ")";
@@ -177,6 +161,7 @@ class Str extends String {
         }
         return false;
     }
+
     hasAny(...rest){
         for (const subStr of rest){
             if (this.includes(subStr)){
@@ -201,22 +186,6 @@ class Str extends String {
         }
         return true;
     }
-    hasStart(...rest){
-        for (let i in rest){
-            if(this.startsWith(rest[i])){
-                return true;
-            }
-        }
-        return false;
-    }
-    hasEnd(...rest){
-        for (let i in rest){
-            if(this.endsWith(rest[i])){
-                return true;
-            }
-        }
-        return false;
-    }
     validate(){
         const v = {
             email : s => new RegExp(/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/).test(s),
@@ -235,10 +204,10 @@ class Str extends String {
         }
         return v; 
     }
+
 }
 
 const $str = (s) => new Str(s);
 
-
-
-export {Str,$str}
+export { Str, $str };
+export default Str; 

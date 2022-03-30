@@ -1,4 +1,4 @@
-import { Str,Obj, Assigner } from "../utils/utils.mjs";
+import { Str, Obj, Assigner } from "../utils/utils.mjs";
 import { externals } from "./intrinsics/intrinsicComponent.mjs";
 
 
