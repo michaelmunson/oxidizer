@@ -1,4 +1,4 @@
-import { DeepProxy, isObj, nodeEnforcer } from "../../utils/utils.mjs";
+import { DeepProxy, isArr, isObj, nodeEnforcer } from "../../utils/utils.mjs";
 
 
 export class NodeProps {
@@ -10,7 +10,7 @@ export class NodeProps {
                 if (JSON.stringify(target[key]) === JSON.stringify(value)){
                     return true; 
                 }
-                if (isObj(value)){
+                if (isObj(value) || isArr(value)){
                     value = new DeepProxy(value,handler)
                 }
                 target[key] = value; 

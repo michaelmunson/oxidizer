@@ -1,5 +1,5 @@
 import data from "./css/css-data.json";
-import {isStr,isObj, isArr, isFn, isNum, Str} from "../../../utils/utils.mjs";
+import {isStr,isObj, isArr, isFn, isNum, Str} from "../../utils/utils.mjs";
 import bootstrap from "./css/bootstrap.json";
 import Unit from "./css/units.mjs"
 

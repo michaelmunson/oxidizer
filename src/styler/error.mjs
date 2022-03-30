@@ -1,5 +1,4 @@
 import css from "./css.mjs";
-import { Str, TypeEnforcer } from "../../../utils/utils.mjs";
 
 export class CSSDeclarationError extends Error {
     constructor(declaration){

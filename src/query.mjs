@@ -1,6 +1,6 @@
 
-import css from "./styler/src/css.mjs"
-import { analyzer,isNode,isNum,isStr, strEnforcer,isArr } from "../utils/utils.mjs";
+import { analyzer, isNode, isNum, isStr, strEnforcer } from "../utils/utils.mjs";
+import css from "./styler/css.mjs";
 /**
      * @param {}  
      * @returns {HTMLElement} 
@@ -139,6 +139,15 @@ const $assigner = {
             else if (cls.startsWith("!")) this.shiftClass(cls.slice(1));
         }
         return this; 
+    },
+    /**
+     * @description - renders HTMLElements
+     * @param {...string} nodes 
+     * @returns {HTMLElement} 
+    */
+    render(...nodes){
+        this.html(); 
+        nodes.forEach(node => this.append(node))
     },
     /**
      * @description - this.innerHTML = (DOMStrings)
@@ -443,6 +452,9 @@ export class Query extends Array {
         const n = []; 
         this.forEach(node => n.push(f.call(node,node)));
         return n; 
+    }
+    render(...nodes){
+        this.forEach(node => node.render.apply(node, nodes))
     }
     /** 
      * @param {string} event - event string (i.e. "click")  
