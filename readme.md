@@ -79,18 +79,21 @@ The <code>Styler</code> class allows Stylesheets to be created and rendered via 
 ## Usage
 <i>Example</i>
 
+
+### Styler 
 ```js
 import {Styler, css, $} from "oxidizer"; 
 
-Styler.config
-.addProperties({
-    m : v => ({margin : v}),
-    p : v => ({padding : v}),
-})
-.addUnitDefaults({
-    m : "px",
-    p : "px",
-});
+Styler.configure({
+    properties : {
+        m : v => ({margin : v}),
+        p : v => ({padding : v}),
+    }
+    unitDefaults : {
+        m : "px",
+        p : "px",
+    }
+}); 
 
 const stylesheet = new Styler(props => ({
     '@import' : [
@@ -156,6 +159,28 @@ stylesheet.render();
 .row > .col {
     flex : 1 0 auto
 }
+```
+
+### Styler.Router
+```js
+const router = new Styler.Router({
+    main : p => ({
+        body : {
+            background : "red"
+        }
+    }),
+    secondary : p => ({
+        body : {
+            background : "blue"
+        }
+    }),
+})
+
+router.render('main')
+function onButtonClick(){
+    
+}
+
 ```
 
 #### Syntax

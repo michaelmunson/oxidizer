@@ -6,6 +6,8 @@ import $, {defaultCSS} from "../query.mjs";
 import { CSSDeclarationError, CSSStyleSheetError } from "./error.mjs";
 
 
+const stylerSheets = {}
+
 
 const attachMethods = (node,fn) => {
     node.eventHandlers = (node.eventHandlers) ? node.eventHandlers : []; 
@@ -23,26 +25,6 @@ const attachMethods = (node,fn) => {
     }
 }
 
-
-/**
- * @param {Function} cssFactory 
-*/
-class StylerFactory {
-    constructor(cssFactory){
-        cssFactory = isFn(cssFactory) ? cssFactory : arg => cssFactory;
-        this.factory = cssFactory;
-    }
-    mint(arg){
-        const out = this.factory.call(this,arg);
-        return new StylerSheet(out);
-    }
-    render(arg, styleElement){
-        return this.mint(arg).render(styleElement); 
-    }
-}
-/**
- * @param { Object } decObject - Declaration Object {property:value}
- */
 class StylerDeclarations {
     constructor(decObject){
         Object.entries(decObject).forEach(e => {
@@ -91,66 +73,66 @@ class StylerDeclarations {
         else if (type.startsWith("obj")) return css.parse(this.toString()); 
     }
 }
-/**
- * @param { Object } cssObject
-*/
-
 
 class StylerSheet {
+    
     constructor(id,cssObject){
-
-        if (isArr(cssObject) || cssObject instanceof Map) this.addRoutes(arr);
+        console.log(id)
+        // if (isArr(cssObject) || cssObject instanceof Map) this.addRoutes(arr);
         if (!cssObject) {
             cssObject = id;
             id = "ox-sheet" + document.querySelectorAll('[stylersheet]').length; 
-        } 
+        }
+        if (isFn(cssObject)) this.factory = cssObject;
+        else this.set(cssObject);
         this.id = id; 
         this.styleElement = $(css.generateStyleElement(this.id));
         this.styleElement.attr("stylersheet",this.id);
         this.styleElement.appendToHead(); 
-        this.set(cssObject); 
+        StylerSheet.stylerSheets = this; 
     }
-    set(cssObject){
+    set(cssObject, ...argv){
+        if (isFn(cssObject)){
+            cssObject = cssObject.apply(this, argv); 
+        }        
         const {rules,eventHandlers} = StylerSheet.compile(cssObject);
-
         this.ruleMap = rules;
         this.eventHandlers = eventHandlers;
         this.styleElement.eventHandlers = this.eventHandlers; 
         this.styleElement.ruleMap = this.ruleMap;
         
     }
-    addRoutes(arr){
-        this.router = new $Map();
-        this.currentRoute = undefined;
-        if (isObj(arr)) {
-            const narr = []
-            Object.entries(arr).map(a => narr.push(Obj.create(a[0], a[1])))
-            arr = narr;
-        }
-        arr.forEach((arr,i) => {
-            const [route,factory] = Object.entries(arr)[0]
-            if (parseInt(i)===0) this.router.active = route;  
-            this.router.set(route, factory); 
-        });
-    }
-    setRoute(route, ...argv){
-        if (!this.router) throw new Error("No router has been added");
-        const ss = this.router.get(route)
-        if (!ss) throw new Error("No route named '"+route+"'")
-        this.set(ss);
-        this.render(); 
-    }
-    
+    // setRoutes(arr){
+    //     this.router = new $Map();
+    //     this.currentRoute = undefined;
+    //     if (isObj(arr)) {
+    //         const narr = []
+    //         Object.entries(arr).map(a => narr.push(Obj.create(a[0], a[1])))
+    //         arr = narr;
+    //     }
+    //     arr.forEach((arr,i) => {
+    //         const [route,factory] = Object.entries(arr)[0]
+    //         if (parseInt(i)===0) this.router.active = route;  
+    //         this.router.set(route, factory); 
+    //     });
+    // }
+    // reroute(route, ...argv){
+    //     if (!this.router) throw new Error("No router has been added");
+    //     const ss = this.router.get(route)
+    //     if (!ss) throw new Error("No route named '"+route+"'")
+    //     this.set(ss);
+    //     this.render(); 
+    // }
     clear(){
         this.styleElement.clear(); 
-        return this; 
+        return this;
     }
-    
-    render(route){
+    render(route, ...argv){
         if (route){
             this.setRoute(route)
         }
-        this.clear();  
+        this.clear();
+        if (this.factory) this.set(this.factory, ...argv); 
         try {
             const imps = []
             const stringed = this.stringify(); 
@@ -165,13 +147,13 @@ class StylerSheet {
             imps.forEach(i => {
                 this.insert(i,0); 
             });
-            this.attachMethods(); 
+            this.attachMethods();
             return this; 
         }
         catch(e){
             config.onError(new CSSStyleSheetError(e));
         }
-        
+        return this; 
     }
     delete(rule){
         this.styleElement.delete(rule);
@@ -255,7 +237,11 @@ class StylerSheet {
         return this; 
     }
     get sheet(){ return this.styleElement.sheet;}
-    
+    static get stylerSheets(){}
+    static set stylerSheets(v){
+        stylerSheets[v.id] = v; 
+        return true; 
+    }
     static get stylerSheets(){return stylerSheets}
     static compile(object){
         const styles = css.flatten(object);
@@ -291,12 +277,7 @@ class StylerSheet {
     }
 }
 
-const stylerSheets = {}
-const keyframes = {}
-const imports = []
-
 export {
     StylerDeclarations,
-    StylerFactory,
     StylerSheet
 }

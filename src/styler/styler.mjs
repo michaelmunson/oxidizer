@@ -2,7 +2,8 @@ import { isArr, isFn, isObj, isStr } from "../../utils/utils.mjs";
 import { css } from "./css.mjs";
 import config from "./config.mjs";
 import $, {defaultCSS} from "../query.mjs";
-import {StylerDeclarations,StylerFactory,StylerSheet,styleManager} from "./stylersheet.mjs"
+import {StylerDeclarations,StylerSheet} from "./stylerSheet.mjs";
+import StylerRouter from "./stylerRouter.mjs";
 
 const attachMethods = (node,fn) => {
     node.eventHandlers = (node.eventHandlers) ? node.eventHandlers : []; 
@@ -23,23 +24,27 @@ const attachMethods = (node,fn) => {
 /**
  * @param { Function | Object } styler - Function | Object
 */
-export class Styler {
+class Styler {
     
     constructor(styler){
-        if (isFn(styler)) this.factory = new StylerFactory(styler);
-        else if (isObj(styler) || isArr(styler)) this.stylerSheet = new StylerSheet(styler); 
-        
+        this.stylerSheet = new StylerSheet(styler);
+        // if (isFn(styler)) this.factory = new StylerFactory(styler);
+        // else if (isObj(styler) || isArr(styler)) {
+        //     const values = Object.values(styler).map(f => isFn(f));
+        //     if (!values.includes(false)){
+        //         return new StylerRouter(styler)
+        //     }
+        //     else 
+        // };
         if (this.stylerSheet) {
             this.styleElement = $(this.stylerSheet.styleElement);
             this.id = this.stylerSheet.id; 
             this.rules = this.stylerSheet.rules; 
         }
-        
     }
-
     render(...argv){
         if (!this.stylerSheet){
-            this.stylerSheet = this.factory.mint(this,...argv);
+            this.stylerSheet = this.factory.apply(this,argv);
         }
         this.styleElement = this.stylerSheet.styleElement;
         this.id = this.stylerSheet.id; 
@@ -48,19 +53,28 @@ export class Styler {
         return this.stylerSheet; 
     }
     add(r){
-        r = 
-        this.rules.set()
+        this.stylerSheet.set(r); 
+        return this; 
     }
-
-    static get css(){return css}
-
-    static get stylerSheets(){return [...document.querySelectorAll("[stylersheet]")]}
-    static get config(){return config}
-    static set config(o=config){return this.configure(o)}
-    
-    static get Factory(){return StylerFactory}
+    delete(r){
+        this.stylerSheet.delete(r); 
+        return this; 
+    }
+    insert(r,i){
+        this.stylerSheet.insert(r,i); 
+        return this; 
+    }
+    clear(){
+        this.stylerSheet.clear()
+    }
     static get Sheet(){return StylerSheet}
     static get Declarations(){return StylerDeclarations}
+    static get Router(){return StylerRouter}
+
+    static get css(){return css}
+    static get stylerSheets(){return StylerSheet.stylerSheets}
+    static get config(){return config}
+    static set config(o=config){return this.configure(o)}
 
     static configure(o){
         for (const c in o) config[c] = o[c]; 
@@ -75,15 +89,18 @@ export class Styler {
             childList:function(mut){
                 mut.addedNodes.forEach(node => {
                     if (node.matches === undefined) return 
-                    for (const s of Styler.stylerSheets){
+                    const v = Object.values(Styler.stylerSheets); 
+                    for (const s of v){
                         const evh = s.eventHandlers
-                        
-                        for (const e of evh){
-                            const [sel,fn] = e;
-                            if (node.matches(sel)){
-                                attachMethods(node,fn)    
+                        if (evh) {
+                            for (const e of evh){
+                                const [sel,fn] = e;
+                                if (node.matches(sel)){
+                                    attachMethods(node,fn)    
+                                }
                             }
                         }
+                        
                     }
                 })
             }, 
@@ -94,6 +111,7 @@ export class Styler {
 }
 
 export {
+    Styler,
     css,
     $,
 }
