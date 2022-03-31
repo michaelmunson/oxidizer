@@ -1,4 +1,9 @@
 import {spawn} from "child_process"
+import * as readline from 'node:readline';
+import { abort, stdin as input, stdout as output } from 'process';
+
+const argv = process.argv.slice(2)
+
 
 // const add = spawn('git', ['add','.'])
 // add.stdout.on('data', data => console.log(`stdout: ${data}`));
@@ -6,16 +11,16 @@ import {spawn} from "child_process"
 // add.stderr.on('data', data => console.log(data)); 
 // add.on('close', code => console.log(`child process exited with code ${code}`))
 
-const commit = spawn('git', ['commit','-m',m])
-commit.stdout.on('data', data => console.log(data))
-commit.stderr.on('data', data => console.log(data)); 
-commit.on('close', code => console.log(`child process exited with code ${code}`))
+// const commit = spawn('git', ['commit','-m',argv[0]])
+// commit.stdout.on('data', data => console.log(data))
+// commit.stderr.on('data', data => console.log(data)); 
+// commit.on('close', code => console.log(`child process exited with code ${code}`))
 
 
-// const push = spawn('git', ['push','origin','main'])
-// push.stdout.on('data', data => console.log(data))
-// push.stderr.on('data', data => console.log(data)); 
-// push.on('close', code => console.log(`child process exited with code ${code}`))
+const push = spawn('git', ['push','origin','main'])
+push.stdout.on('data', data => console.log(`stdout: ${data}`))
+push.stderr.on('data', data => console.log(`stdout: ${data}`)); 
+push.on('close', code => console.log(`child process exited with code ${code}`))
 
 
 
