@@ -1,6 +1,5 @@
 import { DeepProxy } from "../utils/utils.mjs";
-import Styler from "./styler/styler.mjs"
-
+import css from "./css.mjs";
 
 const configuration = {
     props : {
@@ -24,13 +23,7 @@ const configuration = {
         tagAppend : "",
         tagPrepend : "ox-",
     },
-
-    get styler(){
-        return Styler.config; 
-    },
-    set styler(o){
-        Styler.configure(o);
-    },
+    css : css.config,
 }
 
 export const config = new DeepProxy(configuration,{

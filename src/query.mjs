@@ -1,14 +1,27 @@
 
 import { analyzer, isNode, isNum, isStr, strEnforcer } from "../utils/utils.mjs";
-import {css, styleElementMethods} from "./styler/css.mjs";
+import { css } from "./css.mjs";
+
+
 /**
      * @param {}  
      * @returns {HTMLElement} 
     */
 const nodeMethods = {
-    defaultCSS(){
-        return defaultCSS.getDefaultCSS(this);; 
-    }, 
+    defaultCSS(defcss){
+        let defCSS = {}
+        Object.entries(defcss).forEach(e => {
+            const [selector,val] = e; 
+            if (element.matches(selector)){
+                defCSS = {...defCSS,...val}
+            }
+        });
+        const styles = element.style;
+        for (const prop in styles){
+            if (isNaN(prop) && styles[prop] && isStr(styles[prop])) defCSS[prop] = styles[prop]
+        }
+        return defCSS; 
+    },
     /** 
      * @param {string} event - event string (i.e. "click")  
      * @param {function} callback - event string (i.e. "click") 
@@ -405,25 +418,7 @@ const nodeMethods = {
     
 }
 const specialNodeMethods = {
-    "style" : styleElementMethods
-}
-
-export const defaultCSS = {
-    getDefaultCSS(element){
-        let defCSS = {}
-        Object.entries(this).forEach(e => {
-            const [selector,val] = e; 
-            if (element.matches(selector)){
-                defCSS = {...defCSS,...val}
-            }
-        })
-        const o = {}
-        const styles = element.style;
-        for (const prop in styles){
-            if (isNaN(prop) && styles[prop] && isStr(styles[prop])) defCSS[prop] = styles[prop]
-        }
-        return defCSS; 
-    }
+    "style" : css.HTMLStyleMethods,
 }
 
 /**
@@ -433,32 +428,460 @@ export const defaultCSS = {
 */
 
 
-export class Query extends Array {    
-    constructor(...nodes){
-        super()
-        nodes
-        .map(node => (typeof node === "string") ? document.querySelectorAll(node) : node)
-        .map(node => (node instanceof NodeList) ? [...node] : node)
-        .map(node => Array.isArray(node) ? node : [node])
-        .forEach(nodes => {
-            nodes.forEach(node => {
-                if (node.tagName.toLowerCase() in specialNodeMethods){
-                    const specMethds = specialNodeMethods[node.tagName.toLowerCase()]
-                    for (const i in specMethds) {
-                        if (isNode(node))
-                        if (node[i] === undefined) node[i] = specMethds[i]
+export class Query extends Array {
+    static get assignments(){
+        return {
+            defaultCSS(defcss){
+                let defCSS = {}
+                Object.entries(defcss).forEach(e => {
+                    const [selector,val] = e; 
+                    if (element.matches(selector)){
+                        defCSS = {...defCSS,...val}
                     }
+                });
+                const styles = element.style;
+                for (const prop in styles){
+                    if (isNaN(prop) && styles[prop] && isStr(styles[prop])) defCSS[prop] = styles[prop]
                 }
-                for (const i in nodeMethods) {
-                    if (isNode(node))
-                    if (node[i] === undefined) node[i] = nodeMethods[i]
+                return defCSS; 
+            },
+            /** 
+             * @param {string} event - event string (i.e. "click")  
+             * @param {function} callback - event string (i.e. "click") 
+             * @param {object} options - listener options
+             * @tutorial https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+             * @returns {HTMLElement}
+            */
+            on(event,callback,options={}){
+                event = event.split(' ');
+                for (const e of event){
+                    this.addEventListener(e,callback,options);
                 }
-                this.push(node);
-            });
-        });
-        if (this.length === 1){
-            return this[0]; 
+                return this; 
+            }, 
+            /** 
+             * @param {object} callbacks - Functions for MutationObserver
+             * @tutorial https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+             * @returns {HTMLElement}
+            */
+            observe(callbacks={}){
+                const config = {
+                    attributes : "attributes" in callbacks,
+                    childList : "childList" in callbacks,
+                    subtree : "subtree" in callbacks ? callbacks.subtree : false,
+                };
+                const targetNode = this;
+                const callback = function(mutationsList, observer) {
+                    for(const mutation of mutationsList) {
+                        if ('childList' in callbacks && mutation.type === 'childList') {
+                            callbacks.childList(mutation);
+                        }
+                        if ('attributes' in callbacks && mutation.type === 'attributes') {
+                            callbacks.attributes(mutation);
+                        }
+                    }
+                };
+                const observer = new MutationObserver(callback)
+                observer.observe(targetNode, config);
+                if (this.observers) this.observers.push(observer)
+                else this.observers = [observer]
+                return this; 
+            },
+            /**
+             * @param {boolean} clearChildren - remove listeners from children ?  
+             * @returns {HTMLElement} 
+            */
+            clearListeners(clearChildren=false){
+                if (clearChildren) {
+                    this.parentNode.replaceChild(this.cloneNode(true), this);
+                }
+                else {
+                    const clone = this.cloneNode(false);
+                    while (this.hasChildNodes()) this.appendChild(this.firstChild);
+                    this.parentNode.replaceChild(clone, this);
+                }
+                return this
+            },
+            /**
+             * @param {string | array } classes - string or list of strings to add    
+             * @returns {HTMLElement} 
+            */
+            addClass(...classes){
+                const cleaned = []
+                for (const cls of classes) cleaned.push(...cls.split(" "))
+                this.classList.add(...cleaned);
+                return this; 
+            },
+            /**
+             * @param {...string | array } classes - string or list of strings to remove   
+             * @returns {HTMLElement} 
+            */
+            removeClass(...classes){
+                const cleaned = []
+                for (const cls of classes) cleaned.push(...cls.split(" "))
+                this.classList.remove(...cleaned);
+                return this; 
+            },
+            /**
+             * @param {string | array } classOld - String or list of strings to replace
+             * @param {string} classNew - String to replace classOld
+             * @returns {HTMLElement} 
+            */
+            replaceClass(classOld,classNew){
+                this.classList.replace(classOld,classNew)
+                return this; 
+            },
+            /**
+             * @param {string | array } - String or list of strings to toggle   
+             * @returns {HTMLElement} 
+            */
+            toggleClass(...classes){
+                const cleaned = []
+                for (const cls of classes) cleaned.push(...cls.split(" "))
+                for (const cls of cleaned) this.classList.toggle(cls);
+                return this; 
+            },
+            /**
+            * @description - Removes all classes from specified area, adds class to this 
+            * @param {String | Array} classes
+            * @param {String | Number} from - "*" to shift from all nodes, number specified number of ancestors to climb
+            * @return {HTMLElement} 
+            */    
+            shiftClass(classes,from="*"){
+                classes = classes.split(' ')
+                if (from === "*"){
+                    document.querySelectorAll('*').forEach(node => node.classList.remove(...classes))
+                    this.addClass(...classes);
+                }
+                if (isNum(from)){
+                    let node = this;
+                    if (from < 0) from = from * -1; 
+                    for (let i = from; i > 0; i--){
+                        node = node.parentNode; 
+                    } 
+                    node.classList.remove(...classes);
+                    this.addClass(...classes);
+                }
+                return this; 
+            },
+            class(...classes){
+                if (classes.length === 0) return this.classList
+                const cleaned = []
+                for (const cls of classes) cleaned.push(...cls.split(" "))
+                for (const cls of cleaned){
+                    if (cls.startsWith("+")) this.addClass(cls.slice(1));
+                    else if (cls.startsWith("-")) this.removeClass(cls.slice(1));
+                    else if (cls.startsWith("?")) this.toggleClass(cls.slice(1));
+                    else if (cls.startsWith("!")) this.shiftClass(cls.slice(1));
+                }
+                return this; 
+            },
+            /**
+             * @description - renders HTMLElements
+             * @param {...string} nodes 
+             * @returns {HTMLElement} 
+            */
+            render(...nodes){
+                this.html(); 
+                nodes.forEach(node => this.append(node))
+            },
+            /**
+             * @description - this.innerHTML = (DOMStrings)
+             * @param {...string} DOMStrings 
+             * @returns {HTMLElement} 
+            */
+            html(...DOMStrings){
+                if (DOMStrings.length === 0){return this.innerHTML}
+                this.innerHTML = DOMStrings.join(""); 
+                return this; 
+            },
+            /**
+             * @description - this.insertAdjacentHTML("afterbegin",DOMStrings)
+             * @param {...string} DOMStrings 
+             * @returns {HTMLElement} 
+            */
+            prepend(...DOMStrings){
+                this.insertAdjacentHTML('afterbegin',DOMStrings.join(""))
+                return this; 
+            },
+            /**
+             * @description - this.insertAdjacentHTML("beforebegin",DOMStrings)
+             * @param {...string} DOMStrings 
+             * @returns {HTMLElement} 
+            */
+            before(...DOMStrings){
+                this.insertAdjacentHTML('beforebegin',DOMStrings.join(""))
+                return this; 
+            },
+            /**
+             * @description - this.insertAdjacentHTML("afterend",DOMStrings)
+             * @param {...string} DOMStrings 
+             * @returns {HTMLElement} 
+            */
+            after(...DOMStrings){
+                this.insertAdjacentHTML('afterend',DOMStrings.join(""))
+                return this; 
+            },
+            /**
+             * @description - this.textContent = (DOMStrings)
+             * @param {...string} DOMStrings 
+             * @returns {HTMLElement} 
+            */
+            txt(...text){
+                if (text.length === 0){ return this.textContent }
+                this.textContent = text.join(""); 
+                return this; 
+            },
+            /**
+             * @description - this.setAttribute(name,value)
+             * @param {string} name - attribute name (optional)
+             * @param {string} value - attribute value (optional)
+             * @returns {NamedNodeMap | String | HTMLElement} - NamedNodeMap if 0 args, attribute value if 1 arg, this if 2 args
+            */
+            attr(name,value){
+                if (name==null&&value==null){
+                    return this.attributes; 
+                }
+                else if (name && value==null){
+                    return this.getAttribute(name); 
+                }
+                else if (name && value){
+                    this.setAttribute(name,value); 
+                }
+                return this; 
+            },
+            /**
+             * @description - this.toggleAttribute(name,force)
+             * @param {string} name - attribute name to toggle 
+             * @param {boolean} force - attribute value (optional) (default = true)
+             * @returns {HTMLElement} - return this
+            */
+            toggleAttr(name,force=true){
+                this.toggleAttribute(name,force)
+                return this
+            },
+            /**
+             * @description - this.removeAttribute(name)
+             * @param {string} name - attribute name to remove 
+             * @returns {HTMLElement} - return this
+            */
+            removeAttr(name){
+                this.removeAttribute(name);
+                return this;  
+            },
+            /**
+             * @description - this.value = value
+             * @param {string} value - attribute name to remove 
+             * @returns {string | HTMLElement} - return this.value if 0 args, or this if 1 arg
+            */
+            val(value){
+                if (value==null){
+                    return this.getAttribute('value'); 
+                }
+                this.setAttribute('value',value);
+                return this; 
+            },
+            /**
+             * @param {object | string} cssObject - object of cssProperty:value pairs or css string
+             * @returns {HTMLElement} 
+            */
+            css(cssObject){
+                if (!cssObject){ return this.style}
+                const styles = (analyzer.str(cssObject)) ? css.parse(cssObject) : cssObject; 
+                for (const prop in styles){
+                    this.style[css.toDashed(prop)] = styles[prop]; 
+                }
+                return this; 
+            },
+            /**
+             * @description reverts an elements css to its orignal css
+             * @returns {HTMLElement} 
+            */
+            cssRevert(){
+                this.css(this.defaultCSS()); 
+                return this; 
+            },
+            /**
+             * @description xPosition? this.style.left = xPosition : this.offsetLeft
+             * @param {number} xPosition (optional)
+            * @returns {number | HTMLElement} returns number if no arg provided
+            */
+            x(xPosition){
+                if (!xPosition){ return this.offsetLeft }
+                this.style.left = xPosition;
+                return this; 
+            },
+            /**
+             * @description yPosition? this.style.top = yPosition : this.offsetTop
+             * @param {number} yPosition (optional)
+             * @returns {number | HTMLElement} returns number if no arg provided
+            */
+            y(yPosition){
+                if (!yPosition){ return this.offsetLeft }
+                this.style.top = yPosition;
+                return this; 
+            },
+            /**
+             * @description height? this.style.height = height : this.offsetHeight
+             * @param {number} yPosition (optional)
+             * @returns {number | HTMLElement} returns number if no arg provided
+            */
+            height(height){
+                if (!height){ return this.offsetHeight }
+                this.style.height = height;
+                return this; 
+            },
+            /**
+             * @description height? this.style.width = width : this.offsetWidth
+             * @param {number} yPosition (optional)
+             * @returns {number | HTMLElement} returns number if no arg provided
+            */
+            width(width){
+                if (!width){ return this.offsetWidth }
+                this.style.width = width; 
+                return this; 
+            },
+            /**
+             * @description height? this.style.height = height : this.offsetHeight
+             * @param {number} yPosition (optional)
+             * @returns {number | HTMLElement} returns number if no arg provided
+            */
+            h(height){
+                if (!height){ return this.offsetHeight }
+                this.style.height = height;
+                return this; 
+            },
+            /**
+             * @description height? this.style.width = width : this.offsetWidth
+             * @param {number} yPosition (optional)
+             * @returns {number | HTMLElement} returns number if no arg provided
+            */
+            w(width){
+                if (!width){ return this.offsetWidth }
+                this.style.width = width; 
+                return this; 
+            },
+            /**
+             * @returns {object} returns { top, left, height, width }
+            */
+            offset(){
+                return {
+                    top : this.offsetTop,
+                    left : this.offsetLeft,
+                    height : this.offsetHeight,
+                    width : this.offsetWidth, 
+                }
+            },
+            /**
+             * @description wrapper for this.querySelector
+             * @param {string} selectorString
+             * @returns {Query}
+            */
+            find(selectorString){
+                return new Query(this.querySelector(selectorString)); 
+            },
+            /**
+             * @description wrapper for this.querySelectorAll
+             * @param {string} selectorString
+             * @param {function} filter filter for returned nodes
+             * @returns {Query}
+            */
+            findAll(selectorString, filter=a=>true){
+                if (isStr(filter)) filter = q => q.matches(filter); 
+                return $(this.querySelectorAll(selectorString))
+            },
+            /**
+             * @description wrapper for this.parentNode
+             * @returns {HTMLElement} 
+            */
+            parent(){
+                return new Query(this.parentNode); 
+            },
+            /**
+             * @description array of ancestors up till :root
+             * @param {function | string} filter filter for array, if string, filter is (str=str) => this.matches(str) 
+             * @returns {HTMLElement} 
+            */
+            ancestors(filter = (a) => true){
+                const fn = (typeof filter === "string") ? a => a.matches(filter) : filter; 
+                const ancestorNodes = []; 
+                let currNode = this; 
+                while(!(currNode instanceof Document)){
+                    ancestorNodes.push(currNode.parentNode); 
+                    currNode = currNode.parentNode; 
+                }
+                return ancestorNodes.filter(fn); 
+            },
+            /**
+             * @description array of children
+             * @param {object} options valid option properties are filter & textNode
+             * @paramdesc filter is function that filters the array, textNode is a boolean for whether or not to include text nodes
+             * @returns {HTMLElement} 
+            */
+            childs(options){
+                options = {filter:node=>true, textNode:false, ...options}
+                filter = options.filter;
+                if (isStr(filter)) options.filter = node => node.matches(filter);  
+                let children = [...this.childNodes]; 
+                if (!options.textNode) children = children.filter(node => node.nodeName !== "#text");
+                return children.filter(node => options.filter.call(node,node)).map(n => $(n));
+            },
+            /**
+             * @description returns boolean indicating whether this is in the visible window
+             * @returns {boolean} 
+            */
+            inView(){
+                const rect = this.getBoundingClientRect();
+                const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+                const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+                const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+                const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+                return(vertInView && horInView);
+            },
+            
         }
+    }
+    static get specAssignments(){
+        return {
+            style : css.HTMLStyleMethods
+        }
+    }
+    static getAssignments(tagName){
+        if (tagName in Query.specAssignments){
+            return Query.specAssignments[tagName]
+        }
+        else {
+            return Query.assignments; 
+        }
+    }
+    constructor(query){
+        super()
+        if (isStr(query)) query = document.querySelectorAll(query); 
+        
+        
+        // nodes
+        // .map(node => (typeof node === "string") ? document.querySelectorAll(node) : node)
+        // .map(node => (node instanceof NodeList) ? [...node] : node)
+        // .map(node => Array.isArray(node) ? node : [node])
+        // .forEach(nodes => {
+        //     nodes.forEach(node => {
+        //         if (node.tagName.toLowerCase() in specialNodeMethods){
+        //             const specMethds = specialNodeMethods[node.tagName.toLowerCase()]
+        //             for (const i in specMethds) {
+        //                 if (isNode(node))
+        //                 if (node[i] === undefined) node[i] = specMethds[i]
+        //             }
+        //         }
+        //         for (const i in nodeMethods) {
+        //             if (isNode(node))
+        //             if (node[i] === undefined) node[i] = nodeMethods[i]
+        //         }
+        //         this.push(node);
+        //     });
+        // });
+        // if (this.length === 1){
+        //     return this[0]; 
+        // }
     }
     map(f){
         const n = []; 
@@ -1091,6 +1514,8 @@ export class Query extends Array {
         return this;
     }
 }
+
+
 
 export const $ = (query) => new Query(query);
 

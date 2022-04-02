@@ -1,7 +1,23 @@
-import {  isArr, isFn, isObj, objEnforcer, TypeConverter} from "../../utils/utils.mjs";
+import {  isArr, isFn, isObj, objEnforcer, TypeConverter, Typevout} from "../../utils/utils.mjs";
 import config from "../config.mjs";
 import { argvout } from "./icargv.mjs";
 import { NodeProps } from "./props.mjs";
+
+const argvout = new Typevout({
+    '{}' : a => { return { props:a[0],descendants:[] } },
+    '[]' : a => { return { props:{},descendants:a[0] } },
+    '{},[]' : a => { return { props:a[0],descendants:a[1] } },
+    '[],[]' : a => { return { props:a[0],descendants:a[1] } },
+    '$' : a => { return {props:{}, descendants:a[0] } },
+    '{},$' : a => { return {props:a[0], descendants:a[1] } },
+    'null' : a => { return { props:{}, descendants:[] } },
+    '{},HTMLElement' : a => { return {props:a[0],descendants:[a[1]]} },
+    'HTMLElement' : a => { return {props:{}, descendants: [a[0]]} },
+    '?' : a => {throw new Error(a)}
+});
+
+
+
 
 export const externals = {
     insert(position,nodes){
@@ -46,39 +62,39 @@ export const externals = {
         this.props = new NodeProps(this,props);
         return this.setProperties(this.props) 
     },
-    setDescs(descs){
-        descs = new TypeConverter({ array : a => a, node : a => [a], $ : a=>a})(descs);
-        if (isArr(descs)){
-            this.descs = new Map();
-            for (const desc of descs){
+    setSubtree(subtree){
+        subtree = new TypeConverter({ array : a => a, node : a => [a], $ : a=>a})(subtree);
+        if (isArr(subtree)){
+            this.subtree = new Map();
+            for (const desc of subtree){
                 if (isFn(desc)){
                     const node = desc.call(this,this.props);
                     this.insert(node);
-                    this.descs.set(desc,node); 
+                    this.subtree.set(desc,node); 
                 }
                 else this.append(desc); 
             }
         }
-        else if (isFn(descs)){
-            this.descs = descs; 
-            const nodes = descs.call(this,this.props); 
+        else if (isFn(subtree)){
+            this.subtree = subtree; 
+            const nodes = subtree.call(this,this.props); 
             this.insert(nodes);
         }
         return this; 
     },
     render(){
-        if (this.descs instanceof Map){
-            for (const e of this.descs){
+        if (this.subtree instanceof Map){
+            for (const e of this.subtree){
                 const [fn, node] = e; 
                 const newNode = fn.call(this,this.props);
                 node.replaceWith(newNode);
-                this.descs.set(fn,newNode); 
+                this.subtree.set(fn,newNode); 
             }
         }
-        else if (isFn(this.descs)){
+        else if (isFn(this.subtree)){
             this.innerHTML = ""; 
-            const newDescs = this.descs.call(this,this.props); 
-            this.insert(newDescs); 
+            const newSubtree = this.subtree.call(this,this.props); 
+            this.insert(newSubtree); 
         }
         return this.setProperties(this.props); 
     },
@@ -310,7 +326,7 @@ export class IntrinsicComponent {
             }
         }
         const {props,descendants} = argvout(argv);
-        node.setProps(props).setDescs(descendants);
+        node.setProps(props).setSubtree(descendants);
         return node;
     }
 }
