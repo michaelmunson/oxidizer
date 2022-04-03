@@ -1,11 +1,17 @@
-import { isArr, isObj, isStr } from '../utils/utils.mjs';
 import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, Declarations, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, getEventHandlers, HTMLStyleMethods, parse, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
 
 export function css (styles) {
-    if (isObj(styles)) this.ruleMap = this.compile(styles);
-    else if (isStr(styles)) this.ruleMap = this.compile(this.parse(styles));
-    else if (isArr(styles)) this.ruleMap = this.compile(this.parse(styles));
-    return this.ruleMap;
+    return compile(parse(styles));
+    // if (isObj(styles)) this.ruleMap = compile(styles);
+    // else if (isStr(styles)) {
+    //     this.ruleMap = compile(parse(styles));
+    //     cssText = this.ruleMap;
+    // }
+    // else if (isArr(styles)) this.ruleMap = compile(parse(styles));
+    // return {
+    //     rules: this.ruleMap,
+    //     cssText: cssText
+    // };
 }
 css.Declarations = Declarations
 css.defaultCSS = defaultCSS

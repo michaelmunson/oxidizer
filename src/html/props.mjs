@@ -6,12 +6,12 @@ export class Props {
         const handler = {
             node,
             set (target, key, value) {
-                if (JSON.stringify(target[key]) === JSON.stringify(value)) {
-                    return true
-                }
-                if (isObj(value) || isArr(value)) {
-                    value = new DeepProxy(value, handler)
-                }
+                // if (JSON.stringify(target[key]) === JSON.stringify(value)) {
+                //     return true
+                // }
+                // if (isObj(value) || isArr(value)) {
+                //     value = new DeepProxy(value, handler)
+                // }
                 target[key] = value;
                 node.setProperty(key, value);
                 if (node.autoRender) {

@@ -51,7 +51,7 @@ export const formatProperty = function (prop) {
     else if (prop.includes("-") && toDashed(prop) in cssConfig.properties) {
         prop = cssConfig.properties[toDashed(prop)](prop);
     }
-    return prop;
+    return prop.trim();
 }
 export const formatValue = function (value, property) {
     const valueFormatters = [
@@ -108,20 +108,21 @@ export const flatten = function (object, path = '', acc = {}) {
     return acc
 }
 export const stringify = function (obj, type = 'string') {
-    if (isStr(obj)) return obj
-    if (isArr(obj)) {
-        if (type === 'string') return obj.join(';').replaceAll(';;', ';')
-        else return obj
-    }
-    obj = compile(obj).rules;
-    let stringified = (type === 'string') ? '' : []
-    Object.entries(obj).forEach(e => {
-        const [k, v] = e
-        const newv = Object.entries(v).filter(e => isStr(e[1]) || isNum(e[1])).map(e => e.join(':')).join(';')
-        if (type === 'array') stringified.push(k + ' {    ' + newv + '}')
-        else stringified += k + ' {    ' + newv + '}'
-    })
-    return stringified
+    return this.compile(obj).toString();
+    // if (isStr(obj)) return obj
+    // if (isArr(obj)) {
+    //     if (type === 'string') return obj.join(';').replaceAll(';;', ';')
+    //     else return obj
+    // }
+    // obj = compile(obj).rules;
+    // let stringified = (type === 'string') ? '' : []
+    // Object.entries(obj).forEach(e => {
+    //     const [k, v] = e
+    //     const newv = Object.entries(v).filter(e => isStr(e[1]) || isNum(e[1])).map(e => e.join(':')).join(';')
+    //     if (type === 'array') stringified.push(k + ' {    ' + newv + '}')
+    //     else stringified += k + ' {    ' + newv + '}'
+    // })
+    // return stringified
 }
 export const parse = function (str, parseObj = {}) {
     if (isObj(str)) {
@@ -187,9 +188,9 @@ export const inspect = (declarationObject) => {
 }
 export const formatDeclarations = (declarationObject) => {
     for (const e in declarationObject) {
-        if (typeof declarationObject[e] === "function") continue;
-        const [prop, val] = e;
+        const [prop, val] = [e, declarationObject[e]];
         delete declarationObject[prop];
+        if (typeof val === "function") continue;
         if (prop in cssConfig.properties) {
             const out = cssConfig.properties[prop](val)
             for (const o in out) declarationObject[formatProperty(o)] = formatValue(out[o])
@@ -275,33 +276,29 @@ export class Declarations {
     }
 }
 export class Rule {
-    constructor (sheet, selector, declarations) {
-        if (sheet instanceof CSSStyleSheet) {
-            this.sheet = sheet;
-        }
-        else if (declarations == null && isStr(selector)) {
-            declarations = selector;
-            selector = sheet;
-        }
+    
+    #__selector__;
+    #__declarations__;
+    constructor (selector, declarations) {
         this.selector = selector;
         this.declarations = declarations;
     }
 
     get selector () {
-        return this.__selector__;
+        return this.#__selector__;
     }
 
     set selector (selector) {
         if (!isNaN(selector)) selector = selector + "%"
-        this.__selector__ = selector;
+        this.#__selector__ = selector;
     }
 
     get declarations () {
-        return this.__selector__;
+        return this.#__declarations__;
     }
 
     set declarations (declarations) {
-        this.__declarations__ = new Declarations(declarations);
+        this.#__declarations__ = new Declarations(declarations);
     }
 
     get sheet () {
@@ -319,25 +316,17 @@ export class Rule {
     }
 
     toString () {
-        return this.selector + "{" + this.declarations.toString() + "}"
+        return (this.selector + "{" + this.declarations.toString() + "}")
     }
 
     get cssText () { return this.toString() }
 }
 export class RuleMap extends Map {
-    constructor (sheet, cssObject) {
+    constructor (cssObject) {
         super()
-        if (sheet instanceof CSSStyleSheet) {
-            this.sheet = sheet;
-        }
-        else {
-            if (isObj(sheet)) cssObject = sheet;
-            else if (isStr(cssObject)) cssObject = parse(cssObject);
-        }
-        this.__set__ = this.set;
-        this.__get__ = this.get;
+        if (isStr(cssObject)) cssObject = parse(cssObject);
         const styles = flatten(cssObject)
-        this.eventHandlers = new Map()
+        this.eventHandlers = new Map();
         for (const sel in styles) {
             if (sel === '@media' || sel === '@keyframes') continue
             else if (sel.includes('@media') || sel.includes('@keyframes')) {
@@ -371,16 +360,24 @@ export class RuleMap extends Map {
         this.__sheet__ = sheet
     }
 
-    set (index, value) {
-        if (value instanceof RuleMap || value instanceof Rule) this.__set__(index, value);
-        else this.__set__(index, new Rule(value));
-        return this;
-    }
+    // set (index, value) {
+    //     if (value instanceof RuleMap || value instanceof Rule) this.__set__(index, value);
+    //     else this.__set__(index, new Rule(value));
+    //     return this;
+    // }
 
     toString () {
         let cssText = ""
         this.forEach(rule => { cssText += rule.toString() });
         return cssText;
+    }
+
+    render () {
+        this.forEach((rule, key) => {
+            rule = rule.toString();
+            if (rule.includes("@import")) this.sheet.insertRule(rule, 0);
+            else this.sheet.insertRule(rule, key);
+        })
     }
 }
 export class EventMap extends Map {
@@ -409,33 +406,34 @@ export class EventMap extends Map {
     }
 }
 export const compile = (cssObject) => {
-    const styles = flatten(cssObject)
-    const rules = new RuleMap()
-    const eventHandlers = new Map()
-    for (const sel in styles) {
-        if (sel === '@media' || sel === '@keyframes') continue
-        else if (sel.includes('@media') || sel.includes('@keyframes')) {
-            const inrMap = new Rule()
-            for (const sel1 in styles[sel]) {
-                const selector = isNaN(sel1) ? sel1 : sel1 + '%'
-                const styDec = new Declarations(styles[sel][sel1])
-                inrMap.set(selector, styDec)
-                defaultCSS[selector] = styDec.toObject()
-            }
-            rules.set(sel, inrMap)
-        } else {
-            if (isObj(styles[sel])) {
-                const fns = {}
-                for (const sel1 in styles[sel]) {
-                    if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
-                }
-                if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
-                const stydec = new Declarations(styles[sel])
-                rules.set(rules.size, new Rule(stydec))
-            } else if (isArr(styles[sel])) rules.set(sel, styles[sel])
-        }
-    }
-    return { rules, eventHandlers }
+    return new RuleMap(cssObject)
+    // const styles = flatten(cssObject)
+    // const rules = new RuleMap()
+    // const eventHandlers = new Map()
+    // for (const sel in styles) {
+    //     if (sel === '@media' || sel === '@keyframes') continue
+    //     else if (sel.includes('@media') || sel.includes('@keyframes')) {
+    //         const inrMap = new Rule()
+    //         for (const sel1 in styles[sel]) {
+    //             const selector = isNaN(sel1) ? sel1 : sel1 + '%'
+    //             const styDec = new Declarations(styles[sel][sel1])
+    //             inrMap.set(selector, styDec)
+    //             defaultCSS[selector] = styDec.toObject()
+    //         }
+    //         rules.set(sel, inrMap)
+    //     } else {
+    //         if (isObj(styles[sel])) {
+    //             const fns = {}
+    //             for (const sel1 in styles[sel]) {
+    //                 if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
+    //             }
+    //             if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
+    //             const stydec = new Declarations(styles[sel])
+    //             rules.set(rules.size, new Rule(stydec))
+    //         } else if (isArr(styles[sel])) rules.set(sel, styles[sel])
+    //     }
+    // }
+    // return { rules, eventHandlers }
 }
 export const HTMLStyleMethods = {
 
@@ -536,36 +534,6 @@ export const HTMLStyleMethods = {
     compile (cssObject) {
         this.ruleMap = new RuleMap(cssObject);
         this.eventHandlers = this.ruleMap.eventHandlers;
-        // const styles = flatten(cssObject)
-        // const rules = new Map()
-        // const eventHandlers = new Map()
-        // for (const sel in styles) {
-        //     if (sel === '@media' || sel === '@keyframes') continue
-        //     else if (sel.includes('@media') || sel.includes('@keyframes')) {
-        //         const inrMap = new Map()
-        //         for (const sel1 in styles[sel]) {
-        //             const selector = isNaN(sel1) ? sel1 : sel1 + '%'
-        //             const styDec = new Declarations(styles[sel][sel1])
-        //             inrMap.set(selector, styDec)
-        //             defaultCSS[selector] = styDec.toObject()
-        //         }
-        //         rules.set(sel, inrMap)
-        //     } else {
-        //         if (isObj(styles[sel])) {
-        //             const fns = {}
-        //             for (const sel1 in styles[sel]) {
-        //                 if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
-        //             }
-        //             if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
-        //             const stydec = new Declarations(styles[sel])
-        //             rules.set(sel, stydec)
-        //             defaultCSS[sel] = stydec.toObject()
-        //         } else if (isArr(styles[sel])) rules.set(sel, styles[sel])
-        //     }
-        // }
-        // this.ruleMap = rules;
-        // this.eventHandlers = eventHandlers;
-        // return { rules, eventHandlers }
     },
     stringify (type = 'array') {
         type = type.toLowerCase()
@@ -601,19 +569,21 @@ export const HTMLStyleMethods = {
         }
         if (this.ruleMap) {
             try {
-                const imps = []
-                const stringed = this.stringify()
-                stringed.forEach(str => {
-                    if (str.includes('@import')) {
-                        imps.push(str)
-                        return
-                    }
-                    this.sheet.insertRule(str)
-                })
-                imps.forEach(i => {
-                    this.insert(i, 0)
-                })
-                this.attachMethods()
+                if (this.ruleMap.sheet == null) this.ruleMap.sheet = this.sheet;
+                this.ruleMap.render();
+                // const imps = []
+                // const stringed = this.stringify()
+                // stringed.forEach(str => {
+                //     if (str.includes('@import')) {
+                //         imps.push(str)
+                //         return
+                //     }
+                //     this.sheet.insertRule(str)
+                // })
+                // imps.forEach(i => {
+                //     this.insert(i, 0)
+                // })
+                // this.attachMethods()
                 return this
             } catch (e) {
                 cssConfig.ruleError(new CSSRuleError(e))

@@ -31,30 +31,33 @@ export default class Oxidizer {
     static init () {
         if (!Oxidizer.initialized) {
             Oxidizer.initialized = true;
-            $.body.observe({
-                childList: function (mut) {
-                    mut.addedNodes.forEach(addedNode => {
-                        const name = addedNode.tagName.toLowerCase()
-                        if (name in Oxidizer.observedNodes) {
-                            const observe = Oxidizer.observedNodes[name];
-                            observe.onConnected.call(this, addedNode);
-                            if (observe.onAttributeChange) {
-                                $(addedNode, 0).observe({
-                                    attribute: observe.onAttributeChange.bind(addedNode)
-                                });
+            if (css.config.handleEvents) {
+                $.body.observe({
+                    childList: function (mut) {
+                        mut.addedNodes.forEach(addedNode => {
+                            const name = addedNode.tagName.toLowerCase()
+                            if (name in Oxidizer.observedNodes) {
+                                const observe = Oxidizer.observedNodes[name];
+                                observe.onConnected.call(this, addedNode);
+                                if (observe.onAttributeChange) {
+                                    $(addedNode, 0).observe({
+                                        attribute: observe.onAttributeChange.bind(addedNode)
+                                    });
+                                }
                             }
-                        }
-                        Oxidizer.observedNodes["*"].onConnected.call(this, addedNode);
-                    })
-                    mut.removedNodes.forEach(removedNode => {
-                        const name = removedNode.tagName.toLowerCase()
-                        if (name in Oxidizer.observedNodes) {
-                            Oxidizer.observedNodes[name].onDisconnected.call(this, removedNode);
-                        }
-                    })
-                },
-                subtree: true
-            });
+                            Oxidizer.observedNodes["*"].onConnected.call(this, addedNode);
+                        })
+                        mut.removedNodes.forEach(removedNode => {
+                            const name = removedNode.tagName.toLowerCase()
+                            if (name in Oxidizer.observedNodes) {
+                                Oxidizer.observedNodes[name].onDisconnected.call(this, removedNode);
+                            }
+                        })
+                    },
+                    subtree: true
+                });
+            }
+            document.head.insertAdjacentHTML("beforeend", "<style id='oxss'></style>")
             for (const i in Intrinsics) {
                 global[i] = Intrinsics[i];
             }

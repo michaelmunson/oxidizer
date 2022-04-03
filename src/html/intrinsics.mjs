@@ -1177,8 +1177,7 @@ export class NOFRAMES {
     constructor (props, subtree) {
         const node = $.create("noframes", props, subtree)
         if (this.render) {
-            subtree = this.render.bind(node);
-            node.subtree = subtree;
+            node.subtree = this.render.bind(node);
             node.render();
         }
         return node;
