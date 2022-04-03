@@ -13,15 +13,21 @@
         "sourceType": "module"
     },
     "plugins": [
-        // ...
-        "lit"
+        "lit",
+        "auto-import"
       ],
     "rules": {
         "no-irregular-whitespace" : 1,
         "no-var":1,
         "indent": ["error", 4],
         "handle-callback-err":"off",
-        "no-new" : "off"
-
+        "no-new" : "off",
+        "no-useless-call":"off",
+        "quotes":"off",
+        "semi":"off",
+        "no-useless-constructor":"off",
+        "no-unused-vars" : "off",
+        "brace-style":"off",
+        "no-useless-escape":"off"
     }
 }
