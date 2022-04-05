@@ -1,17 +1,7 @@
-import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, Declarations, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, getEventHandlers, HTMLStyleMethods, parse, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
+import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, Declarations, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, HTMLStyleMethods, parse, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
 
 export function css (styles) {
     return compile(parse(styles));
-    // if (isObj(styles)) this.ruleMap = compile(styles);
-    // else if (isStr(styles)) {
-    //     this.ruleMap = compile(parse(styles));
-    //     cssText = this.ruleMap;
-    // }
-    // else if (isArr(styles)) this.ruleMap = compile(parse(styles));
-    // return {
-    //     rules: this.ruleMap,
-    //     cssText: cssText
-    // };
 }
 css.Declarations = Declarations
 css.defaultCSS = defaultCSS
@@ -34,15 +24,6 @@ css.HTMLStyleMethods = HTMLStyleMethods
 css.CSSRuleError = CSSRuleError;
 css.CSSUnsupportedError = CSSUnsupportedError;
 css.CSSStyleSheetError = CSSStyleSheetError;
-css.getEventHandlers = getEventHandlers;
-
-Object.defineProperty(css, 'config', {
-    get () {
-        return config
-    },
-    set (config) {
-        css.configure(config)
-    }
-})
+css.config = config;
 
 export default css

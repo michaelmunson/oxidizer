@@ -1,7 +1,6 @@
-import { DeepProxy, isObj } from "../utils/utils.mjs";
 import css from "./css.mjs";
 
-const configuration = {
+const config = {
     props: {
         setAttributes: true
     },
@@ -20,15 +19,5 @@ const configuration = {
     css: css.config
 
 }
-
-export const config = new DeepProxy(configuration, {
-    set (t, k, v) {
-        if (!(k in t)) return false;
-        if (isObj(v)) {
-            t[k] = { ...t[k], ...v }
-        } else t[k] = v;
-        return true;
-    }
-})
 
 export default config

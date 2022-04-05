@@ -16,7 +16,8 @@ class Query extends Array {
         if (query instanceof HTMLElement) query = [query]
         if (isStr(query)) query = document.querySelectorAll(query)
         for (const node of query) {
-            this.push(Query.assign(node));
+            if (!node.__assigned__) Query.assign(node);
+            this.push(node);
         }
         if (typeof position === "number") {
             return this[position]
@@ -25,6 +26,7 @@ class Query extends Array {
 
     static get assignments () {
         return {
+            __assigned__: true,
             autoRender: true,
             __props__: {},
             __template__: undefined,
@@ -1350,12 +1352,9 @@ $.create = Query.create;
 $.exists = Query.exists;
 $.assign = Query.assign;
 
-const html = $;
-
 export {
     $,
-    Query,
-    html
+    Query
 };
 
 export default $
