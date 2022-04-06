@@ -21,32 +21,35 @@ export class Component {
             styles.forEach(style => document.querySelector('#oxss').sheet.insertRule(style.toString()))
         }
 
-        if (!customElements.get(name)) {
-            const onConnected = (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {};
-            const onDisconnected = (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {};
-            const onAttributeChange = (this.onAttrChange) ? this.onAttrChange : (this.onAttributeChange) ? this.onAttributeChange : (this.onAttributeChangeCallback) ? this.onAttributeChangeCallback : () => {};
-            const observedAttributes = (this.observedAttributes) ? this.observedAttributes : []
-            customElements.define(formatedName, class extends HTMLElement {
-                constructor () {
-                    super()
-                }
+        if (customElements.get(name) === undefined) {
+            try {
+                const onConnected = (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {};
+                const onDisconnected = (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {};
+                const onAttributeChange = (this.onAttrChange) ? this.onAttrChange : (this.onAttributeChange) ? this.onAttributeChange : (this.onAttributeChangeCallback) ? this.onAttributeChangeCallback : () => {};
+                const observedAttributes = (this.observedAttributes) ? this.observedAttributes : []
+                customElements.define(formatedName, class extends HTMLElement {
+                    constructor () {
+                        super()
+                    }
 
-                onConnectedCallback () {
-                    onConnected.call(this);
-                }
+                    onConnectedCallback () {
+                        onConnected.call(this);
+                    }
 
-                onDisconnectedCallback () {
-                    onDisconnected.call(this)
-                }
+                    onDisconnectedCallback () {
+                        onDisconnected.call(this)
+                    }
 
-                static get observedAttributes () {
-                    return observedAttributes;
-                }
+                    static get observedAttributes () {
+                        return observedAttributes;
+                    }
 
-                onAttributeChange (attribute) {
-                    onAttributeChange.call(this, attribute)
-                }
-            })
+                    onAttributeChange (attribute) {
+                        onAttributeChange.call(this, attribute)
+                    }
+                })
+            }
+            catch (e) {}
         }
         return node;
     }

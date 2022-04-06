@@ -1,17 +1,20 @@
 import { isArr, isFn, isObj } from "../../utils/utils.mjs";
 import { css } from "../css.mjs";
-import { $ } from "./query.mjs";
+import html from "./html.mjs";
+
+const $create = html.create;
+
 /**
  * @param {object} props - Node Properties
  * @param {array|function} - Array or Function of Nodes
 */
+
 export class A {
     constructor (props, subtree) {
-        const node = $.create("a", props, subtree)
+        const node = $create("a", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -23,11 +26,10 @@ export class A {
 */
 export class ABBR {
     constructor (props, subtree) {
-        const node = $.create("abbr", props, subtree)
+        const node = $create("abbr", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -39,11 +41,10 @@ export class ABBR {
 */
 export class ACRONYM {
     constructor (props, subtree) {
-        const node = $.create("acronym", props, subtree)
+        const node = $create("acronym", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -55,11 +56,10 @@ export class ACRONYM {
 */
 export class ADDRESS {
     constructor (props, subtree) {
-        const node = $.create("address", props, subtree)
+        const node = $create("address", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -71,11 +71,10 @@ export class ADDRESS {
 */
 export class APPLET {
     constructor (props, subtree) {
-        const node = $.create("applet", props, subtree)
+        const node = $create("applet", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -87,11 +86,10 @@ export class APPLET {
 */
 export class AREA {
     constructor (props, subtree) {
-        const node = $.create("area", props, subtree)
+        const node = $create("area", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -103,11 +101,10 @@ export class AREA {
 */
 export class ARTICLE {
     constructor (props, subtree) {
-        const node = $.create("article", props, subtree)
+        const node = $create("article", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -119,11 +116,10 @@ export class ARTICLE {
 */
 export class ASIDE {
     constructor (props, subtree) {
-        const node = $.create("aside", props, subtree)
+        const node = $create("aside", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -135,11 +131,10 @@ export class ASIDE {
 */
 export class AUDIO {
     constructor (props, subtree) {
-        const node = $.create("audio", props, subtree)
+        const node = $create("audio", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -151,11 +146,10 @@ export class AUDIO {
 */
 export class B {
     constructor (props, subtree) {
-        const node = $.create("b", props, subtree)
+        const node = $create("b", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -167,11 +161,10 @@ export class B {
 */
 export class BASE {
     constructor (props, subtree) {
-        const node = $.create("base", props, subtree)
+        const node = $create("base", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -183,11 +176,10 @@ export class BASE {
 */
 export class BASEFONT {
     constructor (props, subtree) {
-        const node = $.create("basefont", props, subtree)
+        const node = $create("basefont", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -199,11 +191,10 @@ export class BASEFONT {
 */
 export class BDI {
     constructor (props, subtree) {
-        const node = $.create("bdi", props, subtree)
+        const node = $create("bdi", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -215,11 +206,10 @@ export class BDI {
 */
 export class BDO {
     constructor (props, subtree) {
-        const node = $.create("bdo", props, subtree)
+        const node = $create("bdo", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -231,11 +221,10 @@ export class BDO {
 */
 export class BIG {
     constructor (props, subtree) {
-        const node = $.create("big", props, subtree)
+        const node = $create("big", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -247,11 +236,10 @@ export class BIG {
 */
 export class BLOCKQUOTE {
     constructor (props, subtree) {
-        const node = $.create("blockquote", props, subtree)
+        const node = $create("blockquote", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -263,11 +251,10 @@ export class BLOCKQUOTE {
 */
 export class BODY {
     constructor (props, subtree) {
-        const node = $.create("body", props, subtree)
+        const node = $create("body", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -279,11 +266,10 @@ export class BODY {
 */
 export class BR {
     constructor (props, subtree) {
-        const node = $.create("br", props, subtree)
+        const node = $create("br", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -295,11 +281,10 @@ export class BR {
 */
 export class BUTTON {
     constructor (props, subtree) {
-        const node = $.create("button", props, subtree)
+        const node = $create("button", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -311,11 +296,10 @@ export class BUTTON {
 */
 export class CANVAS {
     constructor (props, subtree) {
-        const node = $.create("canvas", props, subtree)
+        const node = $create("canvas", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -327,11 +311,10 @@ export class CANVAS {
 */
 export class CAPTION {
     constructor (props, subtree) {
-        const node = $.create("caption", props, subtree)
+        const node = $create("caption", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -343,11 +326,10 @@ export class CAPTION {
 */
 export class CENTER {
     constructor (props, subtree) {
-        const node = $.create("center", props, subtree)
+        const node = $create("center", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -359,11 +341,10 @@ export class CENTER {
 */
 export class CITE {
     constructor (props, subtree) {
-        const node = $.create("cite", props, subtree)
+        const node = $create("cite", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -375,11 +356,10 @@ export class CITE {
 */
 export class CODE {
     constructor (props, subtree) {
-        const node = $.create("code", props, subtree)
+        const node = $create("code", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -391,11 +371,10 @@ export class CODE {
 */
 export class COL {
     constructor (props, subtree) {
-        const node = $.create("col", props, subtree)
+        const node = $create("col", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -407,11 +386,10 @@ export class COL {
 */
 export class COLGROUP {
     constructor (props, subtree) {
-        const node = $.create("colgroup", props, subtree)
+        const node = $create("colgroup", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -423,11 +401,10 @@ export class COLGROUP {
 */
 export class DATA {
     constructor (props, subtree) {
-        const node = $.create("data", props, subtree)
+        const node = $create("data", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -439,11 +416,10 @@ export class DATA {
 */
 export class DATALIST {
     constructor (props, subtree) {
-        const node = $.create("datalist", props, subtree)
+        const node = $create("datalist", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -455,11 +431,10 @@ export class DATALIST {
 */
 export class DD {
     constructor (props, subtree) {
-        const node = $.create("dd", props, subtree)
+        const node = $create("dd", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -471,11 +446,10 @@ export class DD {
 */
 export class DEL {
     constructor (props, subtree) {
-        const node = $.create("del", props, subtree)
+        const node = $create("del", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -487,11 +461,10 @@ export class DEL {
 */
 export class DETAILS {
     constructor (props, subtree) {
-        const node = $.create("details", props, subtree)
+        const node = $create("details", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -503,11 +476,10 @@ export class DETAILS {
 */
 export class DFN {
     constructor (props, subtree) {
-        const node = $.create("dfn", props, subtree)
+        const node = $create("dfn", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -519,11 +491,10 @@ export class DFN {
 */
 export class DIALOG {
     constructor (props, subtree) {
-        const node = $.create("dialog", props, subtree)
+        const node = $create("dialog", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -535,11 +506,10 @@ export class DIALOG {
 */
 export class DIR {
     constructor (props, subtree) {
-        const node = $.create("dir", props, subtree)
+        const node = $create("dir", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -551,11 +521,10 @@ export class DIR {
 */
 export class DIV {
     constructor (props, subtree) {
-        const node = $.create("div", props, subtree)
+        const node = $create("div", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -567,11 +536,10 @@ export class DIV {
 */
 export class DL {
     constructor (props, subtree) {
-        const node = $.create("dl", props, subtree)
+        const node = $create("dl", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -583,11 +551,10 @@ export class DL {
 */
 export class DT {
     constructor (props, subtree) {
-        const node = $.create("dt", props, subtree)
+        const node = $create("dt", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -599,11 +566,10 @@ export class DT {
 */
 export class EM {
     constructor (props, subtree) {
-        const node = $.create("em", props, subtree)
+        const node = $create("em", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -615,11 +581,10 @@ export class EM {
 */
 export class EMBED {
     constructor (props, subtree) {
-        const node = $.create("embed", props, subtree)
+        const node = $create("embed", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -631,11 +596,10 @@ export class EMBED {
 */
 export class FIELDSET {
     constructor (props, subtree) {
-        const node = $.create("fieldset", props, subtree)
+        const node = $create("fieldset", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -647,11 +611,10 @@ export class FIELDSET {
 */
 export class FIGCAPTION {
     constructor (props, subtree) {
-        const node = $.create("figcaption", props, subtree)
+        const node = $create("figcaption", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -663,11 +626,10 @@ export class FIGCAPTION {
 */
 export class FIGURE {
     constructor (props, subtree) {
-        const node = $.create("figure", props, subtree)
+        const node = $create("figure", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -679,11 +641,10 @@ export class FIGURE {
 */
 export class FONT {
     constructor (props, subtree) {
-        const node = $.create("font", props, subtree)
+        const node = $create("font", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -695,11 +656,10 @@ export class FONT {
 */
 export class FOOTER {
     constructor (props, subtree) {
-        const node = $.create("footer", props, subtree)
+        const node = $create("footer", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -711,11 +671,10 @@ export class FOOTER {
 */
 export class FORM {
     constructor (props, subtree) {
-        const node = $.create("form", props, subtree)
+        const node = $create("form", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -727,11 +686,10 @@ export class FORM {
 */
 export class FRAME {
     constructor (props, subtree) {
-        const node = $.create("frame", props, subtree)
+        const node = $create("frame", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -743,11 +701,10 @@ export class FRAME {
 */
 export class FRAMESET {
     constructor (props, subtree) {
-        const node = $.create("frameset", props, subtree)
+        const node = $create("frameset", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -759,11 +716,10 @@ export class FRAMESET {
 */
 export class H1 {
     constructor (props, subtree) {
-        const node = $.create("h1", props, subtree)
+        const node = $create("h1", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -775,11 +731,10 @@ export class H1 {
 */
 export class H2 {
     constructor (props, subtree) {
-        const node = $.create("h2", props, subtree)
+        const node = $create("h2", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -791,11 +746,10 @@ export class H2 {
 */
 export class H3 {
     constructor (props, subtree) {
-        const node = $.create("h3", props, subtree)
+        const node = $create("h3", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -807,11 +761,10 @@ export class H3 {
 */
 export class H4 {
     constructor (props, subtree) {
-        const node = $.create("h4", props, subtree)
+        const node = $create("h4", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -823,11 +776,10 @@ export class H4 {
 */
 export class H5 {
     constructor (props, subtree) {
-        const node = $.create("h5", props, subtree)
+        const node = $create("h5", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -839,11 +791,10 @@ export class H5 {
 */
 export class H6 {
     constructor (props, subtree) {
-        const node = $.create("h6", props, subtree)
+        const node = $create("h6", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -855,11 +806,10 @@ export class H6 {
 */
 export class HEAD {
     constructor (props, subtree) {
-        const node = $.create("head", props, subtree)
+        const node = $create("head", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -871,11 +821,10 @@ export class HEAD {
 */
 export class HEADER {
     constructor (props, subtree) {
-        const node = $.create("header", props, subtree)
+        const node = $create("header", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -887,11 +836,10 @@ export class HEADER {
 */
 export class HR {
     constructor (props, subtree) {
-        const node = $.create("hr", props, subtree)
+        const node = $create("hr", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -903,11 +851,10 @@ export class HR {
 */
 export class HTML {
     constructor (props, subtree) {
-        const node = $.create("html", props, subtree)
+        const node = $create("html", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -919,11 +866,10 @@ export class HTML {
 */
 export class I {
     constructor (props, subtree) {
-        const node = $.create("i", props, subtree)
+        const node = $create("i", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -935,11 +881,10 @@ export class I {
 */
 export class IFRAME {
     constructor (props, subtree) {
-        const node = $.create("iframe", props, subtree)
+        const node = $create("iframe", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -951,11 +896,10 @@ export class IFRAME {
 */
 export class IMG {
     constructor (props, subtree) {
-        const node = $.create("img", props, subtree)
+        const node = $create("img", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -967,11 +911,10 @@ export class IMG {
 */
 export class INPUT {
     constructor (props, subtree) {
-        const node = $.create("input", props, subtree)
+        const node = $create("input", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -983,11 +926,10 @@ export class INPUT {
 */
 export class INS {
     constructor (props, subtree) {
-        const node = $.create("ins", props, subtree)
+        const node = $create("ins", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -999,11 +941,10 @@ export class INS {
 */
 export class KBD {
     constructor (props, subtree) {
-        const node = $.create("kbd", props, subtree)
+        const node = $create("kbd", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1015,11 +956,10 @@ export class KBD {
 */
 export class LABEL {
     constructor (props, subtree) {
-        const node = $.create("label", props, subtree)
+        const node = $create("label", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1031,11 +971,10 @@ export class LABEL {
 */
 export class LEGEND {
     constructor (props, subtree) {
-        const node = $.create("legend", props, subtree)
+        const node = $create("legend", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1047,11 +986,10 @@ export class LEGEND {
 */
 export class LI {
     constructor (props, subtree) {
-        const node = $.create("li", props, subtree)
+        const node = $create("li", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1063,11 +1001,10 @@ export class LI {
 */
 export class LINK {
     constructor (props, subtree) {
-        const node = $.create("link", props, subtree)
+        const node = $create("link", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1079,11 +1016,10 @@ export class LINK {
 */
 export class MAIN {
     constructor (props, subtree) {
-        const node = $.create("main", props, subtree)
+        const node = $create("main", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1095,11 +1031,10 @@ export class MAIN {
 */
 export class MAP {
     constructor (props, subtree) {
-        const node = $.create("map", props, subtree)
+        const node = $create("map", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1111,11 +1046,10 @@ export class MAP {
 */
 export class MARK {
     constructor (props, subtree) {
-        const node = $.create("mark", props, subtree)
+        const node = $create("mark", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1127,11 +1061,10 @@ export class MARK {
 */
 export class META {
     constructor (props, subtree) {
-        const node = $.create("meta", props, subtree)
+        const node = $create("meta", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1143,11 +1076,10 @@ export class META {
 */
 export class METER {
     constructor (props, subtree) {
-        const node = $.create("meter", props, subtree)
+        const node = $create("meter", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1159,11 +1091,10 @@ export class METER {
 */
 export class NAV {
     constructor (props, subtree) {
-        const node = $.create("nav", props, subtree)
+        const node = $create("nav", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1175,10 +1106,9 @@ export class NAV {
 */
 export class NOFRAMES {
     constructor (props, subtree) {
-        const node = $.create("noframes", props, subtree)
+        const node = $create("noframes", props, subtree)
         if (this.render) {
             node.subtree = this.render.bind(node);
-            node.render();
         }
         return node;
     }
@@ -1190,11 +1120,10 @@ export class NOFRAMES {
 */
 export class NOSCRIPT {
     constructor (props, subtree) {
-        const node = $.create("noscript", props, subtree)
+        const node = $create("noscript", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1206,11 +1135,10 @@ export class NOSCRIPT {
 */
 export class OBJECT {
     constructor (props, subtree) {
-        const node = $.create("object", props, subtree)
+        const node = $create("object", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1222,11 +1150,10 @@ export class OBJECT {
 */
 export class OL {
     constructor (props, subtree) {
-        const node = $.create("ol", props, subtree)
+        const node = $create("ol", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1238,11 +1165,10 @@ export class OL {
 */
 export class OPTGROUP {
     constructor (props, subtree) {
-        const node = $.create("optgroup", props, subtree)
+        const node = $create("optgroup", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1254,11 +1180,10 @@ export class OPTGROUP {
 */
 export class OPTION {
     constructor (props, subtree) {
-        const node = $.create("option", props, subtree)
+        const node = $create("option", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1270,11 +1195,10 @@ export class OPTION {
 */
 export class OUTPUT {
     constructor (props, subtree) {
-        const node = $.create("output", props, subtree)
+        const node = $create("output", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1286,11 +1210,10 @@ export class OUTPUT {
 */
 export class P {
     constructor (props, subtree) {
-        const node = $.create("p", props, subtree)
+        const node = $create("p", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1302,11 +1225,10 @@ export class P {
 */
 export class PARAM {
     constructor (props, subtree) {
-        const node = $.create("param", props, subtree)
+        const node = $create("param", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1318,11 +1240,10 @@ export class PARAM {
 */
 export class PICTURE {
     constructor (props, subtree) {
-        const node = $.create("picture", props, subtree)
+        const node = $create("picture", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1334,11 +1255,10 @@ export class PICTURE {
 */
 export class PRE {
     constructor (props, subtree) {
-        const node = $.create("pre", props, subtree)
+        const node = $create("pre", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1350,11 +1270,10 @@ export class PRE {
 */
 export class PROGRESS {
     constructor (props, subtree) {
-        const node = $.create("progress", props, subtree)
+        const node = $create("progress", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1366,11 +1285,10 @@ export class PROGRESS {
 */
 export class Q {
     constructor (props, subtree) {
-        const node = $.create("q", props, subtree)
+        const node = $create("q", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1382,11 +1300,10 @@ export class Q {
 */
 export class RP {
     constructor (props, subtree) {
-        const node = $.create("rp", props, subtree)
+        const node = $create("rp", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1398,11 +1315,10 @@ export class RP {
 */
 export class RT {
     constructor (props, subtree) {
-        const node = $.create("rt", props, subtree)
+        const node = $create("rt", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1414,11 +1330,10 @@ export class RT {
 */
 export class RUBY {
     constructor (props, subtree) {
-        const node = $.create("ruby", props, subtree)
+        const node = $create("ruby", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1430,11 +1345,10 @@ export class RUBY {
 */
 export class S {
     constructor (props, subtree) {
-        const node = $.create("s", props, subtree)
+        const node = $create("s", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1446,11 +1360,10 @@ export class S {
 */
 export class SAMP {
     constructor (props, subtree) {
-        const node = $.create("samp", props, subtree)
+        const node = $create("samp", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1462,11 +1375,10 @@ export class SAMP {
 */
 export class SCRIPT {
     constructor (props, subtree) {
-        const node = $.create("script", props, subtree)
+        const node = $create("script", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1478,11 +1390,10 @@ export class SCRIPT {
 */
 export class SECTION {
     constructor (props, subtree) {
-        const node = $.create("section", props, subtree)
+        const node = $create("section", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1494,11 +1405,10 @@ export class SECTION {
 */
 export class SELECT {
     constructor (props, subtree) {
-        const node = $.create("select", props, subtree)
+        const node = $create("select", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1510,11 +1420,10 @@ export class SELECT {
 */
 export class SMALL {
     constructor (props, subtree) {
-        const node = $.create("small", props, subtree)
+        const node = $create("small", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1526,11 +1435,10 @@ export class SMALL {
 */
 export class SOURCE {
     constructor (props, subtree) {
-        const node = $.create("source", props, subtree)
+        const node = $create("source", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1542,11 +1450,10 @@ export class SOURCE {
 */
 export class SPAN {
     constructor (props, subtree) {
-        const node = $.create("span", props, subtree)
+        const node = $create("span", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1558,11 +1465,10 @@ export class SPAN {
 */
 export class STRIKE {
     constructor (props, subtree) {
-        const node = $.create("strike", props, subtree)
+        const node = $create("strike", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1574,11 +1480,10 @@ export class STRIKE {
 */
 export class STRONG {
     constructor (props, subtree) {
-        const node = $.create("strong", props, subtree)
+        const node = $create("strong", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1590,7 +1495,7 @@ export class STRONG {
 */
 export class STYLE {
     constructor (cssRules) {
-        const node = $.create("style");
+        const node = $create("style");
         if (typeof cssRules === "string") {
             cssRules = css.parse(cssRules);
         }
@@ -1644,11 +1549,10 @@ export class STYLE {
 */
 export class SUB {
     constructor (props, subtree) {
-        const node = $.create("sub", props, subtree)
+        const node = $create("sub", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1660,11 +1564,10 @@ export class SUB {
 */
 export class SUMMARY {
     constructor (props, subtree) {
-        const node = $.create("summary", props, subtree)
+        const node = $create("summary", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1676,11 +1579,10 @@ export class SUMMARY {
 */
 export class SUP {
     constructor (props, subtree) {
-        const node = $.create("sup", props, subtree)
+        const node = $create("sup", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1692,11 +1594,10 @@ export class SUP {
 */
 export class SVG {
     constructor (props, subtree) {
-        const node = $.create("svg", props, subtree)
+        const node = $create("svg", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1708,11 +1609,10 @@ export class SVG {
 */
 export class TABLE {
     constructor (props, subtree) {
-        const node = $.create("table", props, subtree)
+        const node = $create("table", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1724,11 +1624,10 @@ export class TABLE {
 */
 export class TBODY {
     constructor (props, subtree) {
-        const node = $.create("tbody", props, subtree)
+        const node = $create("tbody", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1740,11 +1639,10 @@ export class TBODY {
 */
 export class TD {
     constructor (props, subtree) {
-        const node = $.create("td", props, subtree)
+        const node = $create("td", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1756,11 +1654,10 @@ export class TD {
 */
 export class TEMPLATE {
     constructor (props, subtree) {
-        const node = $.create("template", props, subtree)
+        const node = $create("template", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1772,11 +1669,10 @@ export class TEMPLATE {
 */
 export class TEXTAREA {
     constructor (props, subtree) {
-        const node = $.create("textarea", props, subtree)
+        const node = $create("textarea", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1788,11 +1684,10 @@ export class TEXTAREA {
 */
 export class TFOOT {
     constructor (props, subtree) {
-        const node = $.create("tfoot", props, subtree)
+        const node = $create("tfoot", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1804,11 +1699,10 @@ export class TFOOT {
 */
 export class TH {
     constructor (props, subtree) {
-        const node = $.create("th", props, subtree)
+        const node = $create("th", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1820,11 +1714,10 @@ export class TH {
 */
 export class THEAD {
     constructor (props, subtree) {
-        const node = $.create("thead", props, subtree)
+        const node = $create("thead", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1836,11 +1729,10 @@ export class THEAD {
 */
 export class TIME {
     constructor (props, subtree) {
-        const node = $.create("time", props, subtree)
+        const node = $create("time", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1852,11 +1744,10 @@ export class TIME {
 */
 export class TITLE {
     constructor (props, subtree) {
-        const node = $.create("title", props, subtree)
+        const node = $create("title", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1868,11 +1759,10 @@ export class TITLE {
 */
 export class TR {
     constructor (props, subtree) {
-        const node = $.create("tr", props, subtree)
+        const node = $create("tr", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1884,11 +1774,10 @@ export class TR {
 */
 export class TRACK {
     constructor (props, subtree) {
-        const node = $.create("track", props, subtree)
+        const node = $create("track", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1900,11 +1789,10 @@ export class TRACK {
 */
 export class TT {
     constructor (props, subtree) {
-        const node = $.create("tt", props, subtree)
+        const node = $create("tt", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1916,11 +1804,10 @@ export class TT {
 */
 export class U {
     constructor (props, subtree) {
-        const node = $.create("u", props, subtree)
+        const node = $create("u", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1932,11 +1819,10 @@ export class U {
 */
 export class UL {
     constructor (props, subtree) {
-        const node = $.create("ul", props, subtree)
+        const node = $create("ul", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1948,11 +1834,10 @@ export class UL {
 */
 export class VAR {
     constructor (props, subtree) {
-        const node = $.create("var", props, subtree)
+        const node = $create("var", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1964,11 +1849,10 @@ export class VAR {
 */
 export class VIDEO {
     constructor (props, subtree) {
-        const node = $.create("video", props, subtree)
+        const node = $create("video", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }
@@ -1980,11 +1864,10 @@ export class VIDEO {
 */
 export class WBR {
     constructor (props, subtree) {
-        const node = $.create("wbr", props, subtree)
+        const node = $create("wbr", props, subtree)
         if (this.render) {
             subtree = this.render.bind(node);
             node.subtree = subtree;
-            node.render();
         }
         return node;
     }

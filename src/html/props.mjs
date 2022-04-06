@@ -13,10 +13,8 @@ export class Props {
                     value = new DeepProxy(value, handler)
                 }
                 target[key] = value;
-                node.setProperty(key, value);
-                if (node.autoRender) {
-                    this.node.render()
-                }
+                // node.setProperty(key, value);
+                this.node.render();
                 return true
             }
         }
