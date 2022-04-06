@@ -108,21 +108,21 @@ export const flatten = function (object, path = '', acc = {}) {
     return acc
 }
 export const stringify = function (obj, type = 'string') {
-    return this.compile(obj).toString();
-    // if (isStr(obj)) return obj
-    // if (isArr(obj)) {
-    //     if (type === 'string') return obj.join(';').replaceAll(';;', ';')
-    //     else return obj
-    // }
-    // obj = compile(obj).rules;
-    // let stringified = (type === 'string') ? '' : []
-    // Object.entries(obj).forEach(e => {
-    //     const [k, v] = e
-    //     const newv = Object.entries(v).filter(e => isStr(e[1]) || isNum(e[1])).map(e => e.join(':')).join(';')
-    //     if (type === 'array') stringified.push(k + ' {    ' + newv + '}')
-    //     else stringified += k + ' {    ' + newv + '}'
-    // })
-    // return stringified
+    // return this.compile(obj).toString();
+    if (isStr(obj)) return obj
+    if (isArr(obj)) {
+        if (type === 'string') return obj.join(';').replaceAll(';;', ';')
+        else return obj
+    }
+    obj = compile(obj);
+    let stringified = (type === 'string') ? '' : []
+    Object.entries(obj).forEach(e => {
+        const [k, v] = e
+        const newv = Object.entries(v).filter(e => isStr(e[1]) || isNum(e[1])).map(e => e.join(':')).join(';')
+        if (type === 'array') stringified.push(k + ' {    ' + newv + '}')
+        else stringified += k + ' { ' + newv + ' } '
+    })
+    return stringified
 }
 export const parse = function (str, parseObj = {}) {
     if (isObj(str)) {
@@ -199,6 +199,32 @@ export const formatDeclarations = (declarationObject) => {
         }
     }
     return declarationObject;
+}
+
+export const compile = (cssObject) => {
+    const styles = flatten(cssObject)
+    const rules = {}
+    for (const sel in styles) {
+        if (sel === '@media' || sel === '@keyframes') continue
+        else if (sel.includes('@media') || sel.includes('@keyframes')) {
+            for (const sel1 in styles[sel]) {
+                const selector = isNaN(sel1) ? sel1 : sel1 + '%'
+                const styDec = formatDeclarations(styles[sel][sel1])
+                rules[selector] = styDec;
+            }
+        } else {
+            if (isObj(styles[sel])) {
+                const fns = {}
+                for (const sel1 in styles[sel]) {
+                    if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
+                }
+                if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
+                const stydec = formatDeclarations(styles[sel]);
+                rules[sel] = stydec;
+            } else if (isArr(styles[sel])) rules[sel] = styles[sel]
+        }
+    }
+    return rules;
 }
 export class CSSUnsupportedError extends Error {
     constructor (declaration) {
@@ -326,7 +352,6 @@ export class RuleMap extends Map {
         super()
         if (isStr(cssObject)) cssObject = parse(cssObject);
         const styles = flatten(cssObject)
-        this.eventHandlers = new Map();
         for (const sel in styles) {
             if (sel === '@media' || sel === '@keyframes') continue
             else if (sel.includes('@media') || sel.includes('@keyframes')) {
@@ -338,9 +363,6 @@ export class RuleMap extends Map {
             } else {
                 if (isObj(styles[sel]) || isArr(styles[sel])) {
                     this.set(this.size, new Rule(sel, styles[sel]))
-                    for (const fns in styles[sel]) {
-                        if (isFn(styles[sel][fns])) this.eventHandlers.set(fns, styles[sel][fns]);
-                    }
                 }
             }
         }
@@ -380,60 +402,58 @@ export class RuleMap extends Map {
         })
     }
 }
-export class EventMap extends Map {
-    constructor () {
+export class RuleList extends Array {
+    constructor (cssObject) {
         super()
-    }
-
-    attach (node) {
-        for (const entry of this.entries()) {
-            const [sel, fn] = entry;
-            if (node.matches(sel)) {
-                node.eventHandlers = (node.eventHandlers) ? node.eventHandlers : [];
-                for (const f in fn) {
-                    if (node.eventHandlers.filter(fn0 => fn0.toString() === fn[f].toString()).length > 0) continue;
-                    const func = function () {
-                        const n = this;
-                        const styles = fn[f].call(n);
-                        if (styles === false) n.revertCss();
-                        else if (isObj(styles)) n.css(formatDeclarations(styles));
-                    }
-                    node.addEventListener(f, func);
-                    node.eventHandlers.push(fn[f]);
+        if (isStr(cssObject)) cssObject = parse(cssObject);
+        const styles = compile(cssObject)
+        for (const sel in styles) {
+            if (sel === '@media' || sel === '@keyframes') continue
+            else if (sel.includes('@media') || sel.includes('@keyframes')) {
+                for (const sel1 in styles[sel]) {
+                    this.push(new Rule(sel1, styles[sel][sel1]))
+                }
+            } else {
+                if (isObj(styles[sel]) || isArr(styles[sel])) {
+                    this.push(new Rule(sel, styles[sel]))
                 }
             }
         }
     }
-}
-export const compile = (cssObject) => {
-    return new RuleMap(cssObject)
-    // const styles = flatten(cssObject)
-    // const rules = new RuleMap()
-    // const eventHandlers = new Map()
-    // for (const sel in styles) {
-    //     if (sel === '@media' || sel === '@keyframes') continue
-    //     else if (sel.includes('@media') || sel.includes('@keyframes')) {
-    //         const inrMap = new Rule()
-    //         for (const sel1 in styles[sel]) {
-    //             const selector = isNaN(sel1) ? sel1 : sel1 + '%'
-    //             const styDec = new Declarations(styles[sel][sel1])
-    //             inrMap.set(selector, styDec)
-    //             defaultCSS[selector] = styDec.toObject()
-    //         }
-    //         rules.set(sel, inrMap)
-    //     } else {
-    //         if (isObj(styles[sel])) {
-    //             const fns = {}
-    //             for (const sel1 in styles[sel]) {
-    //                 if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
-    //             }
-    //             if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
-    //             const stydec = new Declarations(styles[sel])
-    //             rules.set(rules.size, new Rule(stydec))
-    //         } else if (isArr(styles[sel])) rules.set(sel, styles[sel])
-    //     }
+
+    get sheet () {
+        return this.__sheet__;
+    }
+
+    set sheet (sheet) {
+        if (this.sheet != null) {
+            cssConfig.onError(new CSSStyleSheetError("cannot redefine sheet property"))
+        }
+        if (!(sheet instanceof CSSStyleSheet)) {
+            cssConfig.onError(new CSSStyleSheetError("cannot redefine sheet property"))
+        }
+        this.__sheet__ = sheet
+    }
+
+    // set (index, value) {
+    //     if (value instanceof RuleMap || value instanceof Rule) this.__set__(index, value);
+    //     else this.__set__(index, new Rule(value));
+    //     return this;
     // }
-    // return { rules, eventHandlers }
+
+    toString () {
+        let cssText = ""
+        this.forEach(rule => { cssText += rule.toString() });
+        return cssText;
+    }
+
+    render () {
+        this.forEach((rule, key) => {
+            rule = rule.toString();
+            if (rule.includes("@import")) this.sheet.insertRule(rule, 0);
+            else this.sheet.insertRule(rule, key);
+        })
+    }
 }
 export const HTMLStyleMethods = {
 
@@ -591,22 +611,6 @@ export const HTMLStyleMethods = {
         }
         return this
     },
-    handleEvents (node) {
-        if (cssConfig.handleEvents === true) {
-            if (node) {
-                if (this.eventHandlers.size > 0) {
-                    this.eventHandlers.attach(node)
-                }
-            }
-            else {
-                document.querySelectorAll("*").forEach(node => {
-                    if (this.eventHandlers.size > 0) {
-                        this.eventHandlers.attach(node)
-                    }
-                })
-            }
-        }
-    }
 }
 
 export const config = cssConfig

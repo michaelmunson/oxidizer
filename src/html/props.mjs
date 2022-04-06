@@ -1,7 +1,8 @@
-import { DeepProxy, isArr, isObj, nodeEnforcer } from '../../utils/utils.mjs'
+import { DeepProxy, isArr, isObj, nodeEnforcer } from '../../utils/utils.mjs';
 
 export class Props {
     constructor (node, object) {
+        if (!isObj(object)) return;
         nodeEnforcer(node)
         const handler = {
             node,
@@ -18,6 +19,7 @@ export class Props {
                 return true
             }
         }
+
         const props = new DeepProxy(object, handler);
         return props
     }

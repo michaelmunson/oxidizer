@@ -1,16 +1,15 @@
-import {analyzer,isNode,isArr,isBool,isFn,isInt,isNan,isNum,isObj,isStr,isWeakStr,enforce} from "./misc/analyze.mjs";
-import {Arr,$arr} from "./extensions/array.mjs";
-import { assign, Global, Assigner,Assignee } from "./misc/assign.mjs";
-import Attempt from "./misc/attempt.mjs";
-import evaluator from "./misc/evaluator.mjs";
+import { $arr, Arr } from "./extensions/array.mjs";
 import $Map from "./extensions/map.mjs";
+import { $obj, Obj } from "./extensions/object.mjs";
 import { $str, Str } from "./extensions/str.mjs";
-import {$obj,Obj}  from "./extensions/object.mjs";
+import { analyzer, enforce, isArr, isBool, isFn, isInt, isNan, isNode, isNum, isObj, isStr, isWeakStr, methods } from "./misc/analyze.mjs";
+import { Argvout } from "./misc/argvout.mjs";
+import { assign, Assignee, Assigner, Global } from "./misc/assign.mjs";
+import Attempt from "./misc/attempt.mjs";
 import DeepProxy from "./misc/deepProxy.mjs";
-import {Argvout} from "./misc/argvout.mjs";
-import Type, {TypeEnforcer,TypeConverter,Typevout,objEnforcer,strEnforcer,nodeConverter,nodeEnforcer,arrEnforcer,arrConverter} from "./misc/type.mjs";
-import {consoleStrs,print,printf,println, log} from "./misc/terminal.mjs";
-
+import evaluator from "./misc/evaluator.mjs";
+import { consoleStrs, log, print, printf, println } from "./misc/terminal.mjs";
+import Type, { arrConverter, arrEnforcer, nodeConverter, nodeEnforcer, objEnforcer, strEnforcer, TypeConverter, TypeEnforcer, Typevout } from "./misc/type.mjs";
 
 export {
     Global,
@@ -22,7 +21,7 @@ export {
     arrEnforcer,
     arrConverter,
     consoleStrs,
-    
+
     Attempt,
     Obj,
     Arr,
@@ -36,11 +35,11 @@ export {
     TypeEnforcer,
     TypeConverter,
     $Map,
-    
+
     assign,
     $obj,
     $arr,
-    $str, 
+    $str,
     isNode,
     isArr,
     isBool,
@@ -57,7 +56,5 @@ export {
     printf,
     println,
     log,
-}
-
-
-
+    methods
+};

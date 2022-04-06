@@ -1,8 +1,16 @@
-import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, Declarations, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, HTMLStyleMethods, parse, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
+import { isArr, isStr } from "../utils/utils.mjs";
+import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, Declarations, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, HTMLStyleMethods, parse, Rule, RuleList, RuleMap, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
 
 export function css (styles) {
-    return compile(parse(styles));
+    if (isArr(styles)) {
+        if (isStr(styles[0])) {
+            return new RuleList(styles[0])
+        }
+    }
+    else if (styles instanceof RuleMap || styles instanceof RuleList) return styles;
+    else return new RuleList(styles);
 }
+
 css.Declarations = Declarations
 css.defaultCSS = defaultCSS
 css.cssData = cssData;
@@ -25,5 +33,8 @@ css.CSSRuleError = CSSRuleError;
 css.CSSUnsupportedError = CSSUnsupportedError;
 css.CSSStyleSheetError = CSSStyleSheetError;
 css.config = config;
+css.Rule = Rule;
+css.RuleMap = RuleMap;
+css.RuleList = RuleList;
 
 export default css

@@ -1,6 +1,37 @@
+import { methods } from "../utils/utils.mjs";
 import config from "./config.mjs";
 import { css } from "./css.mjs";
-import { $ } from "./html/query.mjs";
+import { html } from "./oxidizer.mjs";
+
+const customizer = (name, assigner) => {
+    const { onConnected, onDisconnected, observedAttributes, onAttributeChange } = assigner;
+    if (customElements.get(name) === undefined) {
+        try {
+            customElements.define(name, class extends HTMLElement {
+                constructor () {
+                    super()
+                }
+
+                onConnectedCallback () {
+                    onConnected.call(this);
+                }
+
+                onDisconnectedCallback () {
+                    onDisconnected.call(this)
+                }
+
+                static get observedAttributes () {
+                    return observedAttributes;
+                }
+
+                onAttributeChange (attribute) {
+                    onAttributeChange.call(this, attribute)
+                }
+            })
+        }
+        catch (e) {}
+    }
+}
 
 export class Component {
     constructor (props = {}) {
@@ -9,48 +40,24 @@ export class Component {
             ? css.toDashed(this.constructor.name)
             : css.toDashed(tagName);
         const formatedName = (name.startsWith("-")) ? name.slice(1) : name;
-        const node = $.create(formatedName, props);
-
-        if (this.render) {
-            node.subtree = this.render.bind(node);
-            node.render();
-        }
-
+        const $render = (this.render) ? this.render.call(this, props) : undefined;
+        const node = html.create(formatedName, props, $render);
         if (this.styles) {
-            const styles = this.styles
+            const styles = (this.styles instanceof css.RuleList) ? this.styles : (css(this.styles));
             styles.forEach(style => document.querySelector('#oxss').sheet.insertRule(style.toString()))
         }
 
-        if (customElements.get(name) === undefined) {
-            try {
-                const onConnected = (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {};
-                const onDisconnected = (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {};
-                const onAttributeChange = (this.onAttrChange) ? this.onAttrChange : (this.onAttributeChange) ? this.onAttributeChange : (this.onAttributeChangeCallback) ? this.onAttributeChangeCallback : () => {};
-                const observedAttributes = (this.observedAttributes) ? this.observedAttributes : []
-                customElements.define(formatedName, class extends HTMLElement {
-                    constructor () {
-                        super()
-                    }
+        customizer(name, {
+            onConnected: (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {},
+            onDisconnected: (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {},
+            onAttributeChange: (this.onAttrChange) ? this.onAttrChange : (this.onAttributeChange) ? this.onAttributeChange : (this.onAttributeChangeCallback) ? this.onAttributeChangeCallback : () => {},
+            observedAttributes: (this.observedAttributes) ? this.observedAttributes : []
+        });
 
-                    onConnectedCallback () {
-                        onConnected.call(this);
-                    }
+        methods(this).filter(i => !(['constructor', 'render']).includes(i)).forEach(method => {
+            node[method] = this[method];
+        });
 
-                    onDisconnectedCallback () {
-                        onDisconnected.call(this)
-                    }
-
-                    static get observedAttributes () {
-                        return observedAttributes;
-                    }
-
-                    onAttributeChange (attribute) {
-                        onAttributeChange.call(this, attribute)
-                    }
-                })
-            }
-            catch (e) {}
-        }
         return node;
     }
 }

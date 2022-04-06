@@ -246,7 +246,6 @@ class Query extends Array {
         if (query instanceof HTMLElement) query = [query]
         if (isStr(query)) query = document.querySelectorAll(query)
         for (const node of query) {
-            if (!node.__assigned__) Query.assign(node)
             this.push(node)
         }
         if (typeof position === 'number') {
