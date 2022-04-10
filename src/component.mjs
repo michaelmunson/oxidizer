@@ -8,6 +8,24 @@ const customizer = (name, assigner) => {
     if (customElements.get(name) === undefined) {
         try {
             customElements.define(name, class extends HTMLElement {
+                [Symbol.toPrimitive] (hint) {
+                    if (hint === "number") {
+                        const all = document.querySelectorAll("*");
+                        for (const i in all) {
+                            if (all[i] === this) return parseInt(i)
+                        }
+                    }
+                    if (hint === "string" || hint === "default") return this.outerHTML;
+                }
+
+                [Symbol.search] (string) {
+                    return string.indexOf(this.outerHTML);
+                }
+
+                * [Symbol.iterator] () {
+                    for (const i in this) yield this[i]
+                }
+
                 constructor () {
                     super()
                 }
@@ -27,6 +45,10 @@ const customizer = (name, assigner) => {
                 onAttributeChange (attribute) {
                     onAttributeChange.call(this, attribute)
                 }
+
+                get __isOxidizerComponent__ () {
+                    return true;
+                }
             })
         }
         catch (e) {}
@@ -34,6 +56,10 @@ const customizer = (name, assigner) => {
 }
 
 export class Component {
+    static [Symbol.hasInstance] (instance) {
+        return instance.__isOxidizerComponent__ === true;
+    }
+
     constructor (props = {}) {
         const { isTagConstructor, tagName } = config.component;
         const name = (isTagConstructor)
@@ -46,7 +72,6 @@ export class Component {
             const styles = (this.css instanceof css.RuleList) ? this.css : (css(this.css));
             styles.forEach(style => document.querySelector('#oxss').sheet.insertRule(style.toString()))
         }
-
         customizer(name, {
             onConnected: (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {},
             onDisconnected: (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {},
