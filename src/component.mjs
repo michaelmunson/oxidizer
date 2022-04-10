@@ -42,8 +42,8 @@ export class Component {
         const formatedName = (name.startsWith("-")) ? name.slice(1) : name;
         const $render = (this.render) ? this.render.call(this, props) : undefined;
         const node = html.create(formatedName, props, $render);
-        if (this.styles) {
-            const styles = (this.styles instanceof css.RuleList) ? this.styles : (css(this.styles));
+        if (this.css) {
+            const styles = (this.css instanceof css.RuleList) ? this.css : (css(this.css));
             styles.forEach(style => document.querySelector('#oxss').sheet.insertRule(style.toString()))
         }
 

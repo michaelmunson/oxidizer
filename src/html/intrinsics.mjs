@@ -1,4 +1,3 @@
-import { isArr, isFn, isObj } from "../../utils/utils.mjs";
 import { css } from "../css.mjs";
 import html from "./html.mjs";
 
@@ -1495,51 +1494,26 @@ export class STRONG {
 */
 export class STYLE {
     constructor (cssRules) {
-        const node = $create("style");
-        if (typeof cssRules === "string") {
-            cssRules = css.parse(cssRules);
-        }
-        else if (cssRules instanceof Map) {
-            node.router = cssRules;
-        }
-        else if (isObj(cssRules)) {
-            node.compile(cssRules);
-        }
-        else if (isFn(cssRules)) {
-            this.factory = cssRules;
-        }
-        return node;
-    }
+        const node = document.createElement('style');
+        let ruleArray = null;
 
-    static compile (cssObject) {
-        const styles = css.flatten(cssObject)
-        const rules = new Map()
-        const eventHandlers = new Map()
-        for (const sel in styles) {
-            if (sel === '@media' || sel === '@keyframes') continue
-            else if (sel.includes('@media') || sel.includes('@keyframes')) {
-                const inrMap = new Map()
-                for (const sel1 in styles[sel]) {
-                    const selector = isNaN(sel1) ? sel1 : sel1 + '%'
-                    const styDec = new css.Declarations(styles[sel][sel1])
-                    inrMap.set(selector, styDec)
-                    css.defaultCSS[selector] = styDec.toObject()
-                }
-                rules.set(sel, inrMap)
-            } else {
-                if (isObj(styles[sel])) {
-                    const fns = {}
-                    for (const sel1 in styles[sel]) {
-                        if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
-                    }
-                    if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
-                    const stydec = new css.Declarations(styles[sel])
-                    rules.set(sel, stydec)
-                    css.defaultCSS[sel] = stydec.toObject()
-                } else if (isArr(styles[sel])) rules.set(sel, styles[sel])
-            }
+        if (cssRules instanceof css.RuleList) {
+            ruleArray = cssRules;
         }
-        return { rules, eventHandlers }
+        else ruleArray = css(cssRules);
+
+        node.ruleArray = ruleArray;
+        function render () {
+            document.head.append(this);
+            this.ruleArray.forEach(rule => {
+                try {
+                    this.sheet.insertRule(rule.toString());
+                }
+                catch (e) {}
+            })
+        }
+        node.render = render.bind(node);
+        return node;
     }
 }
 

@@ -3,10 +3,10 @@ import css from "../css.mjs";
 
 function insert (position, nodes) {
     const positionMap = {
-        beforeend: this.toEnd,
-        afterend: this.after,
-        beforebegin: this.before,
-        afterbegin: this.prepend
+        beforeend: append,
+        afterend: after,
+        beforebegin: before,
+        afterbegin: prepend
     }
     if (nodes == null) {
         nodes = position
@@ -249,7 +249,7 @@ class Query extends Array {
             this.push(node)
         }
         if (typeof position === 'number') {
-            return this[position]
+            return new Query(this[position]);
         }
     }
 
@@ -265,9 +265,9 @@ class Query extends Array {
         return $('body')
     }
 
-    insert (...nodes) {
+    insert (position, toInsert) {
         this.forEach(node => {
-            insert.apply(node, nodes);
+            insert.apply(node, [position, toInsert]);
         })
     }
 

@@ -1,60 +1,14 @@
-import { isArr, isFn, isNode, objEnforcer } from "../../utils/utils.mjs";
+import { isArr, isFn, isNode, isStr, objEnforcer } from "../../utils/utils.mjs";
 import config from "../config.mjs";
 import css from "../css.mjs";
 import Props from "./props.mjs";
+import { $ } from "./query.mjs";
+
 export const html = function (DOMString) {
     const template = html.create('div');
     template.innerHTML = DOMString;
     const ch = template.childNodes
     return (ch.length === 1) ? ch[0] : [...ch];
-}
-
-const externals = {
-    // setProperties (props = {}) {
-    //     objEnforcer(props)
-    //     for (const propKey in props) {
-    //         const propVal = props[propKey]
-    //         this.setProperty(propKey, propVal)
-    //     }
-    //     return this
-    // },
-    // setProperty (key, val) {
-    //     if (config.props.setAttributes) {
-    //         if (this[key] === undefined && typeof val === 'string') {
-    //             this.setAttribute(key, val)
-    //         } else {
-    //             this[key] = val
-    //         }
-    //     } else {
-    //         if (key === 'attributes' || key === 'attrs') {
-    //             this.attr(val)
-    //         }
-    //         this[key] = val
-    //     }
-    //     return this
-    // },
-    // render (props) {
-    //     if (!props) props = this.props;
-    //     if (this.template) this.renderTemplate(props);
-    //     else {
-    //         [...this.children].forEach(child => {
-    //             child.render();
-    //         });
-    //     }
-    //     this.setProperties(props);
-    // },
-    // renderTemplate (props) {
-    //     const tret = this.template.call(this, props);
-    //     if (isArr(tret)) {
-    //         this.innerHTML = "";
-    //         for (const node of tret) {
-    //             this.append(node);
-    //         }
-    //     }
-    //     else {
-    //         this.replaceWith(tret)
-    //     }
-    // }
 }
 
 html.create = (tag, props, subtree) => {
@@ -64,6 +18,7 @@ html.create = (tag, props, subtree) => {
             props = {}
         } else subtree = false
     }
+    if (props == null) props = {}
     const node = document.createElement(tag);
     html.assign(node);
     node.props = props;
@@ -75,6 +30,13 @@ html.create = (tag, props, subtree) => {
 html.assign = (node) => {
     if (node.isAssigned) return
     Object.defineProperties(node, {
+        attach: {
+            get () {
+                return function (query, position = "beforeend") {
+                    $(query, 0).insert(position, this);
+                }
+            }
+        },
         styles: {
             get () {
                 return this.__styles__
@@ -84,7 +46,6 @@ html.assign = (node) => {
                 this.__styles__ = styles;
             }
         },
-
         setProperty: {
             get () {
                 return function (key, val) {
@@ -107,6 +68,7 @@ html.assign = (node) => {
         setProperties: {
             get () {
                 return function (props) {
+                    if (!props) return;
                     objEnforcer(props)
                     for (const propKey in props) {
                         const propVal = props[propKey]
@@ -174,7 +136,8 @@ html.assign = (node) => {
                         for (const node of subcall) this.append(node);
                     }
                 }
-                else if (isArr(subtree)) {
+                if (isStr(subtree) || isNode(subtree)) subtree = [subtree];
+                if (isArr(subtree)) {
                     for (const n of subtree) {
                         if (isFn(n)) {
                             const nnode = n.call(this, this.props);
@@ -186,7 +149,6 @@ html.assign = (node) => {
                         }
                     }
                 }
-                else if (isNode(subtree)) this.append(subtree);
                 this.__subtree__ = subtree;
             }
         }
