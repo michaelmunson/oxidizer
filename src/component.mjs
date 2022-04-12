@@ -5,6 +5,7 @@ import { html } from "./oxidizer.mjs";
 
 const customizer = (name, assigner) => {
     const { onConnected, onDisconnected, observedAttributes, onAttributeChange } = assigner;
+
     if (customElements.get(name) === undefined) {
         try {
             customElements.define(name, class extends HTMLElement {
@@ -23,7 +24,10 @@ const customizer = (name, assigner) => {
                 }
 
                 * [Symbol.iterator] () {
-                    for (const i in this) yield this[i]
+                    const childNodes = this.childNodes;
+                    for (const i in childNodes) {
+                        yield childNodes[i]
+                    }
                 }
 
                 constructor () {
@@ -51,7 +55,9 @@ const customizer = (name, assigner) => {
                 }
             })
         }
-        catch (e) {}
+        catch (e) {
+            console.warn(e)
+        }
     }
 }
 
@@ -66,13 +72,14 @@ export class Component {
             ? css.toDashed(this.constructor.name)
             : css.toDashed(tagName);
         const formatedName = (name.startsWith("-")) ? name.slice(1) : name;
-        const $render = (this.render) ? this.render.call(this, props) : undefined;
-        const node = html.create(formatedName, props, $render);
+        this.props = props;
+        const $render = (this.render) ? this.render.call(this, this.props) : undefined;
+        const node = html.create(formatedName, this.props, $render);
         if (this.css) {
             const styles = (this.css instanceof css.RuleList) ? this.css : (css(this.css));
             styles.forEach(style => document.querySelector('#oxss').sheet.insertRule(style.toString()))
         }
-        customizer(name, {
+        customizer(formatedName, {
             onConnected: (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {},
             onDisconnected: (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {},
             onAttributeChange: (this.onAttrChange) ? this.onAttrChange : (this.onAttributeChange) ? this.onAttributeChange : (this.onAttributeChangeCallback) ? this.onAttributeChangeCallback : () => {},
