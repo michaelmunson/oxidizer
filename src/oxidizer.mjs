@@ -7,8 +7,6 @@ import { A, ABBR, ACRONYM, ADDRESS, APPLET, AREA, ARTICLE, ASIDE, AUDIO, B, BASE
 import { $ } from "./html/query.mjs";
 import Root from "./root.mjs";
 
-
-
 export default class Oxidizer {
     static get css () { return css }
     static get html () { return html }
@@ -28,18 +26,16 @@ export default class Oxidizer {
     static get Component () { return Component }
     static get Root () { return Root }
     static get Intrinsics () { return Intrinsics }
-    static init () {
-        if (!Oxidizer.initialized) {
-            Oxidizer.initialized = true;
-            document.head.insertAdjacentHTML("beforeend", "<style id='oxss'></style>")
-            for (const i in Intrinsics) {
-                global[i] = Intrinsics[i];
-            }
-        }
-    }
+    // static init () {
+    //     if (!Oxidizer.initialized) {
+    //         Oxidizer.initialized = true;
+    //         document.head.insertAdjacentHTML("beforeend", "<style id='oxss'></style>")
+    //         for (const i in Intrinsics) {
+    //             global[i] = Intrinsics[i];
+    //         }
+    //     }
+    // }
 }
-
-Oxidizer.init();
 
 export {
     Oxidizer, Component, Root, $, css, html,

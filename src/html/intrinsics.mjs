@@ -4,10 +4,20 @@ import html from "./html.mjs";
 const $create = html.create;
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
-*/
+ * @typedef {(HTMLElement|DOMString)} Html
+ */
 
+/**
+ * @typedef {(array|function|Html)} Subtree
+ */
+
+/**
+ * Creates HTMLElement < a >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
+*/
 export class A {
     constructor (props, subtree) {
         const node = $create("a", props, subtree)
@@ -20,8 +30,11 @@ export class A {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < abbr >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class ABBR {
     constructor (props, subtree) {
@@ -35,8 +48,11 @@ export class ABBR {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < acronym >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class ACRONYM {
     constructor (props, subtree) {
@@ -50,8 +66,11 @@ export class ACRONYM {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < address >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class ADDRESS {
     constructor (props, subtree) {
@@ -65,8 +84,11 @@ export class ADDRESS {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < applet >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class APPLET {
     constructor (props, subtree) {
@@ -80,8 +102,11 @@ export class APPLET {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < area >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class AREA {
     constructor (props, subtree) {
@@ -95,8 +120,11 @@ export class AREA {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < article >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class ARTICLE {
     constructor (props, subtree) {
@@ -110,8 +138,11 @@ export class ARTICLE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < aside >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class ASIDE {
     constructor (props, subtree) {
@@ -125,8 +156,11 @@ export class ASIDE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < audio >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class AUDIO {
     constructor (props, subtree) {
@@ -140,8 +174,11 @@ export class AUDIO {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < b >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class B {
     constructor (props, subtree) {
@@ -155,8 +192,11 @@ export class B {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < base >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BASE {
     constructor (props, subtree) {
@@ -170,8 +210,11 @@ export class BASE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < basefont >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BASEFONT {
     constructor (props, subtree) {
@@ -185,8 +228,11 @@ export class BASEFONT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < bdi >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BDI {
     constructor (props, subtree) {
@@ -200,8 +246,11 @@ export class BDI {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < bdo >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BDO {
     constructor (props, subtree) {
@@ -215,8 +264,11 @@ export class BDO {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < big >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BIG {
     constructor (props, subtree) {
@@ -230,8 +282,11 @@ export class BIG {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < blockquote >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BLOCKQUOTE {
     constructor (props, subtree) {
@@ -245,8 +300,11 @@ export class BLOCKQUOTE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < body >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BODY {
     constructor (props, subtree) {
@@ -260,8 +318,11 @@ export class BODY {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < br >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BR {
     constructor (props, subtree) {
@@ -275,8 +336,11 @@ export class BR {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < button >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class BUTTON {
     constructor (props, subtree) {
@@ -290,8 +354,11 @@ export class BUTTON {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < canvas >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class CANVAS {
     constructor (props, subtree) {
@@ -305,8 +372,11 @@ export class CANVAS {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < caption >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class CAPTION {
     constructor (props, subtree) {
@@ -320,8 +390,11 @@ export class CAPTION {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < center >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class CENTER {
     constructor (props, subtree) {
@@ -335,8 +408,11 @@ export class CENTER {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < cite >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class CITE {
     constructor (props, subtree) {
@@ -350,8 +426,11 @@ export class CITE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < code >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class CODE {
     constructor (props, subtree) {
@@ -365,8 +444,11 @@ export class CODE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < col >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class COL {
     constructor (props, subtree) {
@@ -380,8 +462,11 @@ export class COL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < colgroup >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class COLGROUP {
     constructor (props, subtree) {
@@ -395,8 +480,11 @@ export class COLGROUP {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < data >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DATA {
     constructor (props, subtree) {
@@ -410,8 +498,11 @@ export class DATA {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < datalist >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DATALIST {
     constructor (props, subtree) {
@@ -425,8 +516,11 @@ export class DATALIST {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < dd >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DD {
     constructor (props, subtree) {
@@ -440,8 +534,11 @@ export class DD {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < del >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DEL {
     constructor (props, subtree) {
@@ -455,8 +552,11 @@ export class DEL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < details >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DETAILS {
     constructor (props, subtree) {
@@ -470,8 +570,11 @@ export class DETAILS {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < dfn >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DFN {
     constructor (props, subtree) {
@@ -485,8 +588,11 @@ export class DFN {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < dialog >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DIALOG {
     constructor (props, subtree) {
@@ -500,8 +606,11 @@ export class DIALOG {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < dir >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DIR {
     constructor (props, subtree) {
@@ -515,8 +624,11 @@ export class DIR {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < div >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DIV {
     constructor (props, subtree) {
@@ -530,8 +642,11 @@ export class DIV {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < dl >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DL {
     constructor (props, subtree) {
@@ -545,8 +660,11 @@ export class DL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < dt >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class DT {
     constructor (props, subtree) {
@@ -560,8 +678,11 @@ export class DT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < em >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class EM {
     constructor (props, subtree) {
@@ -575,8 +696,11 @@ export class EM {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < embed >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class EMBED {
     constructor (props, subtree) {
@@ -590,8 +714,11 @@ export class EMBED {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < fieldset >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FIELDSET {
     constructor (props, subtree) {
@@ -605,8 +732,11 @@ export class FIELDSET {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < figcaption >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FIGCAPTION {
     constructor (props, subtree) {
@@ -620,8 +750,11 @@ export class FIGCAPTION {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < figure >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FIGURE {
     constructor (props, subtree) {
@@ -635,8 +768,11 @@ export class FIGURE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < font >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FONT {
     constructor (props, subtree) {
@@ -650,8 +786,11 @@ export class FONT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < footer >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FOOTER {
     constructor (props, subtree) {
@@ -665,8 +804,11 @@ export class FOOTER {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < form >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FORM {
     constructor (props, subtree) {
@@ -680,8 +822,11 @@ export class FORM {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < frame >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FRAME {
     constructor (props, subtree) {
@@ -695,8 +840,11 @@ export class FRAME {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < frameset >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class FRAMESET {
     constructor (props, subtree) {
@@ -710,8 +858,11 @@ export class FRAMESET {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < h1 >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class H1 {
     constructor (props, subtree) {
@@ -725,8 +876,11 @@ export class H1 {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < h2 >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class H2 {
     constructor (props, subtree) {
@@ -740,8 +894,11 @@ export class H2 {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < h3 >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class H3 {
     constructor (props, subtree) {
@@ -755,8 +912,11 @@ export class H3 {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < h4 >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class H4 {
     constructor (props, subtree) {
@@ -770,8 +930,11 @@ export class H4 {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < h5 >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class H5 {
     constructor (props, subtree) {
@@ -785,8 +948,11 @@ export class H5 {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < h6 >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class H6 {
     constructor (props, subtree) {
@@ -800,8 +966,11 @@ export class H6 {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < head >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class HEAD {
     constructor (props, subtree) {
@@ -815,8 +984,11 @@ export class HEAD {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < header >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class HEADER {
     constructor (props, subtree) {
@@ -830,8 +1002,11 @@ export class HEADER {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < hr >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class HR {
     constructor (props, subtree) {
@@ -845,8 +1020,11 @@ export class HR {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < html >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class HTML {
     constructor (props, subtree) {
@@ -860,8 +1038,11 @@ export class HTML {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < i >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class I {
     constructor (props, subtree) {
@@ -875,8 +1056,11 @@ export class I {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < iframe >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class IFRAME {
     constructor (props, subtree) {
@@ -890,8 +1074,11 @@ export class IFRAME {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < img >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class IMG {
     constructor (props, subtree) {
@@ -905,8 +1092,11 @@ export class IMG {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < input >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class INPUT {
     constructor (props, subtree) {
@@ -920,8 +1110,11 @@ export class INPUT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < ins >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class INS {
     constructor (props, subtree) {
@@ -935,8 +1128,11 @@ export class INS {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < kbd >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class KBD {
     constructor (props, subtree) {
@@ -950,8 +1146,11 @@ export class KBD {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < label >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class LABEL {
     constructor (props, subtree) {
@@ -965,8 +1164,11 @@ export class LABEL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < legend >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class LEGEND {
     constructor (props, subtree) {
@@ -980,8 +1182,11 @@ export class LEGEND {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < li >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class LI {
     constructor (props, subtree) {
@@ -995,8 +1200,11 @@ export class LI {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < link >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class LINK {
     constructor (props, subtree) {
@@ -1010,8 +1218,11 @@ export class LINK {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < main >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class MAIN {
     constructor (props, subtree) {
@@ -1025,8 +1236,11 @@ export class MAIN {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < map >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class MAP {
     constructor (props, subtree) {
@@ -1040,8 +1254,11 @@ export class MAP {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < main >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class MARK {
     constructor (props, subtree) {
@@ -1055,8 +1272,11 @@ export class MARK {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < meta >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class META {
     constructor (props, subtree) {
@@ -1070,8 +1290,11 @@ export class META {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < meter >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class METER {
     constructor (props, subtree) {
@@ -1085,8 +1308,11 @@ export class METER {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < nav >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class NAV {
     constructor (props, subtree) {
@@ -1100,8 +1326,11 @@ export class NAV {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < noframes >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class NOFRAMES {
     constructor (props, subtree) {
@@ -1114,8 +1343,11 @@ export class NOFRAMES {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < noscript >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class NOSCRIPT {
     constructor (props, subtree) {
@@ -1129,8 +1361,11 @@ export class NOSCRIPT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < object >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class OBJECT {
     constructor (props, subtree) {
@@ -1144,8 +1379,11 @@ export class OBJECT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < ol >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class OL {
     constructor (props, subtree) {
@@ -1159,8 +1397,11 @@ export class OL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < optgroup >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class OPTGROUP {
     constructor (props, subtree) {
@@ -1174,8 +1415,11 @@ export class OPTGROUP {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < option >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class OPTION {
     constructor (props, subtree) {
@@ -1189,8 +1433,11 @@ export class OPTION {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < output >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class OUTPUT {
     constructor (props, subtree) {
@@ -1204,8 +1451,11 @@ export class OUTPUT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < p >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class P {
     constructor (props, subtree) {
@@ -1219,8 +1469,11 @@ export class P {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < param >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class PARAM {
     constructor (props, subtree) {
@@ -1234,8 +1487,11 @@ export class PARAM {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < picture >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class PICTURE {
     constructor (props, subtree) {
@@ -1249,8 +1505,11 @@ export class PICTURE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < pre >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class PRE {
     constructor (props, subtree) {
@@ -1264,8 +1523,11 @@ export class PRE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < progress >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class PROGRESS {
     constructor (props, subtree) {
@@ -1279,8 +1541,11 @@ export class PROGRESS {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < q >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class Q {
     constructor (props, subtree) {
@@ -1294,8 +1559,11 @@ export class Q {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < rp >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class RP {
     constructor (props, subtree) {
@@ -1309,8 +1577,11 @@ export class RP {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < rt >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class RT {
     constructor (props, subtree) {
@@ -1324,8 +1595,11 @@ export class RT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < ruby >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class RUBY {
     constructor (props, subtree) {
@@ -1339,8 +1613,11 @@ export class RUBY {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < s >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class S {
     constructor (props, subtree) {
@@ -1354,8 +1631,11 @@ export class S {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < samp >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SAMP {
     constructor (props, subtree) {
@@ -1369,8 +1649,11 @@ export class SAMP {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < script >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SCRIPT {
     constructor (props, subtree) {
@@ -1384,8 +1667,11 @@ export class SCRIPT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < section >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SECTION {
     constructor (props, subtree) {
@@ -1399,8 +1685,11 @@ export class SECTION {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < select >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SELECT {
     constructor (props, subtree) {
@@ -1414,8 +1703,11 @@ export class SELECT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < small >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SMALL {
     constructor (props, subtree) {
@@ -1429,8 +1721,11 @@ export class SMALL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < source >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SOURCE {
     constructor (props, subtree) {
@@ -1444,8 +1739,11 @@ export class SOURCE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < span >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SPAN {
     constructor (props, subtree) {
@@ -1459,8 +1757,11 @@ export class SPAN {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < strike >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class STRIKE {
     constructor (props, subtree) {
@@ -1474,8 +1775,11 @@ export class STRIKE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < strong >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class STRONG {
     constructor (props, subtree) {
@@ -1489,8 +1793,11 @@ export class STRONG {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < style >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class STYLE {
     constructor (cssRules) {
@@ -1518,8 +1825,11 @@ export class STYLE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < sub >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SUB {
     constructor (props, subtree) {
@@ -1533,8 +1843,11 @@ export class SUB {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < summary >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SUMMARY {
     constructor (props, subtree) {
@@ -1548,8 +1861,11 @@ export class SUMMARY {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < sup >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SUP {
     constructor (props, subtree) {
@@ -1563,8 +1879,11 @@ export class SUP {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < svg >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class SVG {
     constructor (props, subtree) {
@@ -1578,8 +1897,11 @@ export class SVG {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < table >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TABLE {
     constructor (props, subtree) {
@@ -1593,8 +1915,11 @@ export class TABLE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < tbody >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TBODY {
     constructor (props, subtree) {
@@ -1608,8 +1933,11 @@ export class TBODY {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < td >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TD {
     constructor (props, subtree) {
@@ -1623,8 +1951,11 @@ export class TD {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < template >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TEMPLATE {
     constructor (props, subtree) {
@@ -1638,8 +1969,11 @@ export class TEMPLATE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < textarea >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TEXTAREA {
     constructor (props, subtree) {
@@ -1653,8 +1987,11 @@ export class TEXTAREA {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < tfoot >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TFOOT {
     constructor (props, subtree) {
@@ -1668,8 +2005,11 @@ export class TFOOT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < th >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TH {
     constructor (props, subtree) {
@@ -1683,8 +2023,11 @@ export class TH {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < thead >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class THEAD {
     constructor (props, subtree) {
@@ -1698,8 +2041,11 @@ export class THEAD {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < time >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TIME {
     constructor (props, subtree) {
@@ -1713,8 +2059,11 @@ export class TIME {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < title >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TITLE {
     constructor (props, subtree) {
@@ -1728,8 +2077,11 @@ export class TITLE {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < tr >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TR {
     constructor (props, subtree) {
@@ -1743,8 +2095,11 @@ export class TR {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < track >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TRACK {
     constructor (props, subtree) {
@@ -1758,8 +2113,11 @@ export class TRACK {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < tt >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class TT {
     constructor (props, subtree) {
@@ -1773,8 +2131,11 @@ export class TT {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < u >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class U {
     constructor (props, subtree) {
@@ -1788,8 +2149,11 @@ export class U {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < ul >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class UL {
     constructor (props, subtree) {
@@ -1803,8 +2167,11 @@ export class UL {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < var >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class VAR {
     constructor (props, subtree) {
@@ -1818,8 +2185,11 @@ export class VAR {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < video >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class VIDEO {
     constructor (props, subtree) {
@@ -1833,8 +2203,11 @@ export class VIDEO {
 }
 
 /**
- * @param {object} props - Node Properties
- * @param {array|function} - Array or Function of Nodes
+ * Creates HTMLElement < wbr >
+ * @class
+ * @param {object} props Node properties
+ * @param {Subtree} subtree Node Descendant(s) to inherit props
+ * @global
 */
 export class WBR {
     constructor (props, subtree) {

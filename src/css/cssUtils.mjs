@@ -1,7 +1,8 @@
-import { isArr, isFn, isNum, isObj, isStr, Str } from "../../utils/utils.mjs";
+import { isArr, isFn, isObj, isStr, Str } from "../../utils/utils.mjs";
 import bootstrap from "./bs.json";
 import cssConfig from "./cssConfig.mjs";
 import cssdata from "./cssData.json";
+import { CSSRuleError, CSSStyleSheetError, CSSUnsupportedError } from "./cssErrors.mjs";
 import Unit from "./cssUnits.mjs";
 
 const isCSSOM = (() => {
@@ -107,22 +108,18 @@ export const flatten = function (object, path = '', acc = {}) {
     }
     return acc
 }
-export const stringify = function (obj, type = 'string') {
-    // return this.compile(obj).toString();
-    if (isStr(obj)) return obj
-    if (isArr(obj)) {
-        if (type === 'string') return obj.join(';').replaceAll(';;', ';')
-        else return obj
+export const stringify = function (o) {
+    if (isStr(o)) return o;
+    let s = "";
+    for (const sel in o) {
+        if (isObj(o[sel])) {
+            s += sel + " { " + stringify(o[sel]) + " } "
+        }
+        else {
+            s += sel + ":" + o[sel] + ";";
+        }
     }
-    obj = compile(obj);
-    let stringified = (type === 'string') ? '' : []
-    Object.entries(obj).forEach(e => {
-        const [k, v] = e
-        const newv = Object.entries(v).filter(e => isStr(e[1]) || isNum(e[1])).map(e => e.join(':')).join(';')
-        if (type === 'array') stringified.push(k + ' {    ' + newv + '}')
-        else stringified += k + ' { ' + newv + ' } '
-    })
-    return stringified
+    return s;
 }
 export const parse = function (str, parseObj = {}) {
     if (isObj(str)) {
@@ -200,25 +197,25 @@ export const formatDeclarations = (declarationObject) => {
     }
     return declarationObject;
 }
-
 export const compile = (cssObject) => {
     const styles = flatten(cssObject)
     const rules = {}
     for (const sel in styles) {
         if (sel === '@media' || sel === '@keyframes') continue
         else if (sel.includes('@media') || sel.includes('@keyframes')) {
+            const atrules = {};
             for (const sel1 in styles[sel]) {
                 const selector = isNaN(sel1) ? sel1 : sel1 + '%'
                 const styDec = formatDeclarations(styles[sel][sel1])
-                rules[selector] = styDec;
+                atrules[selector] = styDec;
             }
+            rules[sel] = atrules;
         } else {
             if (isObj(styles[sel])) {
                 const fns = {}
                 for (const sel1 in styles[sel]) {
                     if (isFn(styles[sel][sel1])) fns[sel1] = styles[sel][sel1]
                 }
-                if (Object.keys(fns).length > 0) eventHandlers.set(sel, fns)
                 const stydec = formatDeclarations(styles[sel]);
                 rules[sel] = stydec;
             } else if (isArr(styles[sel])) rules[sel] = styles[sel]
@@ -226,33 +223,48 @@ export const compile = (cssObject) => {
     }
     return rules;
 }
-export class CSSUnsupportedError extends Error {
-    constructor (declaration) {
-        super(declaration)
-        // new TypeEnforcer("string")(declaration);
-        const [prop, val] = declaration.replace(';', '').split(':')
-        const isSup = supportsProp(prop) ? '' : `(!) ${prop} is not a supported CSS Property.`
-        const name = 'CSSDeclarationError'
-        const message = `"${prop}:${val}" is not a supported CSS Declaration\n${isSup}`
-        // super(message);
-        this.name = name
-        this.message = message
+
+export class Sheet extends CSSStyleSheet {
+    * [Symbol.iterator] () {
+        for (const rule of this.cssRules)
+        { yield rule; }
+    };
+
+    constructor (rules, options = null) {
+        super(options);
+        if (isObj(rules)) {
+            rules = stringify(compile(rules));
+        }
+        this.replaceSync(rules);
+    }
+
+    static get adopted () {
+        return [...document.adoptedStyleSheets];
+    }
+
+    get cssText () {
+        let str = ""
+        for (const rule of this) {
+            str += rule.cssText;
+        }
+        return str;
+    }
+
+    adopt (checkForDuplicates = false) {
+        if (checkForDuplicates) {
+            for (const a of Sheet.adopted) {
+                if (a.cssText === this.cssText) return;
+            }
+        }
+        document.adoptedStyleSheets.push(this);
     }
 }
-export class CSSRuleError extends Error {
-    constructor (message) {
-        super(message)
-        this.name = 'CSSRuleError'
-        this.message = message
-    }
-}
-export class CSSStyleSheetError extends Error {
-    constructor (message) {
-        super(message)
-        this.name = 'CSSStyleSheetError'
-        this.message = message
-    }
-}
+
+export const config = cssConfig
+
+export { Unit, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError };
+
+/*
 export class Declarations {
     constructor (decObject) {
         Object.assign(this, formatDeclarations(decObject));
@@ -302,7 +314,7 @@ export class Declarations {
     }
 }
 export class Rule {
-    
+
     #__selector__;
     #__declarations__;
     constructor (selector, declarations) {
@@ -349,7 +361,7 @@ export class Rule {
 }
 export class RuleMap extends Map {
     constructor (cssObject) {
-        super()
+        super();
         if (isStr(cssObject)) cssObject = parse(cssObject);
         const styles = flatten(cssObject)
         for (const sel in styles) {
@@ -381,12 +393,6 @@ export class RuleMap extends Map {
         }
         this.__sheet__ = sheet
     }
-
-    // set (index, value) {
-    //     if (value instanceof RuleMap || value instanceof Rule) this.__set__(index, value);
-    //     else this.__set__(index, new Rule(value));
-    //     return this;
-    // }
 
     toString () {
         let cssText = ""
@@ -463,11 +469,7 @@ export const HTMLStyleMethods = {
     getRules () {
         return [...this.sheet.rules]
     },
-    /**
-     *
-     * @deprecated
-     */
-    addByHTML (obj) {
+     addByHTML (obj) {
         obj = stringify(obj)
         this.innerHTML = obj
         return this
@@ -610,9 +612,6 @@ export const HTMLStyleMethods = {
             }
         }
         return this
-    },
+    }
 }
-
-export const config = cssConfig
-
-export { Unit };
+*/

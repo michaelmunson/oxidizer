@@ -9,27 +9,6 @@ const customizer = (name, assigner) => {
     if (customElements.get(name) === undefined) {
         try {
             customElements.define(name, class extends HTMLElement {
-                [Symbol.toPrimitive] (hint) {
-                    if (hint === "number") {
-                        const all = document.querySelectorAll("*");
-                        for (const i in all) {
-                            if (all[i] === this) return parseInt(i)
-                        }
-                    }
-                    if (hint === "string" || hint === "default") return this.outerHTML;
-                }
-
-                [Symbol.search] (string) {
-                    return string.indexOf(this.outerHTML);
-                }
-
-                * [Symbol.iterator] () {
-                    const childNodes = this.childNodes;
-                    for (const i in childNodes) {
-                        yield childNodes[i]
-                    }
-                }
-
                 constructor () {
                     super()
                 }
@@ -75,10 +54,12 @@ export class Component {
         this.props = props;
         const $render = (this.render) ? this.render.call(this, this.props) : undefined;
         const node = html.create(formatedName, this.props, $render);
+
         if (this.css) {
-            const styles = (this.css instanceof css.RuleList) ? this.css : (css(this.css));
-            styles.forEach(style => document.querySelector('#oxss').sheet.insertRule(style.toString()))
+            const styles = (this.css instanceof css.Sheet) ? this.css : css(this.css);
+            styles.adopt(true);
         }
+
         customizer(formatedName, {
             onConnected: (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {},
             onDisconnected: (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {},
