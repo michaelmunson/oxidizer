@@ -1,7 +1,7 @@
 {
   "name": "oxidizer",
-  "version": "1.0.8",
-  "description": "bare metal react-type package for web development",
+  "version": "1.0.9",
+  "description": "bare metal react-type framework for web development",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
