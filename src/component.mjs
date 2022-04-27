@@ -11,17 +11,19 @@ export class Component {
             : css.toDashed(config.component.tagName);
         name = (name.startsWith("-")) ? name.slice(1) : name;
 
-        const subtree = (this.render)
-            ? this.render.call(this, props)
-            : [];
-
-        const node = html.create(name, props, subtree);
-
-        if (this.render) node.render = this.render;
+        const node = html.create(name, props);
 
         methods(this).filter(i => !(['constructor', 'render']).includes(i)).forEach(method => {
             node[method] = this[method].bind(node);
         });
+
+        const subtree = (this.render)
+            ? this.render.call(node, props)
+            : [];
+
+        node.subtree = subtree;
+
+        if (this.render) node.render = this.render.bind(node);
 
         if (this.css) {
             const styles = (this.css.sheet)
@@ -30,7 +32,7 @@ export class Component {
             styles.sheet.adopt(true);
         }
 
-        const defaults = {
+        const customMethods = {
             onconnected: (this.onconnect)
                 ? this.onconnect
                 : (this.connectedCallback)
@@ -51,7 +53,38 @@ export class Component {
                 : []
         };
 
-        html.createCustomElement()
+        if (customElements.get(name) === undefined) {
+            try {
+                customElements.define(name, class extends HTMLElement {
+                    constructor () {
+                        super()
+                    }
+
+                    connectedCallback () {
+                        customMethods.onconnected.call(this);
+                    }
+
+                    disconnectedCallback () {
+                        customMethods.ondisconnect.call(this)
+                    }
+
+                    static get observedAttributes () {
+                        return customMethods.observedAttributes;
+                    }
+
+                    onAttributeChange (attribute) {
+                        customMethods.onAttributeChange.call(this, attribute)
+                    }
+
+                    get __isOxidizerComponent__ () {
+                        return true;
+                    }
+                })
+            }
+            catch (e) {
+                console.warn(e)
+            }
+        }
 
         return node;
     }
