@@ -175,11 +175,13 @@ const isWeakStr = (o) => analyzer.str(o) || o instanceof String
 const isArr = (o) => Array.isArray(o)
 const isObj = o => analyzer(o).isStrictObj;
 const isFn = o => typeof o === 'function';
-const isInt = o => typeof o === Number.isInteger(o);
+const isInt = o => Number.isInteger(o);
 const isNan = o => isNaN(o);
 const isNum = o => typeof o === 'number';
 const isBool = o => typeof o === 'boolean';
 const isNode = o => o instanceof HTMLElement;
+const isDef = o => o !== undefined;
+const isUndef = o => o === undefined;
 const enforce = (enforceObj = {}, messageHandler) => {
     for (const type in enforceObj) {
         const object = enforceObj[type];
@@ -208,4 +210,4 @@ const methods = obj => {
 }
 
 export default analyzer
-export { analyzer, typev, isArr, isBool, isFn, isInt, isNan, isNum, isObj, isStr, isWeakStr, isNode, enforce, methods };
+export { analyzer, typev, isArr, isBool, isFn, isInt, isNan, isNum, isObj, isStr, isWeakStr, isNode, enforce, methods, isDef, isUndef };

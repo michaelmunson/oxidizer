@@ -166,6 +166,7 @@ export const generateStyleElement = function (id) {
     ss.setAttribute('id', id)
     return ss
 }
+
 export const unit = function (number, unit) {
     return new Unit(number, unit)
 }

@@ -1,10 +1,41 @@
 import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, parse, Sheet, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
 
-export function css (styles) {
-    return new Sheet(styles);
+export default function css (styles) {
+    return {
+        text: stringify(styles),
+        sheet: new Sheet(styles)
+    }
 }
 
-css.defaultCSS = defaultCSS
+Object.assign(
+    css, {
+        config,
+        defaultCSS,
+        cssData,
+        configure,
+        toDashed,
+        toCamel,
+        formatSelector,
+        formatProperty,
+        formatValue,
+        supports,
+        supportsProp,
+        flatten,
+        stringify,
+        parse,
+        generateStyleElement,
+        unit,
+        compile,
+        CSSRuleError,
+        CSSStyleSheetError,
+        CSSUnsupportedError,
+        Sheet
+    }
+);
+
+/*
+css.config = config;
+css.defaultCSS = defaultCSS;
 css.cssData = cssData;
 css.configure = configure;
 css.toDashed = toDashed;
@@ -23,7 +54,5 @@ css.compile = compile;
 css.CSSRuleError = CSSRuleError;
 css.CSSUnsupportedError = CSSUnsupportedError;
 css.CSSStyleSheetError = CSSStyleSheetError;
-css.config = config;
 css.Sheet = Sheet;
-
-export default css
+*/

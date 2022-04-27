@@ -2,7 +2,7 @@ import { $arr, Arr } from "./extensions/array.mjs";
 import $Map from "./extensions/map.mjs";
 import { $obj, Obj } from "./extensions/object.mjs";
 import { $str, Str } from "./extensions/str.mjs";
-import { analyzer, enforce, isArr, isBool, isFn, isInt, isNan, isNode, isNum, isObj, isStr, isWeakStr, methods } from "./misc/analyze.mjs";
+import { analyzer, enforce, isArr, isBool, isFn, isInt, isNan, isNode, isNum, isObj, isStr, isWeakStr, methods, isDef, isUndef } from "./misc/analyze.mjs";
 import { Argvout } from "./misc/argvout.mjs";
 import { assign, Assignee, Assigner, Global } from "./misc/assign.mjs";
 import Attempt from "./misc/attempt.mjs";
@@ -56,5 +56,7 @@ export {
     printf,
     println,
     log,
-    methods
+    methods,
+    isDef,
+    isUndef
 };

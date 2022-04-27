@@ -4,6 +4,12 @@ const config = {
     props: {
         setAttributes: true
     },
+    intrinsics: {
+        methods: {},
+        body: {
+            createNew: true
+        }
+    },
     component: {
         /**
          * @property customElement <boolean> - whether or not to define customElements from components

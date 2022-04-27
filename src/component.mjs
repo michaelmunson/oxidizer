@@ -1,11 +1,74 @@
 import { methods } from "../utils/utils.mjs";
 import config from "./config.mjs";
-import { css } from "./css.mjs";
-import { html } from "./oxidizer.mjs";
+import css from "./css.mjs";
+import html from "./html.mjs";
 
-const customizer = (name, assigner) => {
-    const { onConnected, onDisconnected, observedAttributes, onAttributeChange } = assigner;
+function handleName () {
+    const name = (config.component.isTagConstructor)
+        ? css.toDashed(this.constructor.name)
+        : css.toDashed(config.component.tagName);
+    return (name.startsWith("-")) ? name.slice(1) : name;
+}
 
+function createNode () {
+    const name = this.tagname;
+    const props = this.props;
+    const subtree = (this.render)
+        ? this.render.call(this, props)
+        : [];
+    const node = html.create(name, props, subtree);
+    if (this.render) node.render = this.render;
+
+    return node;
+}
+
+function handleMethods () {
+    const node = this.node;
+
+    methods(this).filter(i => !(['constructor', 'render']).includes(i)).forEach(method => {
+        node[method] = this[method];
+    });
+
+    return node;
+}
+
+function handleCSS () {
+    if (this.css) {
+        const styles = (this.css.sheet)
+            ? this.css
+            : css(this.css);
+        styles.sheet.adopt(true);
+    }
+}
+
+function defineCustomElement () {
+    const name = this.tagname;
+    const defaults = {
+        connect: (this.onConnected)
+            ? this.onConnected
+            : (this.connectedCallback)
+                ? this.connectedCallback
+                : (this.onconnect)
+                    ? this.onconnect
+                    : () => {},
+        disconnect: (this.onDisconnected)
+            ? this.onDisconnected
+            : (this.disconnectedCallback)
+                ? this.disconnectedCallback
+                : (this.ondisconnect)
+                    ? this.ondisconnect
+                    : () => {},
+        atttributeChange: (this.onAttrChange)
+            ? this.onAttrChange
+            : (this.onAttributeChange)
+                ? this.onAttributeChange
+                : (this.onAttributeChangeCallback)
+                    ? this.onAttributeChangeCallback
+                    : () => {},
+        observedAttributes: (this.observedAttributes)
+            ? this.observedAttributes
+            : []
+    };
     if (customElements.get(name) === undefined) {
         try {
             customElements.define(name, class extends HTMLElement {
@@ -13,20 +76,20 @@ const customizer = (name, assigner) => {
                     super()
                 }
 
-                onConnectedCallback () {
-                    onConnected.call(this);
+                connectedCallback () {
+                    defaults.connect.call(this);
                 }
 
-                onDisconnectedCallback () {
-                    onDisconnected.call(this)
+                disconnectedCallback () {
+                    defaults.disconnect.call(this)
                 }
 
                 static get observedAttributes () {
-                    return observedAttributes;
+                    return defaults.observedAttributes;
                 }
 
                 onAttributeChange (attribute) {
-                    onAttributeChange.call(this, attribute)
+                    defaults.atttributeChange.call(this, attribute)
                 }
 
                 get __isOxidizerComponent__ () {
@@ -41,37 +104,22 @@ const customizer = (name, assigner) => {
 }
 
 export class Component {
-    static [Symbol.hasInstance] (instance) {
-        return instance.__isOxidizerComponent__ === true;
+    constructor (props = {}) {
+        this.props = props;
+        this.tagname = handleName.call(this);
+        this.node = createNode.call(this);
+
+        handleMethods.call(this);
+
+        handleCSS.call(this);
+
+        defineCustomElement.call(this);
+
+        return this.node;
     }
 
-    constructor (props = {}) {
-        const { isTagConstructor, tagName } = config.component;
-        const name = (isTagConstructor)
-            ? css.toDashed(this.constructor.name)
-            : css.toDashed(tagName);
-        const formatedName = (name.startsWith("-")) ? name.slice(1) : name;
-        this.props = props;
-        const $render = (this.render) ? this.render.call(this, this.props) : undefined;
-        const node = html.create(formatedName, this.props, $render);
-
-        if (this.css) {
-            const styles = (this.css instanceof css.Sheet) ? this.css : css(this.css);
-            styles.adopt(true);
-        }
-
-        customizer(formatedName, {
-            onConnected: (this.onConnected) ? this.onConnected : (this.onConnectedCallback) ? this.onConnectedCallback : () => {},
-            onDisconnected: (this.onDisconnected) ? this.onDisconnected : (this.onDisconnectedCallback) ? this.onDisconnectedCallback : () => {},
-            onAttributeChange: (this.onAttrChange) ? this.onAttrChange : (this.onAttributeChange) ? this.onAttributeChange : (this.onAttributeChangeCallback) ? this.onAttributeChangeCallback : () => {},
-            observedAttributes: (this.observedAttributes) ? this.observedAttributes : []
-        });
-
-        methods(this).filter(i => !(['constructor', 'render']).includes(i)).forEach(method => {
-            node[method] = this[method];
-        });
-
-        return node;
+    static [Symbol.hasInstance] (instance) {
+        return instance.__isOxidizerComponent__ === true;
     }
 }
 

@@ -5,7 +5,6 @@ Oxidizer is a very-lightweight, React-esque type utility and borrows heavily fro
 
 ## Usage
 
-
 ## <i gray>Example App</i>
 
 <u>components.js</u>
