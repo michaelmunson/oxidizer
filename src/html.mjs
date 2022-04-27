@@ -1,4 +1,4 @@
-import { assignMethods, assignPrimitives, assignProperties, assignToNode, createNode, formatTag, nodeMethods, nodeProperties, parseDOMString } from "./html/htmlUtils.mjs";
+import { assignMethods, assignPrimitives, assignProperties, assignToNode, createCustomElement, createNode, formatTag, nodeMethods, nodeProperties, parseDOMString } from "./html/htmlUtils.mjs";
 
 export default function html (strings, ...values) {
     let DOMString = [...strings];
@@ -26,7 +26,8 @@ Object.assign(
         formatTag,
         assignMethods,
         assignPrimitives,
-        assignProperties
+        assignProperties,
+        createCustomElement
     }
 );
 

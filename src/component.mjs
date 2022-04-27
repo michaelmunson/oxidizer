@@ -3,6 +3,67 @@ import config from "./config.mjs";
 import css from "./css.mjs";
 import html from "./html.mjs";
 
+export class Component {
+    constructor (props = {}) {
+        this.props = props;
+        let name = (config.component.isTagConstructor)
+            ? css.toDashed(this.constructor.name)
+            : css.toDashed(config.component.tagName);
+        name = (name.startsWith("-")) ? name.slice(1) : name;
+
+        const subtree = (this.render)
+            ? this.render.call(this, props)
+            : [];
+
+        const node = html.create(name, props, subtree);
+
+        if (this.render) node.render = this.render;
+
+        methods(this).filter(i => !(['constructor', 'render']).includes(i)).forEach(method => {
+            node[method] = this[method].bind(node);
+        });
+
+        if (this.css) {
+            const styles = (this.css.sheet)
+                ? this.css
+                : css(this.css);
+            styles.sheet.adopt(true);
+        }
+
+        const defaults = {
+            onconnected: (this.onconnect)
+                ? this.onconnect
+                : (this.connectedCallback)
+                    ? this.connectedCallback
+                    : () => {},
+            ondisconnect: (this.ondisconnect)
+                ? this.ondisconnect
+                : (this.disconnectedCallback)
+                    ? this.disconnectedCallback
+                    : () => {},
+            onAttributeChange: (this.onAttributeChange)
+                ? this.onAttributeChange
+                : (this.attributeChangeCallback)
+                    ? this.attributeChangeCallback
+                    : () => {},
+            observedAttributes: (this.observedAttributes)
+                ? this.observedAttributes
+                : []
+        };
+
+        html.createCustomElement()
+
+        return node;
+    }
+
+    static [Symbol.hasInstance] (instance) {
+        return instance.__isOxidizerComponent__ === true;
+    }
+}
+
+export default Component;
+
+/*
 function handleName () {
     const name = (config.component.isTagConstructor)
         ? css.toDashed(this.constructor.name)
@@ -26,7 +87,7 @@ function handleMethods () {
     const node = this.node;
 
     methods(this).filter(i => !(['constructor', 'render']).includes(i)).forEach(method => {
-        node[method] = this[method];
+        node[method] = this[method].bind(node);
     });
 
     return node;
@@ -41,8 +102,8 @@ function handleCSS () {
     }
 }
 
-function defineCustomElement () {
-    const name = this.tagname;
+function defineCustomElement (tagname) {
+    const name = tagname;
     const defaults = {
         connect: (this.onConnected)
             ? this.onConnected
@@ -102,25 +163,4 @@ function defineCustomElement () {
         }
     }
 }
-
-export class Component {
-    constructor (props = {}) {
-        this.props = props;
-        this.tagname = handleName.call(this);
-        this.node = createNode.call(this);
-
-        handleMethods.call(this);
-
-        handleCSS.call(this);
-
-        defineCustomElement.call(this);
-
-        return this.node;
-    }
-
-    static [Symbol.hasInstance] (instance) {
-        return instance.__isOxidizerComponent__ === true;
-    }
-}
-
-export default Component;
+*/
