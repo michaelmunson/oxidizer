@@ -18,7 +18,7 @@ export class Component {
         });
 
         const subtree = (this.render)
-            ? this.render.call(node, props)
+            ? this.render.bind(node)
             : [];
 
         node.subtree = subtree;
