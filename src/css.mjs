@@ -1,9 +1,25 @@
+import { isObj } from "../utils/utils.mjs";
 import { compile, config, configure, cssData, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError, defaultCSS, flatten, formatProperty, formatSelector, formatValue, generateStyleElement, parse, Sheet, stringify, supports, supportsProp, toCamel, toDashed, unit } from "./css/cssUtils.mjs";
 
-export default function css (styles) {
+export function css (strings, ...values) {
+    let cssText;
+
+    if (isObj(strings)) cssText = stringify(strings);
+
+    else {
+        cssText = [...strings];
+        for (const i in values) {
+            cssText[i] += values[i];
+        }
+        cssText = cssText.join("");
+    }
+
     return {
-        text: stringify(styles),
-        sheet: new Sheet(styles)
+        cssText,
+        strings,
+        values,
+        sheet: new Sheet(cssText),
+        csslit: true
     }
 }
 
@@ -32,6 +48,8 @@ Object.assign(
         Sheet
     }
 );
+
+export default css;
 
 /*
 css.config = config;
