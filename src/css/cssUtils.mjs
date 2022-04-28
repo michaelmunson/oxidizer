@@ -16,7 +16,7 @@ const isCSSOM = (() => {
 
 export const defaultCSS = {}
 
-export const cssData = { ...cssdata, ...bootstrap };
+export const cssData = { ...cssdata, bootstrap };
 
 export const toDashed = function (str) {
     return new Str(str).camelCaseToDashed().toString()

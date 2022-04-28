@@ -1,4 +1,5 @@
 *.notes
 static/
+
 .eslintrc.json
 

@@ -5723,6 +5723,9 @@
     "squeeze",
     "visibilitychange",
     "devicechange"
-  ]
+  ],
+  "bootstrap": {
+      
+  }
 }
 

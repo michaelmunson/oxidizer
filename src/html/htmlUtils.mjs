@@ -233,7 +233,7 @@ export const assignPrimitives = function (node) {
     node[Symbol.iterator] = function * () {
         const childNodes = this.childNodes;
         for (const i in childNodes) {
-            yield childNodes[i]
+            if (isNode(childNodes[i])) yield childNodes[i];
         }
     };
 }
@@ -247,39 +247,4 @@ export const parseDOMString = function (DOMString) {
 export const formatTag = function (tag) {
     const name = new Str(tag).dashedToCamelCase().toString();
     return (name.startsWith("-")) ? name.slice(1) : name;
-}
-
-export const createCustomElement = function (name, methods) {
-    if (customElements.get(name) === undefined) {
-        try {
-            customElements.define(name, class extends HTMLElement {
-                constructor () {
-                    super()
-                }
-
-                connectedCallback () {
-                    methods.connect.call(this);
-                }
-
-                disconnectedCallback () {
-                    methods.disconnect.call(this)
-                }
-
-                static get observedAttributes () {
-                    return methods.observedAttributes;
-                }
-
-                onAttributeChange (attribute) {
-                    methods.atttributeChange.call(this, attribute)
-                }
-
-                get __isOxidizerComponent__ () {
-                    return true;
-                }
-            })
-        }
-        catch (e) {
-            console.warn(e)
-        }
-    }
 }
