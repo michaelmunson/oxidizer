@@ -225,7 +225,54 @@ export const compile = (cssObject) => {
     return rules;
 }
 
-export class Sheet extends CSSStyleSheet {
+export class Sheet {
+    * [Symbol.iterator] () {
+        for (const rule of this.cssRules)
+        { yield rule; }
+    };
+
+    constructor (rules, options = null) {
+        this.rules = rules;
+        if (isObj(rules)) {
+            this.rules = stringify(compile(rules));
+        }
+        this.stylesheet = document.createElement('style');
+        this.stylesheet.innerHTML = this.rules;
+        // this.sheet = this.stylesheet.sheet;
+    }
+
+    static get adopted () {
+        const sheets = [...document.querySelectorAll('style')].map(s => s.sheet);
+        return sheets
+    }
+
+    static get elements () {
+        const elements = [...document.querySelectorAll('style')];
+        return elements;
+    }
+
+    get cssText () {
+        let str = ""
+        for (const rule of this) {
+            str += rule.cssText;
+        }
+        return str;
+    }
+
+    adopt (checkForDuplicates = false) {
+        if (checkForDuplicates) {
+            for (const a of Sheet.elements) {
+                if (a.innerHTML === this.rules) return;
+            }
+            // for (const a of Sheet.adopted) {
+            //     if (a.cssText === this.cssText) return;
+            // }
+        }
+        document.querySelector('head').append(this.stylesheet);
+    }
+}
+/*
+export class _Sheet extends CSSStyleSheet {
     * [Symbol.iterator] () {
         for (const rule of this.cssRules)
         { yield rule; }
@@ -260,7 +307,7 @@ export class Sheet extends CSSStyleSheet {
         document.adoptedStyleSheets.push(this);
     }
 }
-
+*/
 export const config = cssConfig
 
 export { Unit, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError };
