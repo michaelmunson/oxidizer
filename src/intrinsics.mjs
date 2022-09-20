@@ -2121,27 +2121,16 @@ export class STRONG {
  * @global
 */
 export class STYLE {
-    constructor (cssRules) {
-        const node = document.createElement('style');
-        let ruleArray = null;
-
-        if (cssRules instanceof css.RuleList) {
-            ruleArray = cssRules;
+    constructor (props) {
+        const tagname = "style";
+        if (this.constructor.name === tagname.toUpperCase()) {
+            const node = $create(tagname, props);
+            return node;
         }
-        else ruleArray = css(cssRules);
-
-        node.ruleArray = ruleArray;
-        function render () {
-            document.head.append(this);
-            this.ruleArray.forEach(rule => {
-                try {
-                    this.sheet.insertRule(rule.toString());
-                }
-                catch (e) {}
-            })
+        else {
+            const node = $createExt.call(this, tagname, props);
+            return node;
         }
-        node.render = render.bind(node);
-        return node;
     }
 }
 

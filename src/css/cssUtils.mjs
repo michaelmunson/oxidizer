@@ -271,43 +271,7 @@ export class Sheet {
         document.querySelector('head').append(this.stylesheet);
     }
 }
-/*
-export class _Sheet extends CSSStyleSheet {
-    * [Symbol.iterator] () {
-        for (const rule of this.cssRules)
-        { yield rule; }
-    };
 
-    constructor (rules, options = null) {
-        super(options);
-        if (isObj(rules)) {
-            rules = stringify(compile(rules));
-        }
-        this.replaceSync(rules);
-    }
-
-    static get adopted () {
-        return [...document.adoptedStyleSheets];
-    }
-
-    get cssText () {
-        let str = ""
-        for (const rule of this) {
-            str += rule.cssText;
-        }
-        return str;
-    }
-
-    adopt (checkForDuplicates = false) {
-        if (checkForDuplicates) {
-            for (const a of Sheet.adopted) {
-                if (a.cssText === this.cssText) return;
-            }
-        }
-        document.adoptedStyleSheets.push(this);
-    }
-}
-*/
 export const config = cssConfig
 
 export { Unit, CSSRuleError, CSSStyleSheetError, CSSUnsupportedError };
@@ -661,5 +625,46 @@ export const HTMLStyleMethods = {
         }
         return this
     }
+}
+
+try {
+    Sheet = class extends CSSStyleSheet {
+        * [Symbol.iterator] () {
+            for (const rule of this.cssRules)
+            { yield rule; }
+        };
+
+        constructor (rules, options = null) {
+            super(options);
+            if (isObj(rules)) {
+                rules = stringify(compile(rules));
+            }
+            this.replaceSync(rules);
+        }
+
+        static get adopted () {
+            return [...document.adoptedStyleSheets];
+        }
+
+        get cssText () {
+            let str = ""
+            for (const rule of this) {
+                str += rule.cssText;
+            }
+            return str;
+        }
+
+        adopt (checkForDuplicates = false) {
+            if (checkForDuplicates) {
+                for (const a of Sheet.adopted) {
+                    if (a.cssText === this.cssText) return;
+                }
+            }
+            document.adoptedStyleSheets.push(this);
+        }
+    };
+}
+catch (e) {
+    console.warn(e);
 }
 */
