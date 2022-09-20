@@ -84,7 +84,7 @@ Changes made to an elements .props object will cause the element to rerender.
 import {UL, LI} from "oxidizer"
 
 const btn = new BUTTON({
-    class:"inactive"
+    class:"inactive",
     textContent:"Click Me"
 })
 
@@ -139,7 +139,7 @@ Custom Element classes can be created by extending Oxidizer's <code>Component</c
 
 * Class methods are applied directly to the HTML element
 
-<br/><br/>
+<br/>
 
 *Below we'll create a custom element component named <code>NavContainer</code> and show how it can be deployed in a sample app*
 <br/> 
