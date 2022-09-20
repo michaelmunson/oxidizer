@@ -1,6 +1,6 @@
 {
   "name": "oxidizer",
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "bare metal react-type framework for web development",
   "main": "index.js",
   "scripts": {

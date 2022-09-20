@@ -200,7 +200,7 @@ export class NavContainer extends Component {
 <i style="color:gray;">app.mjs</i>
 
 ```javascript
-import {NavContainer} from 
+import {NavContainer} from "oxidizer"
 
 const props = {
     items : [
