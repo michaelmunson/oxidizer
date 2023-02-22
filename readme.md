@@ -81,7 +81,7 @@ The props object can be accessed using the <code>.props</code> property.
 Changes made to an elements .props object will cause the element to rerender.
 
 ```javascript
-import {UL, LI} from "oxidizer"
+import {BUTTON} from "oxidizer"
 
 const btn = new BUTTON({
     class:"inactive",
