@@ -8,7 +8,7 @@ Oxidizer is a web development framework intended as a lightweight substitute for
 - Easily create custom HTML elements 
 
 ## Installation
-    npm install oxidizer --save-dev
+    npm install oxidizer
 
 ---
 
@@ -233,6 +233,6 @@ HTML Output
         <li class="">Lemur</li>
         <li class="">Panda</li>
     </ul>
-    <p>Pandas are a species of bear endemic to China.</p>
+    <p>The raccoon is a mammal native to North America.</p>
 </nav-container>
 ```
