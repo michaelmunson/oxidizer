@@ -1,6 +1,6 @@
 {
   "name": "oxidizer",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "bare metal react-type framework for web development",
   "main": "index.js",
   "scripts": {
@@ -10,13 +10,17 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://www.google.com/search?q=git+remove+branch&oq=git+remove+&aqs=chrome.5.69i57j0i20i263i512j0i20i131i263i433i512j0i433i512l2j0i131i433i512j0i433i512j0i512l3.5199j0j4&sourceid=chrome&ie=UTF-8"
+    "url": "https://github.com/michaelmunson/oxidizer"
   },
   "type": "module",
   "keywords": [
     "react",
     "webdev"
   ],
+  "dependencies": {
+    "lit": "^2.2.1",
+    "lit-html": "^2.2.1"
+  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
