@@ -1,35 +1,29 @@
 {
   "name": "oxidizer",
-  "version": "1.2.1",
-  "description": "bare metal react-type framework for web development",
-  "main": "index.js",
+  "version": "2.1.0",
+  "description": "A lightweight reactive web development library based on web components.",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && tsc",
+    "create-docs" : "typedoc --out ./docs ./src/index.ts"
   },
-  "author": "Michael Munson <michaelmunsonm@gmail.com>",
-  "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/michaelmunson/oxidizer"
+    "url": "https://github.com/michaelmunson/oxidizer-ts"
   },
-  "type": "module",
   "keywords": [
-    "react",
-    "webdev"
+    "WebDevelopment",
+    "library",
+    "reactive",
+    "WebComponents"
   ],
+  "author": "Michael Munson",
+  "license": "ISC",
   "dependencies": {
-    "lit": "^2.2.1",
-    "lit-html": "^2.2.1"
+    "csstype": "^3.1.3"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "lit": "^2.2.1",
-    "lit-html": "^2.2.1"
+    "typedoc": "^0.26.6",
+    "typescript": "^5.5.4"
   }
 }

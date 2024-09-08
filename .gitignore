@@ -1,5 +1,3 @@
-*.notes
-static/
-
-.eslintrc.json
-
+todo.notes
+node_modules
+test.ts
