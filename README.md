@@ -49,8 +49,7 @@ These element factory functions can also take props as an input, which can be us
 ```typescript
 // SIMPLE COUNTER APP EXAMPLE
 
-import {BUTTON, DIV, H1} from "oxidizer/intrinsics";
-import {createProps} from "oxidizer/props";
+import {createProps, BUTTON, DIV, H1} from "oxidizer";
 
 const props = createProps({count: 0});
 
