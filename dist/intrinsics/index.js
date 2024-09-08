@@ -17,16 +17,7 @@ const utils_1 = require("./utils");
  *         {className: 'a'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $a =
- *     A(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.A = (0, utils_1.createElementFactory)("a");
@@ -54,16 +45,7 @@ exports.AREA = (0, utils_1.createElementFactory)("area");
  *         {className: 'audio'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $audio =
- *     AUDIO(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.AUDIO = (0, utils_1.createElementFactory)("audio");
@@ -80,16 +62,7 @@ exports.AUDIO = (0, utils_1.createElementFactory)("audio");
  *         {className: 'abbr'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $abbr =
- *     ABBR(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.ABBR = (0, utils_1.createElementFactory)("abbr");
@@ -106,16 +79,7 @@ exports.ABBR = (0, utils_1.createElementFactory)("abbr");
  *         {className: 'address'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $address =
- *     ADDRESS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.ADDRESS = (0, utils_1.createElementFactory)("address");
@@ -132,16 +96,7 @@ exports.ADDRESS = (0, utils_1.createElementFactory)("address");
  *         {className: 'article'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $article =
- *     ARTICLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.ARTICLE = (0, utils_1.createElementFactory)("article");
@@ -158,16 +113,7 @@ exports.ARTICLE = (0, utils_1.createElementFactory)("article");
  *         {className: 'aside'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $aside =
- *     ASIDE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.ASIDE = (0, utils_1.createElementFactory)("aside");
@@ -195,16 +141,7 @@ exports.BR = (0, utils_1.createElementFactory)("br");
  *         {className: 'b'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $b =
- *     B(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.B = (0, utils_1.createElementFactory)("b");
@@ -221,16 +158,7 @@ exports.B = (0, utils_1.createElementFactory)("b");
  *         {className: 'bdi'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $bdi =
- *     BDI(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.BDI = (0, utils_1.createElementFactory)("bdi");
@@ -247,16 +175,7 @@ exports.BDI = (0, utils_1.createElementFactory)("bdi");
  *         {className: 'bdo'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $bdo =
- *     BDO(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.BDO = (0, utils_1.createElementFactory)("bdo");
@@ -284,16 +203,7 @@ exports.BASE = (0, utils_1.createElementFactory)("base");
  *         {className: 'body'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $body =
- *     BODY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.BODY = (0, utils_1.createElementFactory)("body");
@@ -310,16 +220,7 @@ exports.BODY = (0, utils_1.createElementFactory)("body");
  *         {className: 'button'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $button =
- *     BUTTON(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.BUTTON = (0, utils_1.createElementFactory)("button");
@@ -336,16 +237,7 @@ exports.BUTTON = (0, utils_1.createElementFactory)("button");
  *         {className: 'canvas'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $canvas =
- *     CANVAS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.CANVAS = (0, utils_1.createElementFactory)("canvas");
@@ -362,16 +254,7 @@ exports.CANVAS = (0, utils_1.createElementFactory)("canvas");
  *         {className: 'cite'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $cite =
- *     CITE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.CITE = (0, utils_1.createElementFactory)("cite");
@@ -388,16 +271,7 @@ exports.CITE = (0, utils_1.createElementFactory)("cite");
  *         {className: 'code'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $code =
- *     CODE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.CODE = (0, utils_1.createElementFactory)("code");
@@ -414,16 +288,7 @@ exports.CODE = (0, utils_1.createElementFactory)("code");
  *         {className: 'colgroup'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $colgroup =
- *     COLGROUP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.COLGROUP = (0, utils_1.createElementFactory)("colgroup");
@@ -440,16 +305,7 @@ exports.COLGROUP = (0, utils_1.createElementFactory)("colgroup");
  *         {className: 'dd'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $dd =
- *     DD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DD = (0, utils_1.createElementFactory)("dd");
@@ -466,16 +322,7 @@ exports.DD = (0, utils_1.createElementFactory)("dd");
  *         {className: 'dl'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $dl =
- *     DL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DL = (0, utils_1.createElementFactory)("dl");
@@ -492,16 +339,7 @@ exports.DL = (0, utils_1.createElementFactory)("dl");
  *         {className: 'data'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $data =
- *     DATA(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DATA = (0, utils_1.createElementFactory)("data");
@@ -518,16 +356,7 @@ exports.DATA = (0, utils_1.createElementFactory)("data");
  *         {className: 'datalist'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $datalist =
- *     DATALIST(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DATALIST = (0, utils_1.createElementFactory)("datalist");
@@ -544,16 +373,7 @@ exports.DATALIST = (0, utils_1.createElementFactory)("datalist");
  *         {className: 'details'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $details =
- *     DETAILS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DETAILS = (0, utils_1.createElementFactory)("details");
@@ -570,16 +390,7 @@ exports.DETAILS = (0, utils_1.createElementFactory)("details");
  *         {className: 'dialog'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $dialog =
- *     DIALOG(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DIALOG = (0, utils_1.createElementFactory)("dialog");
@@ -596,16 +407,7 @@ exports.DIALOG = (0, utils_1.createElementFactory)("dialog");
  *         {className: 'div'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $div =
- *     DIV(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DIV = (0, utils_1.createElementFactory)("div");
@@ -622,16 +424,7 @@ exports.DIV = (0, utils_1.createElementFactory)("div");
  *         {className: 'em'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $em =
- *     EM(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.EM = (0, utils_1.createElementFactory)("em");
@@ -659,16 +452,7 @@ exports.EMBED = (0, utils_1.createElementFactory)("embed");
  *         {className: 'fieldset'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $fieldset =
- *     FIELDSET(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.FIELDSET = (0, utils_1.createElementFactory)("fieldset");
@@ -685,16 +469,7 @@ exports.FIELDSET = (0, utils_1.createElementFactory)("fieldset");
  *         {className: 'figure'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $figure =
- *     FIGURE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.FIGURE = (0, utils_1.createElementFactory)("figure");
@@ -711,16 +486,7 @@ exports.FIGURE = (0, utils_1.createElementFactory)("figure");
  *         {className: 'footer'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $footer =
- *     FOOTER(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.FOOTER = (0, utils_1.createElementFactory)("footer");
@@ -737,16 +503,7 @@ exports.FOOTER = (0, utils_1.createElementFactory)("footer");
  *         {className: 'form'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $form =
- *     FORM(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.FORM = (0, utils_1.createElementFactory)("form");
@@ -763,16 +520,7 @@ exports.FORM = (0, utils_1.createElementFactory)("form");
  *         {className: 'hgroup'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $hgroup =
- *     HGROUP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.HGROUP = (0, utils_1.createElementFactory)("hgroup");
@@ -800,16 +548,7 @@ exports.HR = (0, utils_1.createElementFactory)("hr");
  *         {className: 'head'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $head =
- *     HEAD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.HEAD = (0, utils_1.createElementFactory)("head");
@@ -826,16 +565,7 @@ exports.HEAD = (0, utils_1.createElementFactory)("head");
  *         {className: 'h1'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h1 =
- *     H1(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.H1 = (0, utils_1.createElementFactory)("h1");
@@ -852,16 +582,7 @@ exports.H1 = (0, utils_1.createElementFactory)("h1");
  *         {className: 'h2'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h2 =
- *     H2(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.H2 = (0, utils_1.createElementFactory)("h2");
@@ -878,16 +599,7 @@ exports.H2 = (0, utils_1.createElementFactory)("h2");
  *         {className: 'h3'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h3 =
- *     H3(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.H3 = (0, utils_1.createElementFactory)("h3");
@@ -904,16 +616,7 @@ exports.H3 = (0, utils_1.createElementFactory)("h3");
  *         {className: 'h4'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h4 =
- *     H4(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.H4 = (0, utils_1.createElementFactory)("h4");
@@ -930,16 +633,7 @@ exports.H4 = (0, utils_1.createElementFactory)("h4");
  *         {className: 'h5'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h5 =
- *     H5(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.H5 = (0, utils_1.createElementFactory)("h5");
@@ -956,16 +650,7 @@ exports.H5 = (0, utils_1.createElementFactory)("h5");
  *         {className: 'h6'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h6 =
- *     H6(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.H6 = (0, utils_1.createElementFactory)("h6");
@@ -982,16 +667,7 @@ exports.H6 = (0, utils_1.createElementFactory)("h6");
  *         {className: 'html'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $html =
- *     HTML(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.HTML = (0, utils_1.createElementFactory)("html");
@@ -1008,16 +684,7 @@ exports.HTML = (0, utils_1.createElementFactory)("html");
  *         {className: 'kbd'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $kbd =
- *     KBD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.KBD = (0, utils_1.createElementFactory)("kbd");
@@ -1034,16 +701,7 @@ exports.KBD = (0, utils_1.createElementFactory)("kbd");
  *         {className: 'ins'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ins =
- *     INS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.INS = (0, utils_1.createElementFactory)("ins");
@@ -1060,16 +718,7 @@ exports.INS = (0, utils_1.createElementFactory)("ins");
  *         {className: 'i'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $i =
- *     I(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.I = (0, utils_1.createElementFactory)("i");
@@ -1086,16 +735,7 @@ exports.I = (0, utils_1.createElementFactory)("i");
  *         {className: 'iframe'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $iframe =
- *     IFRAME(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.IFRAME = (0, utils_1.createElementFactory)("iframe");
@@ -1134,16 +774,7 @@ exports.INPUT = (0, utils_1.createElementFactory)("input");
  *         {className: 'li'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $li =
- *     LI(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.LI = (0, utils_1.createElementFactory)("li");
@@ -1160,16 +791,7 @@ exports.LI = (0, utils_1.createElementFactory)("li");
  *         {className: 'label'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $label =
- *     LABEL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.LABEL = (0, utils_1.createElementFactory)("label");
@@ -1186,16 +808,7 @@ exports.LABEL = (0, utils_1.createElementFactory)("label");
  *         {className: 'legend'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $legend =
- *     LEGEND(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.LEGEND = (0, utils_1.createElementFactory)("legend");
@@ -1223,16 +836,7 @@ exports.LINK = (0, utils_1.createElementFactory)("link");
  *         {className: 'main'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $main =
- *     MAIN(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.MAIN = (0, utils_1.createElementFactory)("main");
@@ -1249,16 +853,7 @@ exports.MAIN = (0, utils_1.createElementFactory)("main");
  *         {className: 'map'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $map =
- *     MAP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.MAP = (0, utils_1.createElementFactory)("map");
@@ -1275,16 +870,7 @@ exports.MAP = (0, utils_1.createElementFactory)("map");
  *         {className: 'menu'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $menu =
- *     MENU(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.MENU = (0, utils_1.createElementFactory)("menu");
@@ -1301,16 +887,7 @@ exports.MENU = (0, utils_1.createElementFactory)("menu");
  *         {className: 'mark'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $mark =
- *     MARK(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.MARK = (0, utils_1.createElementFactory)("mark");
@@ -1327,16 +904,7 @@ exports.MARK = (0, utils_1.createElementFactory)("mark");
  *         {className: 'nav'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $nav =
- *     NAV(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.NAV = (0, utils_1.createElementFactory)("nav");
@@ -1353,16 +921,7 @@ exports.NAV = (0, utils_1.createElementFactory)("nav");
  *         {className: 'noscript'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $noscript =
- *     NOSCRIPT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.NOSCRIPT = (0, utils_1.createElementFactory)("noscript");
@@ -1390,16 +949,7 @@ exports.META = (0, utils_1.createElementFactory)("meta");
  *         {className: 'meter'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $meter =
- *     METER(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.METER = (0, utils_1.createElementFactory)("meter");
@@ -1416,16 +966,7 @@ exports.METER = (0, utils_1.createElementFactory)("meter");
  *         {className: 'del'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $del =
- *     DEL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.DEL = (0, utils_1.createElementFactory)("del");
@@ -1442,16 +983,7 @@ exports.DEL = (0, utils_1.createElementFactory)("del");
  *         {className: 'ol'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ol =
- *     OL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.OL = (0, utils_1.createElementFactory)("ol");
@@ -1468,16 +1000,7 @@ exports.OL = (0, utils_1.createElementFactory)("ol");
  *         {className: 'object'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $object =
- *     OBJECT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.OBJECT = (0, utils_1.createElementFactory)("object");
@@ -1494,16 +1017,7 @@ exports.OBJECT = (0, utils_1.createElementFactory)("object");
  *         {className: 'optgroup'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $optgroup =
- *     OPTGROUP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.OPTGROUP = (0, utils_1.createElementFactory)("optgroup");
@@ -1520,16 +1034,7 @@ exports.OPTGROUP = (0, utils_1.createElementFactory)("optgroup");
  *         {className: 'option'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $option =
- *     OPTION(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.OPTION = (0, utils_1.createElementFactory)("option");
@@ -1546,16 +1051,7 @@ exports.OPTION = (0, utils_1.createElementFactory)("option");
  *         {className: 'output'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $output =
- *     OUTPUT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.OUTPUT = (0, utils_1.createElementFactory)("output");
@@ -1572,16 +1068,7 @@ exports.OUTPUT = (0, utils_1.createElementFactory)("output");
  *         {className: 'p'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $p =
- *     P(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.P = (0, utils_1.createElementFactory)("p");
@@ -1598,16 +1085,7 @@ exports.P = (0, utils_1.createElementFactory)("p");
  *         {className: 'picture'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $picture =
- *     PICTURE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.PICTURE = (0, utils_1.createElementFactory)("picture");
@@ -1624,16 +1102,7 @@ exports.PICTURE = (0, utils_1.createElementFactory)("picture");
  *         {className: 'pre'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $pre =
- *     PRE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.PRE = (0, utils_1.createElementFactory)("pre");
@@ -1650,16 +1119,7 @@ exports.PRE = (0, utils_1.createElementFactory)("pre");
  *         {className: 'progress'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $progress =
- *     PROGRESS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.PROGRESS = (0, utils_1.createElementFactory)("progress");
@@ -1676,16 +1136,7 @@ exports.PROGRESS = (0, utils_1.createElementFactory)("progress");
  *         {className: 'rt'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $rt =
- *     RT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.RT = (0, utils_1.createElementFactory)("rt");
@@ -1702,16 +1153,7 @@ exports.RT = (0, utils_1.createElementFactory)("rt");
  *         {className: 'rp'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $rp =
- *     RP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.RP = (0, utils_1.createElementFactory)("rp");
@@ -1728,16 +1170,7 @@ exports.RP = (0, utils_1.createElementFactory)("rp");
  *         {className: 'ruby'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ruby =
- *     RUBY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.RUBY = (0, utils_1.createElementFactory)("ruby");
@@ -1754,16 +1187,7 @@ exports.RUBY = (0, utils_1.createElementFactory)("ruby");
  *         {className: 'small'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $small =
- *     SMALL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SMALL = (0, utils_1.createElementFactory)("small");
@@ -1780,16 +1204,7 @@ exports.SMALL = (0, utils_1.createElementFactory)("small");
  *         {className: 'q'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $q =
- *     Q(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.Q = (0, utils_1.createElementFactory)("q");
@@ -1806,16 +1221,7 @@ exports.Q = (0, utils_1.createElementFactory)("q");
  *         {className: 'blockquote'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $blockquote =
- *     BLOCKQUOTE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.BLOCKQUOTE = (0, utils_1.createElementFactory)("blockquote");
@@ -1832,16 +1238,7 @@ exports.BLOCKQUOTE = (0, utils_1.createElementFactory)("blockquote");
  *         {className: 'script'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $script =
- *     SCRIPT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SCRIPT = (0, utils_1.createElementFactory)("script");
@@ -1858,16 +1255,7 @@ exports.SCRIPT = (0, utils_1.createElementFactory)("script");
  *         {className: 'select'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $select =
- *     SELECT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SELECT = (0, utils_1.createElementFactory)("select");
@@ -1884,16 +1272,7 @@ exports.SELECT = (0, utils_1.createElementFactory)("select");
  *         {className: 'slot'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $slot =
- *     SLOT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SLOT = (0, utils_1.createElementFactory)("slot");
@@ -1921,16 +1300,7 @@ exports.SOURCE = (0, utils_1.createElementFactory)("source");
  *         {className: 'span'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $span =
- *     SPAN(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SPAN = (0, utils_1.createElementFactory)("span");
@@ -1942,21 +1312,13 @@ exports.SPAN = (0, utils_1.createElementFactory)("span");
  * @description creates an `HTMLStyleElement` instance.
  * @example
  * ```typescript
- * const style:HTMLStyleElement =
- *     STYLE(
- *         {className: 'style'},
- *         'Hello',
- *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
+ * const stylesheet = STYLE(css`
+ *     .my-class {
+ *         color: red;
+ *     }
+ * `);
 
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $style =
- *     STYLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ * document.head.append(stylesheet)
  * ```
  */
 exports.STYLE = (0, utils_1.createElementFactory)("style");
@@ -1973,16 +1335,7 @@ exports.STYLE = (0, utils_1.createElementFactory)("style");
  *         {className: 'sub'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $sub =
- *     SUB(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SUB = (0, utils_1.createElementFactory)("sub");
@@ -1999,16 +1352,7 @@ exports.SUB = (0, utils_1.createElementFactory)("sub");
  *         {className: 'summary'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $summary =
- *     SUMMARY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SUMMARY = (0, utils_1.createElementFactory)("summary");
@@ -2025,16 +1369,7 @@ exports.SUMMARY = (0, utils_1.createElementFactory)("summary");
  *         {className: 'search'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $search =
- *     SEARCH(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SEARCH = (0, utils_1.createElementFactory)("search");
@@ -2051,16 +1386,7 @@ exports.SEARCH = (0, utils_1.createElementFactory)("search");
  *         {className: 'section'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $section =
- *     SECTION(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.SECTION = (0, utils_1.createElementFactory)("section");
@@ -2077,16 +1403,7 @@ exports.SECTION = (0, utils_1.createElementFactory)("section");
  *         {className: 'caption'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $caption =
- *     CAPTION(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.CAPTION = (0, utils_1.createElementFactory)("caption");
@@ -2103,16 +1420,7 @@ exports.CAPTION = (0, utils_1.createElementFactory)("caption");
  *         {className: 'th'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $th =
- *     TH(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TH = (0, utils_1.createElementFactory)("th");
@@ -2129,16 +1437,7 @@ exports.TH = (0, utils_1.createElementFactory)("th");
  *         {className: 'td'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $td =
- *     TD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TD = (0, utils_1.createElementFactory)("td");
@@ -2166,16 +1465,7 @@ exports.COL = (0, utils_1.createElementFactory)("col");
  *         {className: 'table'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $table =
- *     TABLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TABLE = (0, utils_1.createElementFactory)("table");
@@ -2192,16 +1482,7 @@ exports.TABLE = (0, utils_1.createElementFactory)("table");
  *         {className: 'tr'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $tr =
- *     TR(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TR = (0, utils_1.createElementFactory)("tr");
@@ -2218,16 +1499,7 @@ exports.TR = (0, utils_1.createElementFactory)("tr");
  *         {className: 'thead'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $thead =
- *     THEAD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.THEAD = (0, utils_1.createElementFactory)("thead");
@@ -2244,16 +1516,7 @@ exports.THEAD = (0, utils_1.createElementFactory)("thead");
  *         {className: 'tfoot'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $tfoot =
- *     TFOOT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TFOOT = (0, utils_1.createElementFactory)("tfoot");
@@ -2270,16 +1533,7 @@ exports.TFOOT = (0, utils_1.createElementFactory)("tfoot");
  *         {className: 'tbody'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $tbody =
- *     TBODY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TBODY = (0, utils_1.createElementFactory)("tbody");
@@ -2296,16 +1550,7 @@ exports.TBODY = (0, utils_1.createElementFactory)("tbody");
  *         {className: 'template'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $template =
- *     TEMPLATE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TEMPLATE = (0, utils_1.createElementFactory)("template");
@@ -2322,16 +1567,7 @@ exports.TEMPLATE = (0, utils_1.createElementFactory)("template");
  *         {className: 'textarea'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $textarea =
- *     TEXTAREA(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TEXTAREA = (0, utils_1.createElementFactory)("textarea");
@@ -2348,16 +1584,7 @@ exports.TEXTAREA = (0, utils_1.createElementFactory)("textarea");
  *         {className: 'time'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $time =
- *     TIME(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TIME = (0, utils_1.createElementFactory)("time");
@@ -2374,16 +1601,7 @@ exports.TIME = (0, utils_1.createElementFactory)("time");
  *         {className: 'title'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $title =
- *     TITLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.TITLE = (0, utils_1.createElementFactory)("title");
@@ -2411,16 +1629,7 @@ exports.TRACK = (0, utils_1.createElementFactory)("track");
  *         {className: 'u'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $u =
- *     U(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.U = (0, utils_1.createElementFactory)("u");
@@ -2437,16 +1646,7 @@ exports.U = (0, utils_1.createElementFactory)("u");
  *         {className: 'ul'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ul =
- *     UL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.UL = (0, utils_1.createElementFactory)("ul");
@@ -2463,16 +1663,7 @@ exports.UL = (0, utils_1.createElementFactory)("ul");
  *         {className: 'video'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $video =
- *     VIDEO(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.VIDEO = (0, utils_1.createElementFactory)("video");
@@ -2489,16 +1680,7 @@ exports.VIDEO = (0, utils_1.createElementFactory)("video");
  *         {className: 'var'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $var =
- *     VAR(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 exports.VAR = (0, utils_1.createElementFactory)("var");

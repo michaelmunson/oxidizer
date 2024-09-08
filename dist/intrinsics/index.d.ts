@@ -11,16 +11,7 @@
  *         {className: 'a'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $a =
- *     A(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const A: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLAnchorElement, P>) => HTMLAnchorElement;
@@ -48,16 +39,7 @@ export declare const AREA: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'audio'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $audio =
- *     AUDIO(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const AUDIO: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLAudioElement, P>) => HTMLAudioElement;
@@ -74,16 +56,7 @@ export declare const AUDIO: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'abbr'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $abbr =
- *     ABBR(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const ABBR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -100,16 +73,7 @@ export declare const ABBR: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'address'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $address =
- *     ADDRESS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const ADDRESS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -126,16 +90,7 @@ export declare const ADDRESS: <P extends {} = any>(...params: import("./types").
  *         {className: 'article'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $article =
- *     ARTICLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const ARTICLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -152,16 +107,7 @@ export declare const ARTICLE: <P extends {} = any>(...params: import("./types").
  *         {className: 'aside'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $aside =
- *     ASIDE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const ASIDE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -189,16 +135,7 @@ export declare const BR: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'b'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $b =
- *     B(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const B: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -215,16 +152,7 @@ export declare const B: <P extends {} = any>(...params: import("./types").Create
  *         {className: 'bdi'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $bdi =
- *     BDI(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const BDI: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -241,16 +169,7 @@ export declare const BDI: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'bdo'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $bdo =
- *     BDO(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const BDO: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -278,16 +197,7 @@ export declare const BASE: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'body'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $body =
- *     BODY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const BODY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLBodyElement, P>) => HTMLBodyElement;
@@ -304,16 +214,7 @@ export declare const BODY: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'button'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $button =
- *     BUTTON(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const BUTTON: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLButtonElement, P>) => HTMLButtonElement;
@@ -330,16 +231,7 @@ export declare const BUTTON: <P extends {} = any>(...params: import("./types").C
  *         {className: 'canvas'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $canvas =
- *     CANVAS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const CANVAS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLCanvasElement, P>) => HTMLCanvasElement;
@@ -356,16 +248,7 @@ export declare const CANVAS: <P extends {} = any>(...params: import("./types").C
  *         {className: 'cite'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $cite =
- *     CITE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const CITE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -382,16 +265,7 @@ export declare const CITE: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'code'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $code =
- *     CODE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const CODE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -408,16 +282,7 @@ export declare const CODE: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'colgroup'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $colgroup =
- *     COLGROUP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const COLGROUP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableColElement, P>) => HTMLTableColElement;
@@ -434,16 +299,7 @@ export declare const COLGROUP: <P extends {} = any>(...params: import("./types")
  *         {className: 'dd'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $dd =
- *     DD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -460,16 +316,7 @@ export declare const DD: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'dl'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $dl =
- *     DL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDListElement, P>) => HTMLDListElement;
@@ -486,16 +333,7 @@ export declare const DL: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'data'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $data =
- *     DATA(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DATA: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDataElement, P>) => HTMLDataElement;
@@ -512,16 +350,7 @@ export declare const DATA: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'datalist'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $datalist =
- *     DATALIST(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DATALIST: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDataListElement, P>) => HTMLDataListElement;
@@ -538,16 +367,7 @@ export declare const DATALIST: <P extends {} = any>(...params: import("./types")
  *         {className: 'details'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $details =
- *     DETAILS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DETAILS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDetailsElement, P>) => HTMLDetailsElement;
@@ -564,16 +384,7 @@ export declare const DETAILS: <P extends {} = any>(...params: import("./types").
  *         {className: 'dialog'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $dialog =
- *     DIALOG(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DIALOG: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDialogElement, P>) => HTMLDialogElement;
@@ -590,16 +401,7 @@ export declare const DIALOG: <P extends {} = any>(...params: import("./types").C
  *         {className: 'div'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $div =
- *     DIV(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DIV: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDivElement, P>) => HTMLDivElement;
@@ -616,16 +418,7 @@ export declare const DIV: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'em'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $em =
- *     EM(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const EM: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -653,16 +446,7 @@ export declare const EMBED: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'fieldset'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $fieldset =
- *     FIELDSET(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const FIELDSET: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLFieldSetElement, P>) => HTMLFieldSetElement;
@@ -679,16 +463,7 @@ export declare const FIELDSET: <P extends {} = any>(...params: import("./types")
  *         {className: 'figure'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $figure =
- *     FIGURE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const FIGURE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -705,16 +480,7 @@ export declare const FIGURE: <P extends {} = any>(...params: import("./types").C
  *         {className: 'footer'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $footer =
- *     FOOTER(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const FOOTER: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -731,16 +497,7 @@ export declare const FOOTER: <P extends {} = any>(...params: import("./types").C
  *         {className: 'form'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $form =
- *     FORM(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const FORM: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLFormElement, P>) => HTMLFormElement;
@@ -757,16 +514,7 @@ export declare const FORM: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'hgroup'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $hgroup =
- *     HGROUP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const HGROUP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -794,16 +542,7 @@ export declare const HR: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'head'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $head =
- *     HEAD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const HEAD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadElement, P>) => HTMLHeadElement;
@@ -820,16 +559,7 @@ export declare const HEAD: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'h1'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h1 =
- *     H1(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const H1: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
@@ -846,16 +576,7 @@ export declare const H1: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'h2'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h2 =
- *     H2(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const H2: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
@@ -872,16 +593,7 @@ export declare const H2: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'h3'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h3 =
- *     H3(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const H3: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
@@ -898,16 +610,7 @@ export declare const H3: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'h4'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h4 =
- *     H4(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const H4: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
@@ -924,16 +627,7 @@ export declare const H4: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'h5'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h5 =
- *     H5(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const H5: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
@@ -950,16 +644,7 @@ export declare const H5: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'h6'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $h6 =
- *     H6(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const H6: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
@@ -976,16 +661,7 @@ export declare const H6: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'html'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $html =
- *     HTML(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const HTML: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHtmlElement, P>) => HTMLHtmlElement;
@@ -1002,16 +678,7 @@ export declare const HTML: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'kbd'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $kbd =
- *     KBD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const KBD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1028,16 +695,7 @@ export declare const KBD: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'ins'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ins =
- *     INS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const INS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLModElement, P>) => HTMLModElement;
@@ -1054,16 +712,7 @@ export declare const INS: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'i'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $i =
- *     I(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const I: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1080,16 +729,7 @@ export declare const I: <P extends {} = any>(...params: import("./types").Create
  *         {className: 'iframe'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $iframe =
- *     IFRAME(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const IFRAME: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLIFrameElement, P>) => HTMLIFrameElement;
@@ -1128,16 +768,7 @@ export declare const INPUT: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'li'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $li =
- *     LI(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const LI: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLIElement, P>) => HTMLLIElement;
@@ -1154,16 +785,7 @@ export declare const LI: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'label'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $label =
- *     LABEL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const LABEL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLabelElement, P>) => HTMLLabelElement;
@@ -1180,16 +802,7 @@ export declare const LABEL: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'legend'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $legend =
- *     LEGEND(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const LEGEND: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLegendElement, P>) => HTMLLegendElement;
@@ -1217,16 +830,7 @@ export declare const LINK: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'main'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $main =
- *     MAIN(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const MAIN: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1243,16 +847,7 @@ export declare const MAIN: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'map'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $map =
- *     MAP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const MAP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMapElement, P>) => HTMLMapElement;
@@ -1269,16 +864,7 @@ export declare const MAP: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'menu'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $menu =
- *     MENU(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const MENU: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMenuElement, P>) => HTMLMenuElement;
@@ -1295,16 +881,7 @@ export declare const MENU: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'mark'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $mark =
- *     MARK(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const MARK: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1321,16 +898,7 @@ export declare const MARK: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'nav'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $nav =
- *     NAV(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const NAV: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1347,16 +915,7 @@ export declare const NAV: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'noscript'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $noscript =
- *     NOSCRIPT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const NOSCRIPT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1384,16 +943,7 @@ export declare const META: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'meter'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $meter =
- *     METER(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const METER: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMeterElement, P>) => HTMLMeterElement;
@@ -1410,16 +960,7 @@ export declare const METER: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'del'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $del =
- *     DEL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const DEL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLModElement, P>) => HTMLModElement;
@@ -1436,16 +977,7 @@ export declare const DEL: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'ol'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ol =
- *     OL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const OL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOListElement, P>) => HTMLOListElement;
@@ -1462,16 +994,7 @@ export declare const OL: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'object'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $object =
- *     OBJECT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const OBJECT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLObjectElement, P>) => HTMLObjectElement;
@@ -1488,16 +1011,7 @@ export declare const OBJECT: <P extends {} = any>(...params: import("./types").C
  *         {className: 'optgroup'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $optgroup =
- *     OPTGROUP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const OPTGROUP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOptGroupElement, P>) => HTMLOptGroupElement;
@@ -1514,16 +1028,7 @@ export declare const OPTGROUP: <P extends {} = any>(...params: import("./types")
  *         {className: 'option'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $option =
- *     OPTION(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const OPTION: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOptionElement, P>) => HTMLOptionElement;
@@ -1540,16 +1045,7 @@ export declare const OPTION: <P extends {} = any>(...params: import("./types").C
  *         {className: 'output'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $output =
- *     OUTPUT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const OUTPUT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOutputElement, P>) => HTMLOutputElement;
@@ -1566,16 +1062,7 @@ export declare const OUTPUT: <P extends {} = any>(...params: import("./types").C
  *         {className: 'p'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $p =
- *     P(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const P: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLParagraphElement, P>) => HTMLParagraphElement;
@@ -1592,16 +1079,7 @@ export declare const P: <P extends {} = any>(...params: import("./types").Create
  *         {className: 'picture'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $picture =
- *     PICTURE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const PICTURE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLPictureElement, P>) => HTMLPictureElement;
@@ -1618,16 +1096,7 @@ export declare const PICTURE: <P extends {} = any>(...params: import("./types").
  *         {className: 'pre'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $pre =
- *     PRE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const PRE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLPreElement, P>) => HTMLPreElement;
@@ -1644,16 +1113,7 @@ export declare const PRE: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'progress'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $progress =
- *     PROGRESS(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const PROGRESS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLProgressElement, P>) => HTMLProgressElement;
@@ -1670,16 +1130,7 @@ export declare const PROGRESS: <P extends {} = any>(...params: import("./types")
  *         {className: 'rt'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $rt =
- *     RT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const RT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1696,16 +1147,7 @@ export declare const RT: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'rp'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $rp =
- *     RP(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const RP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1722,16 +1164,7 @@ export declare const RP: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'ruby'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ruby =
- *     RUBY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const RUBY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1748,16 +1181,7 @@ export declare const RUBY: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'small'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $small =
- *     SMALL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SMALL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1774,16 +1198,7 @@ export declare const SMALL: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'q'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $q =
- *     Q(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const Q: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLQuoteElement, P>) => HTMLQuoteElement;
@@ -1800,16 +1215,7 @@ export declare const Q: <P extends {} = any>(...params: import("./types").Create
  *         {className: 'blockquote'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $blockquote =
- *     BLOCKQUOTE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const BLOCKQUOTE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLQuoteElement, P>) => HTMLQuoteElement;
@@ -1826,16 +1232,7 @@ export declare const BLOCKQUOTE: <P extends {} = any>(...params: import("./types
  *         {className: 'script'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $script =
- *     SCRIPT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SCRIPT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLScriptElement, P>) => HTMLScriptElement;
@@ -1852,16 +1249,7 @@ export declare const SCRIPT: <P extends {} = any>(...params: import("./types").C
  *         {className: 'select'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $select =
- *     SELECT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SELECT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSelectElement, P>) => HTMLSelectElement;
@@ -1878,16 +1266,7 @@ export declare const SELECT: <P extends {} = any>(...params: import("./types").C
  *         {className: 'slot'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $slot =
- *     SLOT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SLOT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSlotElement, P>) => HTMLSlotElement;
@@ -1915,16 +1294,7 @@ export declare const SOURCE: <P extends {} = any>(...params: import("./types").C
  *         {className: 'span'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $span =
- *     SPAN(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SPAN: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSpanElement, P>) => HTMLSpanElement;
@@ -1936,21 +1306,13 @@ export declare const SPAN: <P extends {} = any>(...params: import("./types").Cre
  * @description creates an `HTMLStyleElement` instance.
  * @example
  * ```typescript
- * const style:HTMLStyleElement =
- *     STYLE(
- *         {className: 'style'},
- *         'Hello',
- *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
+ * const stylesheet = STYLE(css`
+ *     .my-class {
+ *         color: red;
+ *     }
+ * `);
 
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $style =
- *     STYLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ * document.head.append(stylesheet)
  * ```
  */
 export declare const STYLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLStyleElement, P>) => HTMLStyleElement;
@@ -1967,16 +1329,7 @@ export declare const STYLE: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'sub'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $sub =
- *     SUB(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SUB: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -1993,16 +1346,7 @@ export declare const SUB: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'summary'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $summary =
- *     SUMMARY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SUMMARY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -2019,16 +1363,7 @@ export declare const SUMMARY: <P extends {} = any>(...params: import("./types").
  *         {className: 'search'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $search =
- *     SEARCH(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SEARCH: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -2045,16 +1380,7 @@ export declare const SEARCH: <P extends {} = any>(...params: import("./types").C
  *         {className: 'section'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $section =
- *     SECTION(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const SECTION: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -2071,16 +1397,7 @@ export declare const SECTION: <P extends {} = any>(...params: import("./types").
  *         {className: 'caption'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $caption =
- *     CAPTION(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const CAPTION: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableCaptionElement, P>) => HTMLTableCaptionElement;
@@ -2097,16 +1414,7 @@ export declare const CAPTION: <P extends {} = any>(...params: import("./types").
  *         {className: 'th'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $th =
- *     TH(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TH: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableCellElement, P>) => HTMLTableCellElement;
@@ -2123,16 +1431,7 @@ export declare const TH: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'td'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $td =
- *     TD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableCellElement, P>) => HTMLTableCellElement;
@@ -2160,16 +1459,7 @@ export declare const COL: <P extends {} = any>(...params: import("./types").Crea
  *         {className: 'table'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $table =
- *     TABLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TABLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableElement, P>) => HTMLTableElement;
@@ -2186,16 +1476,7 @@ export declare const TABLE: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'tr'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $tr =
- *     TR(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableRowElement, P>) => HTMLTableRowElement;
@@ -2212,16 +1493,7 @@ export declare const TR: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'thead'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $thead =
- *     THEAD(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const THEAD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
@@ -2238,16 +1510,7 @@ export declare const THEAD: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'tfoot'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $tfoot =
- *     TFOOT(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TFOOT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
@@ -2264,16 +1527,7 @@ export declare const TFOOT: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'tbody'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $tbody =
- *     TBODY(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TBODY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
@@ -2290,16 +1544,7 @@ export declare const TBODY: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'template'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $template =
- *     TEMPLATE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TEMPLATE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTemplateElement, P>) => HTMLTemplateElement;
@@ -2316,16 +1561,7 @@ export declare const TEMPLATE: <P extends {} = any>(...params: import("./types")
  *         {className: 'textarea'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $textarea =
- *     TEXTAREA(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TEXTAREA: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTextAreaElement, P>) => HTMLTextAreaElement;
@@ -2342,16 +1578,7 @@ export declare const TEXTAREA: <P extends {} = any>(...params: import("./types")
  *         {className: 'time'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $time =
- *     TIME(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TIME: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTimeElement, P>) => HTMLTimeElement;
@@ -2368,16 +1595,7 @@ export declare const TIME: <P extends {} = any>(...params: import("./types").Cre
  *         {className: 'title'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $title =
- *     TITLE(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const TITLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTitleElement, P>) => HTMLTitleElement;
@@ -2405,16 +1623,7 @@ export declare const TRACK: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'u'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $u =
- *     U(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const U: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
@@ -2431,16 +1640,7 @@ export declare const U: <P extends {} = any>(...params: import("./types").Create
  *         {className: 'ul'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $ul =
- *     UL(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const UL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLUListElement, P>) => HTMLUListElement;
@@ -2457,16 +1657,7 @@ export declare const UL: <P extends {} = any>(...params: import("./types").Creat
  *         {className: 'video'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $video =
- *     VIDEO(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const VIDEO: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLVideoElement, P>) => HTMLVideoElement;
@@ -2483,16 +1674,7 @@ export declare const VIDEO: <P extends {} = any>(...params: import("./types").Cr
  *         {className: 'var'},
  *         'Hello',
  *         SPAN({style:{color:'red'}}, 'World')
- *     )
- *
-// with props
-
- * const props = createProps({name: 'snakgoat', color: 'red'});
- * const $var =
- *     VAR(props, p => [
- *         {style: {color: p.color}},
- *         SPAN(p.name)
- *     ])
+ *     );
  * ```
  */
 export declare const VAR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;

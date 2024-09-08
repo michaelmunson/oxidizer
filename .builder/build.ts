@@ -19,7 +19,23 @@ function createExample(tag:string, instance:string){
             `const ${tag}Element = ${tag.toUpperCase()}({className: '${tag}'});`,
             '```'
         ]
-    } else {
+    } 
+
+    else if (tag === "style"){
+        return [
+            '@example',
+            '```typescript',
+            'const stylesheet = STYLE(css`',
+            '    .my-class {',
+            '        color: red;',
+            '    }',
+            '`);\n',
+            'document.head.append(stylesheet)',
+            '```'
+        ]
+    }
+    
+    else {
         return [
             '@example',
             '```typescript',
@@ -28,14 +44,7 @@ function createExample(tag:string, instance:string){
             `        {className: '${tag}'},`,
             `        'Hello',`,
             `        SPAN({style:{color:'red'}}, 'World')`,
-            `    )`,
-            `\n// with props\n`,
-            `const props = createProps({name: 'snakgoat', color: 'red'});`,
-            `const $${tag} = `,
-            `    ${tag.toUpperCase()}(props, p => [`,
-            `        {style: {color: p.color}},`,
-            `        SPAN(p.name)`,
-            `    ])`,
+            `    );`,
             '```'
         ]
     }

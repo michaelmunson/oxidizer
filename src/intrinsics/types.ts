@@ -9,9 +9,7 @@ export type HTMLTagName = HTMLIntrinsicTagName | HTMLCustomElementTagName;
 
 export type HTMLElementFromTagName<T extends HTMLIntrinsicTagName | HTMLCustomElementTagName> = T extends HTMLIntrinsicTagName ? HTMLElementTagNameMap[T] : HTMLElement
 
-export type Attributes<T extends HTMLElement> = Partial<Omit<T, "style">> & {
-    style?: CSSProperties | string
-}
+export type Attributes<T extends HTMLElement> = Partial<Omit<T, "style"> & {style?: CSSProperties | string}>
 
 export type HTMLChild = (
     string |
