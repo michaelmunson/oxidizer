@@ -1,4 +1,5 @@
-*.notes
-static/
-
-.eslintrc.json
+node_modules
+src/
+.builder
+tests/
+docs/

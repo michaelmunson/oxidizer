@@ -1,5 +1,2 @@
-*.notes
-static/
-
-.eslintrc.json
-
+node_modules
+*.ignore.*
