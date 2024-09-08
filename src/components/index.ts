@@ -51,5 +51,5 @@ export function createComponent<T extends HTMLCustomElementTagName, C extends ty
     customElements.define(tagName, classDefinition);
     return <P extends {} = any>(
         ...params: CreateIntrinsicParameters<InstanceType<C>, P>
-    ) => createIntrinsicElement(tagName as any, ...params);
+    ) => createIntrinsicElement(tagName as any, ...params) as HTMLElement;
 }

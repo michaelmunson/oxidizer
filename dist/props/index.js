@@ -20,6 +20,15 @@ function handleModifiers(props, key, modifiers) {
         }
     }
 }
+/**
+ * @description creates a props proxy that is used to update the state of a component
+ * @example
+ * ```typescript
+const props = createProps({count: 0});
+// update state by simply setting a property value
+props.count = 1;
+```
+ */
 function createProps(input, modifiers) {
     // CREATE PROPS
     const props = new Proxy(input, {

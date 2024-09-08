@@ -43,4 +43,4 @@ export declare abstract class Component extends HTMLElement {
         )
     )
  */
-export declare function createComponent<T extends HTMLCustomElementTagName, C extends typeof HTMLElement>(tagName: T, classDefinition: C): <P extends {} = any>(...params: CreateIntrinsicParameters<InstanceType<C>, P>) => any;
+export declare function createComponent<T extends HTMLCustomElementTagName, C extends typeof HTMLElement>(tagName: T, classDefinition: C): <P extends {} = any>(...params: CreateIntrinsicParameters<InstanceType<C>, P>) => HTMLElement;
