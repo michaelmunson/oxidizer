@@ -138,7 +138,8 @@ document.body.append(
 ```
 ### Creating Effects
 **Effects** are functions that will we triggered when a specified **props** property has been altered.
-
+* effect callbacks will be ran immediately upon creation
+* the return value of the callback will be applied to the props
 ```typescript
 import { createEffect, createProps, BUTTON, DIV, H1, H6, H2 } from "oxidizer";
 
@@ -156,8 +157,7 @@ const props = createProps<AppProps>({
         const date = new Date();
         const isNight = date.getHours() < 6 || date.getHours() > 18;
         if (p.theme === 'light' && isNight){
-            console.log('Nope');
-            p.theme = 'dark';
+            return {theme: 'dark'}
         }
     }),
     // keep the user perpetually signed in

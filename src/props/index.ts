@@ -16,6 +16,15 @@ function handleModifiers<T extends {}>(props: T, key: keyof T, modifiers: Modifi
     }
 }
 
+/**
+ * @description creates a props proxy that is used to update the state of a component
+ * @example
+ * ```typescript 
+const props = createProps({count: 0});
+// update state by simply setting a property value
+props.count = 1; 
+```
+ */
 export function createProps<T extends {}>(input: T, modifiers?: Modifiers<T>) {
     // CREATE PROPS
     const props = new Proxy(input, {
