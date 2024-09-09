@@ -1,4 +1,4 @@
 export { createProps, createEffect } from './props';
 export { css, html } from "./utils";
-export * from './components';
+export { createComponent, createComponentExtension, Component } from './components';
 export * from './intrinsics';
