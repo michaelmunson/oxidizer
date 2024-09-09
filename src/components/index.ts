@@ -1,4 +1,4 @@
-import { CreateIntrinsicParameters, HTMLCustomElementTagName } from "../intrinsics/types"
+import { CreateIntrinsicParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types"
 import { createIntrinsicElement } from "../intrinsics/utils"
 
 
@@ -46,9 +46,27 @@ export abstract class Component extends HTMLElement {
         )
     )
  */
-export function createComponent<E extends HTMLElement = HTMLElement, T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(tagName: T, classDefinition: C) {
+export function createComponent<T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(
+    tagName: T, 
+    classDefinition: C
+) {
     customElements.define(tagName, classDefinition);
     return <P extends {} = any>(
         ...params: CreateIntrinsicParameters<InstanceType<C>, P>
-    ) => createIntrinsicElement(tagName as any, ...params) as E;
+    ) => createIntrinsicElement(tagName as any, ...params) as HTMLElement;
+}
+
+export function createComponentExtension<T extends HTMLCustomElementTagName, E extends HTMLIntrinsicTagName, C extends typeof HTMLElement>(
+    tagName: T,
+    extension: E,
+    classDefinition: C
+){
+    customElements.define(tagName, classDefinition, {extends: extension});
+    return <P extends {} = any>(
+        ...params: CreateIntrinsicParameters<HTMLElementFromTagName<E>, P>
+    ) => {
+        const element = createIntrinsicElement(extension, ...params)
+        element.setAttribute('is', tagName);
+        return element;
+    }
 }

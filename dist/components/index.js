@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Component = void 0;
 exports.createComponent = createComponent;
+exports.createComponentExtension = createComponentExtension;
 const utils_1 = require("../intrinsics/utils");
 class Component extends HTMLElement {
     /**
@@ -34,4 +35,12 @@ exports.Component = Component;
 function createComponent(tagName, classDefinition) {
     customElements.define(tagName, classDefinition);
     return (...params) => (0, utils_1.createIntrinsicElement)(tagName, ...params);
+}
+function createComponentExtension(tagName, extension, classDefinition) {
+    customElements.define(tagName, classDefinition, { extends: extension });
+    return (...params) => {
+        const element = (0, utils_1.createIntrinsicElement)(extension, ...params);
+        element.setAttribute('is', tagName);
+        return element;
+    };
 }
