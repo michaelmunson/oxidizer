@@ -222,3 +222,7 @@ document.body.append(
 
 export default TestApp;
 ```
+
+# Helpful Libraries
+### [oxidizer-router](https://github.com/michaelmunson/oxidizer-router)
+A router component & state management library

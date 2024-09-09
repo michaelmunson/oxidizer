@@ -28,7 +28,6 @@ export abstract class Component extends HTMLElement {
 /**
  * @description A factory class used for creating a rendering function for you custom elements.
  * @example
-    import { createComponent, Component, H1, P } from "domalive";
     const TestApp = createComponent(
         'test-app',
         class extends HTMLElement implements Component {
@@ -47,9 +46,9 @@ export abstract class Component extends HTMLElement {
         )
     )
  */
-export function createComponent<T extends HTMLCustomElementTagName, C extends typeof HTMLElement>(tagName: T, classDefinition: C) {
+export function createComponent<E extends HTMLElement = HTMLElement, T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(tagName: T, classDefinition: C) {
     customElements.define(tagName, classDefinition);
     return <P extends {} = any>(
         ...params: CreateIntrinsicParameters<InstanceType<C>, P>
-    ) => createIntrinsicElement(tagName as any, ...params) as HTMLElement;
+    ) => createIntrinsicElement(tagName as any, ...params) as E;
 }

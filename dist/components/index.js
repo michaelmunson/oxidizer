@@ -13,7 +13,6 @@ exports.Component = Component;
 /**
  * @description A factory class used for creating a rendering function for you custom elements.
  * @example
-    import { createComponent, Component, H1, P } from "domalive";
     const TestApp = createComponent(
         'test-app',
         class extends HTMLElement implements Component {

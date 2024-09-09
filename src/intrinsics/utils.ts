@@ -61,7 +61,7 @@ export function setElementChildren<T extends HTMLElement>(element:T, ...children
 export function setElementProperties<T extends HTMLElement>(element:T, ...params:CreateElementParameters<T>){
     const [arg0, ...arg1] = params;
     if (isAttributes(arg0)){
-        setElementAttributes(element, arg0);
+        setElementAttributes(element, arg0 as Attributes<T>);
         if (isHTMLChildren(arg1)){
             element.innerHTML = "";
             setElementChildren(element, ...arg1);
