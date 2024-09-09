@@ -77,8 +77,8 @@ export function setElementProperties<T extends HTMLElement>(element:T, ...params
     }
 }
 
-export function createElement<T extends HTMLIntrinsicTagName | HTMLCustomElementTagName>(tagName: T) : HTMLElementFromTagName<T> {
-    const element = document.createElement(tagName);
+export function createElement<T extends HTMLIntrinsicTagName | HTMLCustomElementTagName>(tagName: T, customElementTagName?:HTMLCustomElementTagName) : HTMLElementFromTagName<T> {
+    const element = customElementTagName ? document.createElement(tagName, {is: customElementTagName}) : document.createElement(tagName);
     if (Configuration.get().components.autoUpgrade){
         if (customElements.get(tagName)) {
             customElements.upgrade(element);
@@ -92,6 +92,25 @@ export function createIntrinsicElement<T extends HTMLTagName, Props extends {} =
     ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>
 ): HTMLElementFromTagName<T> {
     const element = createElement(tagName);
+    
+    if (isProps<Props>(params[0]) && typeof params[1] === "function") {
+        const [props, renderFn] = params;
+        __PROPS_RENDER_MAP__.get(props)?.set(element, renderFn as any);
+        const elementProperties = renderFn.call(element as any, props);
+        setElementProperties(element, ...elementProperties);
+    }
+    else {
+        setElementProperties(element, ...params as any);
+    }
+    return element
+}
+
+export function createIntrinsicElementComponent<T extends HTMLTagName, CT extends HTMLCustomElementTagName, Props extends {} = any>(
+    tagName: T,
+    customElementTagName: CT,
+    ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>
+): HTMLElementFromTagName<T> {
+    const element = createElement(tagName, customElementTagName);
     
     if (isProps<Props>(params[0]) && typeof params[1] === "function") {
         const [props, renderFn] = params;

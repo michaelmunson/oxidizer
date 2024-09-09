@@ -38,9 +38,5 @@ function createComponent(tagName, classDefinition) {
 }
 function createComponentExtension(tagName, extension, classDefinition) {
     customElements.define(tagName, classDefinition, { extends: extension });
-    return (...params) => {
-        const element = (0, utils_1.createIntrinsicElement)(extension, ...params);
-        element.setAttribute('is', tagName);
-        return element;
-    };
+    return (...params) => (0, utils_1.createIntrinsicElementComponent)(extension, tagName, ...params);
 }

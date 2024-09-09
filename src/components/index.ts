@@ -1,5 +1,5 @@
 import { CreateIntrinsicParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types"
-import { createIntrinsicElement } from "../intrinsics/utils"
+import { createIntrinsicElement, createIntrinsicElementComponent } from "../intrinsics/utils"
 
 
 export abstract class Component extends HTMLElement {
@@ -64,9 +64,5 @@ export function createComponentExtension<T extends HTMLCustomElementTagName, E e
     customElements.define(tagName, classDefinition, {extends: extension});
     return <P extends {} = any>(
         ...params: CreateIntrinsicParameters<HTMLElementFromTagName<E>, P>
-    ) => {
-        const element = createIntrinsicElement(extension, ...params)
-        element.setAttribute('is', tagName);
-        return element;
-    }
+    ) => createIntrinsicElementComponent(extension, tagName, ...params);
 }

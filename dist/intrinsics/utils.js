@@ -5,6 +5,7 @@ exports.setElementChildren = setElementChildren;
 exports.setElementProperties = setElementProperties;
 exports.createElement = createElement;
 exports.createIntrinsicElement = createIntrinsicElement;
+exports.createIntrinsicElementComponent = createIntrinsicElementComponent;
 exports.createElementFactory = createElementFactory;
 const utils_1 = require("../utils");
 const types_1 = require("./types");
@@ -68,8 +69,8 @@ function setElementProperties(element, ...params) {
         setElementChildren(element, arg0);
     }
 }
-function createElement(tagName) {
-    const element = document.createElement(tagName);
+function createElement(tagName, customElementTagName) {
+    const element = customElementTagName ? document.createElement(tagName, { is: customElementTagName }) : document.createElement(tagName);
     if (config_1.Configuration.get().components.autoUpgrade) {
         if (customElements.get(tagName)) {
             customElements.upgrade(element);
@@ -79,6 +80,19 @@ function createElement(tagName) {
 }
 function createIntrinsicElement(tagName, ...params) {
     const element = createElement(tagName);
+    if ((0, utils_2.isProps)(params[0]) && typeof params[1] === "function") {
+        const [props, renderFn] = params;
+        renderMap_1.__PROPS_RENDER_MAP__.get(props)?.set(element, renderFn);
+        const elementProperties = renderFn.call(element, props);
+        setElementProperties(element, ...elementProperties);
+    }
+    else {
+        setElementProperties(element, ...params);
+    }
+    return element;
+}
+function createIntrinsicElementComponent(tagName, customElementTagName, ...params) {
+    const element = createElement(tagName, customElementTagName);
     if ((0, utils_2.isProps)(params[0]) && typeof params[1] === "function") {
         const [props, renderFn] = params;
         renderMap_1.__PROPS_RENDER_MAP__.get(props)?.set(element, renderFn);
