@@ -66,6 +66,14 @@ export function setElementProperties<T extends HTMLElement>(element:T, ...params
             element.innerHTML = "";
             setElementChildren(element, ...arg1);
         }
+        else if (isHTMLChild(arg1)){
+            element.innerHTML = "";
+            setElementChildren(element, arg1);
+        }
+    }
+    else if (params.length >= 0 && isHTMLChildren(params)) {
+        element.innerHTML = "";
+        setElementChildren(element, ...params);
     }
     else if (isHTMLChildren(arg0)){
         element.innerHTML = "";

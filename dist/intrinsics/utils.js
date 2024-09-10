@@ -60,6 +60,14 @@ function setElementProperties(element, ...params) {
             element.innerHTML = "";
             setElementChildren(element, ...arg1);
         }
+        else if ((0, types_1.isHTMLChild)(arg1)) {
+            element.innerHTML = "";
+            setElementChildren(element, arg1);
+        }
+    }
+    else if (params.length >= 0 && (0, types_1.isHTMLChildren)(params)) {
+        element.innerHTML = "";
+        setElementChildren(element, ...params);
     }
     else if ((0, types_1.isHTMLChildren)(arg0)) {
         element.innerHTML = "";
