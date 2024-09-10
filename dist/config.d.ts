@@ -13,6 +13,6 @@ export declare namespace Configuration {
          */
         shadowInit: ShadowRootInit;
     }
-    const configure: (config: Partial<Configuration>) => Configuration;
+    const configure: (config: { [K in keyof Configuration]?: Partial<Configuration[K]>; }) => Configuration;
     const get: () => Configuration;
 }

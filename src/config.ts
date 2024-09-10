@@ -22,7 +22,7 @@ export namespace Configuration {
         shadowInit: ShadowRootInit;
     }
 
-    export const configure = (config:Partial<Configuration>) => {
+    export const configure = (config:{[K in keyof Configuration]?: Partial<Configuration[K]>}) => {
         let key: keyof Configuration;
         for (key in config){
             Object.assign(CONFIG, config[key]);
