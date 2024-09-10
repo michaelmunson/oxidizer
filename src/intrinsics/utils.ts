@@ -124,6 +124,26 @@ export function createIntrinsicElementComponent<T extends HTMLTagName, CT extend
     return element
 }
 
+export function createShadowElement<T extends HTMLTagName, Props extends {} = any>(
+    tagName: T,
+    options:ShadowRootInit,
+    ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>
+): HTMLElementFromTagName<T> {
+    const element = createElement(tagName);
+    const shadow:HTMLElementFromTagName<T> = element.attachShadow(options) as any;
+    if (isProps<Props>(params[0]) && typeof params[1] === "function") {
+        const [props, renderFn] = params;
+        __PROPS_RENDER_MAP__.get(props)?.set(shadow, renderFn as any);
+        const elementProperties = renderFn.call(shadow as any, props);
+        setElementProperties(shadow, ...elementProperties);
+    }
+    else {
+        setElementProperties(shadow, ...params as any);
+    }
+
+    return element
+}
+
 export function createElementFactory<T extends HTMLTagName>(tagName: T) {
     return <P extends {} = any>(
         ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, P>

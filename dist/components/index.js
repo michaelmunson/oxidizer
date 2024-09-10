@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Component = void 0;
 exports.createComponent = createComponent;
 exports.createComponentExtension = createComponentExtension;
+exports.createShadowComponent = createShadowComponent;
+const config_1 = require("../config");
 const utils_1 = require("../intrinsics/utils");
 class Component extends HTMLElement {
     /**
@@ -39,4 +41,9 @@ function createComponent(tagName, classDefinition) {
 function createComponentExtension(tagName, extension, classDefinition) {
     customElements.define(tagName, classDefinition, { extends: extension });
     return (...params) => (0, utils_1.createIntrinsicElementComponent)(extension, tagName, ...params);
+}
+function createShadowComponent(tagName, classDefinition, options) {
+    const shadowInit = options ?? config_1.Configuration.get().components.shadowInit;
+    customElements.define(tagName, classDefinition);
+    return (...params) => (0, utils_1.createShadowElement)(tagName, shadowInit, ...params);
 }

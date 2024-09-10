@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Configuration = void 0;
 const CONFIG = {
     components: {
-        autoUpgrade: false
+        autoUpgrade: false,
+        shadowInit: { mode: 'open' }
     }
 };
 var Configuration;

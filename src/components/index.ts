@@ -1,5 +1,6 @@
+import { Configuration } from "../config";
 import { CreateIntrinsicParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types"
-import { createIntrinsicElement, createIntrinsicElementComponent } from "../intrinsics/utils"
+import { createIntrinsicElement, createIntrinsicElementComponent, createShadowElement } from "../intrinsics/utils"
 
 
 export abstract class Component extends HTMLElement {
@@ -65,4 +66,16 @@ export function createComponentExtension<T extends HTMLCustomElementTagName, E e
     return <P extends {} = any>(
         ...params: CreateIntrinsicParameters<HTMLElementFromTagName<E>, P>
     ) => createIntrinsicElementComponent(extension, tagName, ...params);
+}
+
+export function createShadowComponent<T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(
+    tagName: T, 
+    classDefinition: C,
+    options?: ShadowRootInit
+) {
+    const shadowInit = options ?? Configuration.get().components.shadowInit;
+    customElements.define(tagName, classDefinition);
+    return <P extends {} = any>(
+        ...params: CreateIntrinsicParameters<InstanceType<C>, P>
+    ) => createShadowElement(tagName as any, shadowInit, ...params) as HTMLElement;
 }

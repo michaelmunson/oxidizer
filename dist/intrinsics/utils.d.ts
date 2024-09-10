@@ -6,4 +6,5 @@ export declare function setElementProperties<T extends HTMLElement>(element: T, 
 export declare function createElement<T extends HTMLIntrinsicTagName | HTMLCustomElementTagName>(tagName: T, customElementTagName?: HTMLCustomElementTagName): HTMLElementFromTagName<T>;
 export declare function createIntrinsicElement<T extends HTMLTagName, Props extends {} = any>(tagName: T, ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>): HTMLElementFromTagName<T>;
 export declare function createIntrinsicElementComponent<T extends HTMLTagName, CT extends HTMLCustomElementTagName, Props extends {} = any>(tagName: T, customElementTagName: CT, ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>): HTMLElementFromTagName<T>;
+export declare function createShadowElement<T extends HTMLTagName, Props extends {} = any>(tagName: T, options: ShadowRootInit, ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>): HTMLElementFromTagName<T>;
 export declare function createElementFactory<T extends HTMLTagName>(tagName: T): <P extends {} = any>(...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, P>) => HTMLElementFromTagName<T>;

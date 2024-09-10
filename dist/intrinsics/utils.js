@@ -6,6 +6,7 @@ exports.setElementProperties = setElementProperties;
 exports.createElement = createElement;
 exports.createIntrinsicElement = createIntrinsicElement;
 exports.createIntrinsicElementComponent = createIntrinsicElementComponent;
+exports.createShadowElement = createShadowElement;
 exports.createElementFactory = createElementFactory;
 const utils_1 = require("../utils");
 const types_1 = require("./types");
@@ -101,6 +102,20 @@ function createIntrinsicElementComponent(tagName, customElementTagName, ...param
     }
     else {
         setElementProperties(element, ...params);
+    }
+    return element;
+}
+function createShadowElement(tagName, options, ...params) {
+    const element = createElement(tagName);
+    const shadow = element.attachShadow(options);
+    if ((0, utils_2.isProps)(params[0]) && typeof params[1] === "function") {
+        const [props, renderFn] = params;
+        renderMap_1.__PROPS_RENDER_MAP__.get(props)?.set(shadow, renderFn);
+        const elementProperties = renderFn.call(shadow, props);
+        setElementProperties(shadow, ...elementProperties);
+    }
+    else {
+        setElementProperties(shadow, ...params);
     }
     return element;
 }
