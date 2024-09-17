@@ -1,8 +1,9 @@
 {
   "name": "oxidizer",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "description": "A lightweight reactive web development library based on web components. No compiler required.",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports" : {
     "." : "./dist/index.js",
     "./props" : "./dist/props/index.js",
