@@ -1,8 +1,13 @@
 {
   "name": "oxidizer",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "A lightweight reactive web development library based on web components. No compiler required.",
   "main": "dist/index.js",
+  "exports" : {
+    "./props" : "./dist/props/index.js",
+    "./intrinsics" : "./dist/intrinsics/index.js",
+    "./components" : "./dist/components/index.js"
+  },
   "scripts": {
     "build": "rm -rf dist && tsc",
     "create-docs": "typedoc --out ./docs ./src/index.ts"
