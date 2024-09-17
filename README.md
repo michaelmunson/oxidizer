@@ -1,3 +1,10 @@
+  "exports" : {
+    "./*" : "./dist/index.js",
+    "./props" : "./dist/props/index.js",
+    "./intrinsics" : "./dist/intrinsics/index.js",
+    "./components" : "./dist/components/index.js"
+  },
+
 # Oxidizer v3
 An incredibly lightweight and easy to use Web Development library that is reactive and based upon Web Components.
 
