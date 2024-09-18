@@ -224,5 +224,7 @@ export default TestApp;
 ```
 
 # Helpful Libraries
-### [oxidizer-router](https://github.com/michaelmunson/oxidizer-router)
+### [create-oxidizer-app](https://www.npmjs.com/package/create-oxidizer-app)
+A useful package for bootstrapping oxidizer apps
+### [oxidizer-router](https://www.npmjs.com/package/oxidizer-router)
 A router component & state management library
