@@ -8,9 +8,9 @@ exports.createIntrinsicElement = createIntrinsicElement;
 exports.createIntrinsicElementComponent = createIntrinsicElementComponent;
 exports.createShadowElement = createShadowElement;
 exports.createElementFactory = createElementFactory;
-const utils_1 = require("../utils");
+const _helpers_1 = require("../utils/_helpers");
 const types_1 = require("./types");
-const utils_2 = require("../props/utils");
+const utils_1 = require("../props/utils");
 const renderMap_1 = require("../props/renderMap");
 const config_1 = require("../config");
 function setElementAttributes(element, attrs) {
@@ -22,7 +22,7 @@ function setElementAttributes(element, attrs) {
                 element.setAttribute(attr, attrValue);
             }
             else if (attr === "style" && typeof attrValue === "object") {
-                const style = Object.entries(attrValue).map(([key, val]) => `${(0, utils_1.camelToDashed)(key)}:${val};`).join("\n  ");
+                const style = Object.entries(attrValue).map(([key, val]) => `${(0, _helpers_1.camelToDashed)(key)}:${val};`).join("\n  ");
                 element.style = style;
             }
             else {
@@ -89,7 +89,7 @@ function createElement(tagName, customElementTagName) {
 }
 function createIntrinsicElement(tagName, ...params) {
     const element = createElement(tagName);
-    if ((0, utils_2.isProps)(params[0]) && typeof params[1] === "function") {
+    if ((0, utils_1.isProps)(params[0]) && typeof params[1] === "function") {
         const [props, renderFn] = params;
         renderMap_1.__PROPS_RENDER_MAP__.get(props)?.set(element, renderFn);
         const elementProperties = renderFn.call(element, props);
@@ -102,7 +102,7 @@ function createIntrinsicElement(tagName, ...params) {
 }
 function createIntrinsicElementComponent(tagName, customElementTagName, ...params) {
     const element = createElement(tagName, customElementTagName);
-    if ((0, utils_2.isProps)(params[0]) && typeof params[1] === "function") {
+    if ((0, utils_1.isProps)(params[0]) && typeof params[1] === "function") {
         const [props, renderFn] = params;
         renderMap_1.__PROPS_RENDER_MAP__.get(props)?.set(element, renderFn);
         const elementProperties = renderFn.call(element, props);
@@ -116,7 +116,7 @@ function createIntrinsicElementComponent(tagName, customElementTagName, ...param
 function createShadowElement(tagName, options, ...params) {
     const element = createElement(tagName);
     const shadow = element.attachShadow(options);
-    if ((0, utils_2.isProps)(params[0]) && typeof params[1] === "function") {
+    if ((0, utils_1.isProps)(params[0]) && typeof params[1] === "function") {
         const [props, renderFn] = params;
         renderMap_1.__PROPS_RENDER_MAP__.get(props)?.set(shadow, renderFn);
         const elementProperties = renderFn.call(shadow, props);

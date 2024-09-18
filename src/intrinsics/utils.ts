@@ -1,4 +1,4 @@
-import { camelToDashed } from "../utils";
+import { camelToDashed } from "../utils/_helpers";
 import {
     type CreateElementParameters,
     type CreateIntrinsicParameters,
