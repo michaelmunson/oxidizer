@@ -9,6 +9,7 @@ export namespace css {
         [assignee:HTMLElement, styles:string|CSSProperties] | 
         [assignee:CSSStyleDeclaration, styles:CSSProperties]
     );
+    export type Properties = CSSProperties;
     export function assign(...parameters: AssignParameters){
         const [assignee, styles] = parameters;
         if (assignee instanceof HTMLElement){
@@ -29,3 +30,5 @@ export namespace css {
         }
     }
 }
+
+export {CSSProperties}
