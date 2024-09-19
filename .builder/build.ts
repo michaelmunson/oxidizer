@@ -69,5 +69,9 @@ function createExample(tag:string, instance:string){
             `export const ${element} = createElementFactory("${tag}")`
         ]);
     }
+    lines.push(
+        `export const FRAGMENT = `
+    )
+
     fs.writeFileSync(outDir, lines.join('\n'))
 })();

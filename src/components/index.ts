@@ -1,6 +1,7 @@
 import { Configuration } from "../config";
-import { CreateIntrinsicParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types"
+import { RenderParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types"
 import { createIntrinsicElement, createIntrinsicElementComponent, createShadowElement } from "../intrinsics/utils"
+import { Props } from "../props/types";
 
 
 export abstract class Component extends HTMLElement {
@@ -52,8 +53,8 @@ export function createComponent<T extends HTMLCustomElementTagName = any, C exte
     classDefinition: C
 ) {
     customElements.define(tagName, classDefinition);
-    return <P extends {} = any>(
-        ...params: CreateIntrinsicParameters<InstanceType<C>, P>
+    return <P extends Props = any>(
+        ...params: RenderParameters<InstanceType<C>, P>
     ) => createIntrinsicElement(tagName as any, ...params) as HTMLElement;
 }
 
@@ -63,8 +64,8 @@ export function createComponentExtension<T extends HTMLCustomElementTagName, E e
     classDefinition: C
 ){
     customElements.define(tagName, classDefinition, {extends: extension});
-    return <P extends {} = any>(
-        ...params: CreateIntrinsicParameters<HTMLElementFromTagName<E>, P>
+    return <P extends Props = any>(
+        ...params: RenderParameters<HTMLElementFromTagName<E>, P>
     ) => createIntrinsicElementComponent(extension, tagName, ...params);
 }
 
@@ -75,7 +76,7 @@ export function createShadowComponent<T extends HTMLCustomElementTagName = any, 
 ) {
     const shadowInit = options ?? Configuration.get().components.shadowInit;
     customElements.define(tagName, classDefinition);
-    return <P extends {} = any>(
-        ...params: CreateIntrinsicParameters<InstanceType<C>, P>
+    return <P extends Props = any>(
+        ...params: RenderParameters<InstanceType<C>, P>
     ) => createShadowElement(tagName as any, shadowInit, ...params) as HTMLElement;
 }

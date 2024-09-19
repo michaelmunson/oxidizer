@@ -1,10 +1,7 @@
 import {Effect} from "./effects";
+import { Modifiers, Props } from "./types";
 
-export type Modifiers<T extends {}> = (
-    Effect<T>
-)[];
-
-export const isModifier = <T extends {}> (anything:any) : anything is Modifiers<T> => {
+export const isModifier = <T extends Props> (anything:any) : anything is Modifiers<T> => {
     return (
         anything instanceof Effect
     )

@@ -1,0 +1,1 @@
+export type ParsedHTML = NodeList|HTMLElement;
