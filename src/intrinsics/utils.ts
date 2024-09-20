@@ -13,7 +13,8 @@ import {
     isHTMLPrimitive,
     RenderFragmentParameters,
     HTMLNode,
-    isDOMNode
+    isDOMNode,
+    isDocumentFragment
 } from "./types";
 import {isProps} from "../props/utils";
 import { __PROPS_RENDER_MAP__ } from "../props/renderMap";
@@ -65,7 +66,7 @@ export function setElementChildren<T extends HTMLNode>(element:T, ...children:HT
             const node = html`${htmlString}`;
             element.appendChild(node);
         }
-        else if (isDOMNode(_children)){
+        else if (isDOMNode(_children) || isDocumentFragment(_children)){
             element.appendChild(_children);
         }
         else {

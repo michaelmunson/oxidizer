@@ -58,7 +58,7 @@ function setElementChildren(element, ...children) {
             const node = (0, utils_2.html) `${htmlString}`;
             element.appendChild(node);
         }
-        else if ((0, types_1.isDOMNode)(_children)) {
+        else if ((0, types_1.isDOMNode)(_children) || (0, types_1.isDocumentFragment)(_children)) {
             element.appendChild(_children);
         }
         else {
