@@ -5,3 +5,4 @@ tests/
 examples/
 docs/
 jest.config.js
+jest-puppeteer.config.js

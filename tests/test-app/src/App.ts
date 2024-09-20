@@ -36,25 +36,28 @@ const UtilsApp = () => {
 }
 
 const FragmentApp = () => {
-    console.log(
-        html`
-            <h1>Fragment App</h1>
-            <button>Click to update headers</button>
-        ` instanceof DocumentFragment
-    )
+    const props = createProps({
+        header: "Fragment App"
+    });
+
+    (window as any).props = props;
 
     return (
-        DIV({id: 'fragment-app'}, html`
-            <h1>Fragment App</h1>
-            <button>Click to update headers</button>
-        `)
+        DIV(props, $ => [
+            {id: 'fragment-app'}, 
+            html`
+                <h1 id="fragment-app-header">${$.header}</h1>
+                <h2 id="fragment-app-subheader">Hello World!</h2>
+            `,
+            BUTTON({onclick: () => $.header = "Fragment App Updated"}, "Click to Update Header")
+        ])
     )
 }
 
 const apps = [
     Counter, 
     UtilsApp, 
-    // FragmentApp
+    FragmentApp
 ];
 
 export default function App(){

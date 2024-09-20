@@ -638,20 +638,27 @@ const UtilsApp = ()=>{
     }, "Utils App"));
 };
 const FragmentApp = ()=>{
-    console.log((0, _oxidizer.html)`
-            <h1>Fragment App</h1>
-            <button>Click to update headers</button>
-        ` instanceof DocumentFragment);
-    return (0, _oxidizer.DIV)({
-        id: "fragment-app"
-    }, (0, _oxidizer.html)`
-            <h1>Fragment App</h1>
-            <button>Click to update headers</button>
-        `);
+    const props = (0, _oxidizer.createProps)({
+        header: "Fragment App"
+    });
+    window.props = props;
+    return (0, _oxidizer.DIV)(props, ($)=>[
+            {
+                id: "fragment-app"
+            },
+            (0, _oxidizer.html)`
+                <h1 id="fragment-app-header">${$.header}</h1>
+                <h2 id="fragment-app-subheader">Hello World!</h2>
+            `,
+            (0, _oxidizer.BUTTON)({
+                onclick: ()=>$.header = "Fragment App Updated"
+            }, "Click to Update Header")
+        ]);
 };
 const apps = [
     Counter,
-    UtilsApp
+    UtilsApp,
+    FragmentApp
 ];
 function App() {
     return (0, _oxidizer.DIV)({
@@ -881,7 +888,7 @@ function setElementChildren(element, ...children) {
             const htmlString = typeof _children === "boolean" || !_children ? "" : _children.toString();
             const node = (0, utils_2.html)`${htmlString}`;
             element.appendChild(node);
-        } else if ((0, types_1.isDOMNode)(_children)) element.appendChild(_children);
+        } else if ((0, types_1.isDOMNode)(_children) || (0, types_1.isDocumentFragment)(_children)) element.appendChild(_children);
         else throw new RenderError("child not of type HTMLChildren");
     }
     return element;

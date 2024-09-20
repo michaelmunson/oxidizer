@@ -18,7 +18,7 @@
     "create-docs": "typedoc --out ./docs ./src/index.ts",
     "deploy": "npm run build && npm run create-docs && npm publish",
     "start-test-app" : "cd ./tests/test-app && npm start && cd ../../",
-    "integration": "jest integration"
+    "integration": "jest integration --runInBand"
   },
   "repository": {
     "type": "git",
