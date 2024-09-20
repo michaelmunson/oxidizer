@@ -1,10 +1,18 @@
-import { type CreateElementParameters, type CreateIntrinsicParameters, type HTMLChild, type Attributes, type HTMLIntrinsicTagName, HTMLTagName, HTMLElementFromTagName } from "./types";
+import { type RenderStaticElementParameters, type RenderParameters, type HTMLChild, type Attributes, type HTMLIntrinsicTagName, HTMLTagName, HTMLElementFromTagName, RenderFragmentParameters, HTMLNode } from "./types";
 import { HTMLCustomElementTagName } from "../intrinsics/types";
-export declare function setElementAttributes<T extends HTMLElement>(element: T, attrs: Attributes<T>): void;
-export declare function setElementChildren<T extends HTMLElement>(element: T, ...children: HTMLChild[]): void;
-export declare function setElementProperties<T extends HTMLElement>(element: T, ...params: CreateElementParameters<T>): void;
+import { Props } from "../props/types";
+/** GENERAL EXPORTED UTILITIES */
+/****** HTML ELEMENTS */
+export declare function setElementAttributes<T extends HTMLElement>(element: T, attrs: Attributes<T>): T;
+export declare function setElementChildren<T extends HTMLNode>(element: T, ...children: HTMLChild[]): T;
+export declare function setElementProperties<T extends HTMLElement>(element: T, ...params: RenderStaticElementParameters<T>): T;
 export declare function createElement<T extends HTMLIntrinsicTagName | HTMLCustomElementTagName>(tagName: T, customElementTagName?: HTMLCustomElementTagName): HTMLElementFromTagName<T>;
-export declare function createIntrinsicElement<T extends HTMLTagName, Props extends {} = any>(tagName: T, ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>): HTMLElementFromTagName<T>;
-export declare function createIntrinsicElementComponent<T extends HTMLTagName, CT extends HTMLCustomElementTagName, Props extends {} = any>(tagName: T, customElementTagName: CT, ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>): HTMLElementFromTagName<T>;
-export declare function createShadowElement<T extends HTMLTagName, Props extends {} = any>(tagName: T, options: ShadowRootInit, ...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, Props>): HTMLElementFromTagName<T>;
-export declare function createElementFactory<T extends HTMLTagName>(tagName: T): <P extends {} = any>(...params: CreateIntrinsicParameters<HTMLElementFromTagName<T>, P>) => HTMLElementFromTagName<T>;
+export declare function createIntrinsicElement<T extends HTMLTagName, P extends Props = any>(tagName: T, ...params: RenderParameters<HTMLElementFromTagName<T>, P>): HTMLElementFromTagName<T>;
+/****** DOCUMENT FRAGMENTS */
+export declare function createFragment(...children: RenderFragmentParameters): DocumentFragment;
+/** CUSTOM ELEMENTS */
+export declare function createIntrinsicElementComponent<T extends HTMLTagName, CT extends HTMLCustomElementTagName, P extends Props = any>(tagName: T, customElementTagName: CT, ...params: RenderParameters<HTMLElementFromTagName<T>, P>): HTMLElementFromTagName<T>;
+export declare function createShadowElement<T extends HTMLTagName, P extends Props = any>(tagName: T, options: ShadowRootInit, ...params: RenderParameters<HTMLElementFromTagName<T>, P>): HTMLElementFromTagName<T>;
+export declare function createElementFactory<T extends HTMLTagName>(tagName: T): <P extends Props = any>(...params: RenderParameters<HTMLElementFromTagName<T>, P>) => HTMLElementFromTagName<T>;
+/** LIB EXPORTS */
+export declare function ox<T extends HTMLElement>(element: T): <P extends Props>(...params: RenderParameters<T, P>) => T;

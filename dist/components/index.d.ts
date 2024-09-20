@@ -1,4 +1,5 @@
-import { CreateIntrinsicParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types";
+import { RenderParameters, HTMLCustomElementTagName, HTMLElementFromTagName, HTMLIntrinsicTagName } from "../intrinsics/types";
+import { Props } from "../props/types";
 export declare abstract class Component extends HTMLElement {
     /**
      * @description Attributes whose change in value triggers `attributeChangedCallback`
@@ -42,6 +43,6 @@ export declare abstract class Component extends HTMLElement {
         )
     )
  */
-export declare function createComponent<T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(tagName: T, classDefinition: C): <P extends {} = any>(...params: CreateIntrinsicParameters<InstanceType<C>, P>) => HTMLElement;
-export declare function createComponentExtension<T extends HTMLCustomElementTagName, E extends HTMLIntrinsicTagName, C extends typeof HTMLElement>(tagName: T, extension: E, classDefinition: C): <P extends {} = any>(...params: CreateIntrinsicParameters<HTMLElementFromTagName<E>, P>) => HTMLElementFromTagName<E>;
-export declare function createShadowComponent<T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(tagName: T, classDefinition: C, options?: ShadowRootInit): <P extends {} = any>(...params: CreateIntrinsicParameters<InstanceType<C>, P>) => HTMLElement;
+export declare function createComponent<T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(tagName: T, classDefinition: C): <P extends Props = any>(...params: RenderParameters<InstanceType<C>, P>) => HTMLElement;
+export declare function createComponentExtension<T extends HTMLCustomElementTagName, E extends HTMLIntrinsicTagName, C extends typeof HTMLElement>(tagName: T, extension: E, classDefinition: C): <P extends Props = any>(...params: RenderParameters<HTMLElementFromTagName<E>, P>) => HTMLElementFromTagName<E>;
+export declare function createShadowComponent<T extends HTMLCustomElementTagName = any, C extends typeof HTMLElement = any>(tagName: T, classDefinition: C, options?: ShadowRootInit): <P extends Props = any>(...params: RenderParameters<InstanceType<C>, P>) => HTMLElement;

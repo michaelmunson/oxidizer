@@ -1,4 +1,4 @@
-import { Properties as CSSProperties } from "csstype";
+import type { CSSProperties } from "./types";
 export declare function css(strs: TemplateStringsArray, ...values: any[]): string;
 export declare namespace css {
     type AssignParameters = ([

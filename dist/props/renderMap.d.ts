@@ -1,5 +1,6 @@
-import { RenderFunction } from "../intrinsics/types";
-export declare class RenderMap<T extends {}> extends Map<HTMLElement, RenderFunction<HTMLElement, T>> {
+import { PropsRenderFunction } from "../intrinsics/types";
+import { Props } from "./types";
+export declare class RenderMap<T extends Props> extends Map<HTMLElement, PropsRenderFunction<HTMLElement, T>> {
     constructor();
     renderEach(props: T): void;
 }

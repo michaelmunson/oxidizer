@@ -1,5 +1,5 @@
-import { DOMNode } from "../intrinsics/types";
 import type { ParsedHTML } from "./types";
+import type { DOMNode } from "../types";
 
 class HTMLParsingError extends Error {
     constructor(message:string[]){
@@ -8,7 +8,7 @@ class HTMLParsingError extends Error {
     }
 }
 
-const parseHTMLString = (htmlString:string) : DOMNode | DocumentFragment => {
+const parseHTMLString = (htmlString:string) : ParsedHTML => {
     const doc = new DOMParser().parseFromString(htmlString, 'text/html');
     const errorNode = doc.querySelector("parsererror");
     if (errorNode){

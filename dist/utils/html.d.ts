@@ -1,1 +1,2 @@
-export declare function html(strs: TemplateStringsArray, ...values: any[]): string;
+import type { DOMNode } from "../types";
+export declare function html<T extends DOMNode | DocumentFragment>(strs: TemplateStringsArray, ...values: any[]): T;

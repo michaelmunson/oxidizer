@@ -5,6 +5,7 @@ function css(strs, ...values) {
     return strs.map((s, i) => s + (values[i] ?? "")).join('');
 }
 (function (css) {
+    // export type Properties = CSSProperties;
     function assign(...parameters) {
         const [assignee, styles] = parameters;
         if (assignee instanceof HTMLElement) {

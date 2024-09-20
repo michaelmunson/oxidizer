@@ -52,7 +52,7 @@ function createExample(tag:string, instance:string){
 
 (() => {
     const lines:string[] = [
-        'import { createElementFactory } from "./utils";\n\n'
+        'import { createElementFactory, createFragment } from "./utils";\n\n'
     ];
     for (const element in data.elements){
         const instance = data.elements[element];
@@ -70,7 +70,7 @@ function createExample(tag:string, instance:string){
         ]);
     }
     lines.push(
-        `export const FRAGMENT = `
+        `export const FRAGMENT = createFragment;`
     )
 
     fs.writeFileSync(outDir, lines.join('\n'))

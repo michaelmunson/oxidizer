@@ -10,11 +10,9 @@ import {
     isHTMLChild,
     HTMLTagName,
     HTMLElementFromTagName,
-    HTMLPrimitive,
     isHTMLPrimitive,
     RenderFragmentParameters,
     HTMLNode,
-    isDocumentFragment,
     isDOMNode
 } from "./types";
 import {isProps} from "../props/utils";
@@ -23,8 +21,6 @@ import { HTMLCustomElementTagName } from "../intrinsics/types";
 import { Configuration } from "../config";
 import { Props } from "../props/types";
 import { html } from "../utils";
-import { DIV } from ".";
-import { createProps } from "../props";
 
 
 class RenderError extends TypeError {
@@ -57,7 +53,6 @@ export function setElementAttributes<T extends HTMLElement>(element: T, attrs: A
     }
     return element;
 }
-
 export function setElementChildren<T extends HTMLNode>(element:T, ...children:HTMLChild[]){
     for (const _children of children){
         if (isHTMLChildren(_children)){
@@ -79,7 +74,6 @@ export function setElementChildren<T extends HTMLNode>(element:T, ...children:HT
     }
     return element;
 }
-
 export function setElementProperties<T extends HTMLElement>(element:T, ...params:RenderStaticElementParameters<T>){
     const [arg0, ...arg1] = params;
     if (isAttributes(arg0)){
@@ -117,7 +111,6 @@ export function createElement<T extends HTMLIntrinsicTagName | HTMLCustomElement
     }
     return element as HTMLElementFromTagName<T>;
 }
-
 export function createIntrinsicElement<T extends HTMLTagName, P extends Props = any>(
     tagName: T,
     ...params: RenderParameters<HTMLElementFromTagName<T>, P>
@@ -155,7 +148,6 @@ export function createIntrinsicElementComponent<T extends HTMLTagName, CT extend
     }
     return element
 }
-
 export function createShadowElement<T extends HTMLTagName, P extends Props = any>(
     tagName: T,
     options:ShadowRootInit,
@@ -175,7 +167,6 @@ export function createShadowElement<T extends HTMLTagName, P extends Props = any
 
     return element
 }
-
 export function createElementFactory<T extends HTMLTagName>(tagName: T) {
     return <P extends Props = any>(
         ...params: RenderParameters<HTMLElementFromTagName<T>, P>

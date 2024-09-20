@@ -1,5 +1,5 @@
-import { type Modifiers } from "./utils";
 export { createEffect } from "./effects";
+import type { Props, Modifiers } from "./types";
 /**
  * @description creates a props proxy that is used to update the state of a component
  * @example
@@ -9,4 +9,4 @@ const props = createProps({count: 0});
 props.count = 1;
 ```
  */
-export declare function createProps<T extends {}>(input: T, modifiers?: Modifiers<T>): T;
+export declare function createProps<T extends Props>(input: T, modifiers?: Modifiers<T>): T;

@@ -1,4 +1,4 @@
-import { createElementFactory } from "./utils";
+import { createElementFactory, createFragment } from "./utils";
 
 
 /**
@@ -1692,3 +1692,4 @@ export const VAR = createElementFactory("var")
  * ```
  */
 export const WBR = createElementFactory("wbr")
+export const FRAGMENT = createFragment;

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LEGEND = exports.LABEL = exports.LI = exports.INPUT = exports.IMG = exports.IFRAME = exports.I = exports.INS = exports.KBD = exports.HTML = exports.H6 = exports.H5 = exports.H4 = exports.H3 = exports.H2 = exports.H1 = exports.HEAD = exports.HR = exports.HGROUP = exports.FORM = exports.FOOTER = exports.FIGURE = exports.FIELDSET = exports.EMBED = exports.EM = exports.DIV = exports.DIALOG = exports.DETAILS = exports.DATALIST = exports.DATA = exports.DL = exports.DD = exports.COLGROUP = exports.CODE = exports.CITE = exports.CANVAS = exports.BUTTON = exports.BODY = exports.BASE = exports.BDO = exports.BDI = exports.B = exports.BR = exports.ASIDE = exports.ARTICLE = exports.ADDRESS = exports.ABBR = exports.AUDIO = exports.AREA = exports.A = void 0;
 exports.U = exports.TRACK = exports.TITLE = exports.TIME = exports.TEXTAREA = exports.TEMPLATE = exports.TBODY = exports.TFOOT = exports.THEAD = exports.TR = exports.TABLE = exports.COL = exports.TD = exports.TH = exports.CAPTION = exports.SECTION = exports.SEARCH = exports.SUMMARY = exports.SUB = exports.STYLE = exports.SPAN = exports.SOURCE = exports.SLOT = exports.SELECT = exports.SCRIPT = exports.BLOCKQUOTE = exports.Q = exports.SMALL = exports.RUBY = exports.RP = exports.RT = exports.PROGRESS = exports.PRE = exports.PICTURE = exports.P = exports.OUTPUT = exports.OPTION = exports.OPTGROUP = exports.OBJECT = exports.OL = exports.DEL = exports.METER = exports.META = exports.NOSCRIPT = exports.NAV = exports.MARK = exports.MENU = exports.MAP = exports.MAIN = exports.LINK = void 0;
-exports.WBR = exports.VAR = exports.VIDEO = exports.UL = void 0;
+exports.FRAGMENT = exports.WBR = exports.VAR = exports.VIDEO = exports.UL = void 0;
 const utils_1 = require("./utils");
 /**
  * #### HTMLAnchorElement
@@ -1695,3 +1695,4 @@ exports.VAR = (0, utils_1.createElementFactory)("var");
  * ```
  */
 exports.WBR = (0, utils_1.createElementFactory)("wbr");
+exports.FRAGMENT = utils_1.createFragment;

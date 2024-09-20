@@ -1,4 +1,4 @@
-import { Properties as CSSProperties } from "csstype"
+import type { CSSProperties } from "./types";
 
 export function css(strs:TemplateStringsArray, ...values:any[]){
     return strs.map((s, i) => s + (values[i] ?? "")).join('')
@@ -9,7 +9,7 @@ export namespace css {
         [assignee:HTMLElement, styles:string|CSSProperties] | 
         [assignee:CSSStyleDeclaration, styles:CSSProperties]
     );
-    export type Properties = CSSProperties;
+    // export type Properties = CSSProperties;
     export function assign(...parameters: AssignParameters){
         const [assignee, styles] = parameters;
         if (assignee instanceof HTMLElement){
@@ -30,5 +30,3 @@ export namespace css {
         }
     }
 }
-
-export {CSSProperties}

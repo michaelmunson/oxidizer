@@ -1,3 +1,4 @@
+import { createFragment } from "./utils";
 /**
  * #### HTMLAnchorElement
  * ```html
@@ -14,7 +15,7 @@
  *     );
  * ```
  */
-export declare const A: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLAnchorElement, P>) => HTMLAnchorElement;
+export declare const A: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLAnchorElement, P>) => HTMLAnchorElement;
 /**
  * #### HTMLAreaElement
  * ```html
@@ -25,7 +26,7 @@ export declare const A: <P extends {} = any>(...params: import("./types").Create
  * const areaElement = AREA({className: 'area'});
  * ```
  */
-export declare const AREA: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLAreaElement, P>) => HTMLAreaElement;
+export declare const AREA: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLAreaElement, P>) => HTMLAreaElement;
 /**
  * #### HTMLAudioElement
  * ```html
@@ -42,7 +43,7 @@ export declare const AREA: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const AUDIO: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLAudioElement, P>) => HTMLAudioElement;
+export declare const AUDIO: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLAudioElement, P>) => HTMLAudioElement;
 /**
  * #### HTMLElement
  * ```html
@@ -59,7 +60,7 @@ export declare const AUDIO: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const ABBR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const ABBR: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -76,7 +77,7 @@ export declare const ABBR: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const ADDRESS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const ADDRESS: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -93,7 +94,7 @@ export declare const ADDRESS: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const ARTICLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const ARTICLE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -110,7 +111,7 @@ export declare const ARTICLE: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const ASIDE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const ASIDE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLBRElement
  * ```html
@@ -121,7 +122,7 @@ export declare const ASIDE: <P extends {} = any>(...params: import("./types").Cr
  * const brElement = BR({className: 'br'});
  * ```
  */
-export declare const BR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLBRElement, P>) => HTMLBRElement;
+export declare const BR: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLBRElement, P>) => HTMLBRElement;
 /**
  * #### HTMLElement
  * ```html
@@ -138,7 +139,7 @@ export declare const BR: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const B: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const B: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -155,7 +156,7 @@ export declare const B: <P extends {} = any>(...params: import("./types").Create
  *     );
  * ```
  */
-export declare const BDI: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const BDI: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -172,7 +173,7 @@ export declare const BDI: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const BDO: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const BDO: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLBaseElement
  * ```html
@@ -183,7 +184,7 @@ export declare const BDO: <P extends {} = any>(...params: import("./types").Crea
  * const baseElement = BASE({className: 'base'});
  * ```
  */
-export declare const BASE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLBaseElement, P>) => HTMLBaseElement;
+export declare const BASE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLBaseElement, P>) => HTMLBaseElement;
 /**
  * #### HTMLBodyElement
  * ```html
@@ -200,7 +201,7 @@ export declare const BASE: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const BODY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLBodyElement, P>) => HTMLBodyElement;
+export declare const BODY: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLBodyElement, P>) => HTMLBodyElement;
 /**
  * #### HTMLButtonElement
  * ```html
@@ -217,7 +218,7 @@ export declare const BODY: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const BUTTON: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLButtonElement, P>) => HTMLButtonElement;
+export declare const BUTTON: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLButtonElement, P>) => HTMLButtonElement;
 /**
  * #### HTMLCanvasElement
  * ```html
@@ -234,7 +235,7 @@ export declare const BUTTON: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const CANVAS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLCanvasElement, P>) => HTMLCanvasElement;
+export declare const CANVAS: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLCanvasElement, P>) => HTMLCanvasElement;
 /**
  * #### HTMLElement
  * ```html
@@ -251,7 +252,7 @@ export declare const CANVAS: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const CITE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const CITE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -268,7 +269,7 @@ export declare const CITE: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const CODE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const CODE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -285,7 +286,7 @@ export declare const CODE: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const COLGROUP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableColElement, P>) => HTMLTableColElement;
+export declare const COLGROUP: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableColElement, P>) => HTMLTableColElement;
 /**
  * #### HTMLElement
  * ```html
@@ -302,7 +303,7 @@ export declare const COLGROUP: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const DD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const DD: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLDListElement
  * ```html
@@ -319,7 +320,7 @@ export declare const DD: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const DL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDListElement, P>) => HTMLDListElement;
+export declare const DL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLDListElement, P>) => HTMLDListElement;
 /**
  * #### HTMLDataElement
  * ```html
@@ -336,7 +337,7 @@ export declare const DL: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const DATA: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDataElement, P>) => HTMLDataElement;
+export declare const DATA: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLDataElement, P>) => HTMLDataElement;
 /**
  * #### HTMLDataListElement
  * ```html
@@ -353,7 +354,7 @@ export declare const DATA: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const DATALIST: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDataListElement, P>) => HTMLDataListElement;
+export declare const DATALIST: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLDataListElement, P>) => HTMLDataListElement;
 /**
  * #### HTMLDetailsElement
  * ```html
@@ -370,7 +371,7 @@ export declare const DATALIST: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const DETAILS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDetailsElement, P>) => HTMLDetailsElement;
+export declare const DETAILS: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLDetailsElement, P>) => HTMLDetailsElement;
 /**
  * #### HTMLDialogElement
  * ```html
@@ -387,7 +388,7 @@ export declare const DETAILS: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const DIALOG: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDialogElement, P>) => HTMLDialogElement;
+export declare const DIALOG: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLDialogElement, P>) => HTMLDialogElement;
 /**
  * #### HTMLDivElement
  * ```html
@@ -404,7 +405,7 @@ export declare const DIALOG: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const DIV: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLDivElement, P>) => HTMLDivElement;
+export declare const DIV: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLDivElement, P>) => HTMLDivElement;
 /**
  * #### HTMLElement
  * ```html
@@ -421,7 +422,7 @@ export declare const DIV: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const EM: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const EM: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLEmbedElement
  * ```html
@@ -432,7 +433,7 @@ export declare const EM: <P extends {} = any>(...params: import("./types").Creat
  * const embedElement = EMBED({className: 'embed'});
  * ```
  */
-export declare const EMBED: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLEmbedElement, P>) => HTMLEmbedElement;
+export declare const EMBED: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLEmbedElement, P>) => HTMLEmbedElement;
 /**
  * #### HTMLFieldSetElement
  * ```html
@@ -449,7 +450,7 @@ export declare const EMBED: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const FIELDSET: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLFieldSetElement, P>) => HTMLFieldSetElement;
+export declare const FIELDSET: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLFieldSetElement, P>) => HTMLFieldSetElement;
 /**
  * #### HTMLElement
  * ```html
@@ -466,7 +467,7 @@ export declare const FIELDSET: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const FIGURE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const FIGURE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -483,7 +484,7 @@ export declare const FIGURE: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const FOOTER: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const FOOTER: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLFormElement
  * ```html
@@ -500,7 +501,7 @@ export declare const FOOTER: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const FORM: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLFormElement, P>) => HTMLFormElement;
+export declare const FORM: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLFormElement, P>) => HTMLFormElement;
 /**
  * #### HTMLElement
  * ```html
@@ -517,7 +518,7 @@ export declare const FORM: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const HGROUP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const HGROUP: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLHRElement
  * ```html
@@ -528,7 +529,7 @@ export declare const HGROUP: <P extends {} = any>(...params: import("./types").C
  * const hrElement = HR({className: 'hr'});
  * ```
  */
-export declare const HR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHRElement, P>) => HTMLHRElement;
+export declare const HR: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHRElement, P>) => HTMLHRElement;
 /**
  * #### HTMLHeadElement
  * ```html
@@ -545,7 +546,7 @@ export declare const HR: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const HEAD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadElement, P>) => HTMLHeadElement;
+export declare const HEAD: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadElement, P>) => HTMLHeadElement;
 /**
  * #### HTMLHeadingElement
  * ```html
@@ -562,7 +563,7 @@ export declare const HEAD: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const H1: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
+export declare const H1: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
 /**
  * #### HTMLHeadingElement
  * ```html
@@ -579,7 +580,7 @@ export declare const H1: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const H2: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
+export declare const H2: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
 /**
  * #### HTMLHeadingElement
  * ```html
@@ -596,7 +597,7 @@ export declare const H2: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const H3: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
+export declare const H3: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
 /**
  * #### HTMLHeadingElement
  * ```html
@@ -613,7 +614,7 @@ export declare const H3: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const H4: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
+export declare const H4: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
 /**
  * #### HTMLHeadingElement
  * ```html
@@ -630,7 +631,7 @@ export declare const H4: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const H5: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
+export declare const H5: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
 /**
  * #### HTMLHeadingElement
  * ```html
@@ -647,7 +648,7 @@ export declare const H5: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const H6: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
+export declare const H6: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHeadingElement, P>) => HTMLHeadingElement;
 /**
  * #### HTMLHtmlElement
  * ```html
@@ -664,7 +665,7 @@ export declare const H6: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const HTML: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLHtmlElement, P>) => HTMLHtmlElement;
+export declare const HTML: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLHtmlElement, P>) => HTMLHtmlElement;
 /**
  * #### HTMLElement
  * ```html
@@ -681,7 +682,7 @@ export declare const HTML: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const KBD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const KBD: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLModElement
  * ```html
@@ -698,7 +699,7 @@ export declare const KBD: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const INS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLModElement, P>) => HTMLModElement;
+export declare const INS: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLModElement, P>) => HTMLModElement;
 /**
  * #### HTMLElement
  * ```html
@@ -715,7 +716,7 @@ export declare const INS: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const I: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const I: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLIFrameElement
  * ```html
@@ -732,7 +733,7 @@ export declare const I: <P extends {} = any>(...params: import("./types").Create
  *     );
  * ```
  */
-export declare const IFRAME: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLIFrameElement, P>) => HTMLIFrameElement;
+export declare const IFRAME: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLIFrameElement, P>) => HTMLIFrameElement;
 /**
  * #### HTMLImageElement
  * ```html
@@ -743,7 +744,7 @@ export declare const IFRAME: <P extends {} = any>(...params: import("./types").C
  * const imgElement = IMG({className: 'img'});
  * ```
  */
-export declare const IMG: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLImageElement, P>) => HTMLImageElement;
+export declare const IMG: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLImageElement, P>) => HTMLImageElement;
 /**
  * #### HTMLInputElement
  * ```html
@@ -754,7 +755,7 @@ export declare const IMG: <P extends {} = any>(...params: import("./types").Crea
  * const inputElement = INPUT({className: 'input'});
  * ```
  */
-export declare const INPUT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLInputElement, P>) => HTMLInputElement;
+export declare const INPUT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLInputElement, P>) => HTMLInputElement;
 /**
  * #### HTMLLIElement
  * ```html
@@ -771,7 +772,7 @@ export declare const INPUT: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const LI: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLIElement, P>) => HTMLLIElement;
+export declare const LI: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLLIElement, P>) => HTMLLIElement;
 /**
  * #### HTMLLabelElement
  * ```html
@@ -788,7 +789,7 @@ export declare const LI: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const LABEL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLabelElement, P>) => HTMLLabelElement;
+export declare const LABEL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLLabelElement, P>) => HTMLLabelElement;
 /**
  * #### HTMLLegendElement
  * ```html
@@ -805,7 +806,7 @@ export declare const LABEL: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const LEGEND: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLegendElement, P>) => HTMLLegendElement;
+export declare const LEGEND: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLLegendElement, P>) => HTMLLegendElement;
 /**
  * #### HTMLLinkElement
  * ```html
@@ -816,7 +817,7 @@ export declare const LEGEND: <P extends {} = any>(...params: import("./types").C
  * const linkElement = LINK({className: 'link'});
  * ```
  */
-export declare const LINK: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLLinkElement, P>) => HTMLLinkElement;
+export declare const LINK: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLLinkElement, P>) => HTMLLinkElement;
 /**
  * #### HTMLElement
  * ```html
@@ -833,7 +834,7 @@ export declare const LINK: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const MAIN: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const MAIN: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLMapElement
  * ```html
@@ -850,7 +851,7 @@ export declare const MAIN: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const MAP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMapElement, P>) => HTMLMapElement;
+export declare const MAP: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLMapElement, P>) => HTMLMapElement;
 /**
  * #### HTMLMenuElement
  * ```html
@@ -867,7 +868,7 @@ export declare const MAP: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const MENU: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMenuElement, P>) => HTMLMenuElement;
+export declare const MENU: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLMenuElement, P>) => HTMLMenuElement;
 /**
  * #### HTMLElement
  * ```html
@@ -884,7 +885,7 @@ export declare const MENU: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const MARK: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const MARK: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -901,7 +902,7 @@ export declare const MARK: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const NAV: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const NAV: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -918,7 +919,7 @@ export declare const NAV: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const NOSCRIPT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const NOSCRIPT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLMetaElement
  * ```html
@@ -929,7 +930,7 @@ export declare const NOSCRIPT: <P extends {} = any>(...params: import("./types")
  * const metaElement = META({className: 'meta'});
  * ```
  */
-export declare const META: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMetaElement, P>) => HTMLMetaElement;
+export declare const META: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLMetaElement, P>) => HTMLMetaElement;
 /**
  * #### HTMLMeterElement
  * ```html
@@ -946,7 +947,7 @@ export declare const META: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const METER: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLMeterElement, P>) => HTMLMeterElement;
+export declare const METER: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLMeterElement, P>) => HTMLMeterElement;
 /**
  * #### HTMLModElement
  * ```html
@@ -963,7 +964,7 @@ export declare const METER: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const DEL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLModElement, P>) => HTMLModElement;
+export declare const DEL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLModElement, P>) => HTMLModElement;
 /**
  * #### HTMLOListElement
  * ```html
@@ -980,7 +981,7 @@ export declare const DEL: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const OL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOListElement, P>) => HTMLOListElement;
+export declare const OL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLOListElement, P>) => HTMLOListElement;
 /**
  * #### HTMLObjectElement
  * ```html
@@ -997,7 +998,7 @@ export declare const OL: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const OBJECT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLObjectElement, P>) => HTMLObjectElement;
+export declare const OBJECT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLObjectElement, P>) => HTMLObjectElement;
 /**
  * #### HTMLOptGroupElement
  * ```html
@@ -1014,7 +1015,7 @@ export declare const OBJECT: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const OPTGROUP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOptGroupElement, P>) => HTMLOptGroupElement;
+export declare const OPTGROUP: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLOptGroupElement, P>) => HTMLOptGroupElement;
 /**
  * #### HTMLOptionElement
  * ```html
@@ -1031,7 +1032,7 @@ export declare const OPTGROUP: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const OPTION: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOptionElement, P>) => HTMLOptionElement;
+export declare const OPTION: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLOptionElement, P>) => HTMLOptionElement;
 /**
  * #### HTMLOutputElement
  * ```html
@@ -1048,7 +1049,7 @@ export declare const OPTION: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const OUTPUT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLOutputElement, P>) => HTMLOutputElement;
+export declare const OUTPUT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLOutputElement, P>) => HTMLOutputElement;
 /**
  * #### HTMLParagraphElement
  * ```html
@@ -1065,7 +1066,7 @@ export declare const OUTPUT: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const P: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLParagraphElement, P>) => HTMLParagraphElement;
+export declare const P: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLParagraphElement, P>) => HTMLParagraphElement;
 /**
  * #### HTMLPictureElement
  * ```html
@@ -1082,7 +1083,7 @@ export declare const P: <P extends {} = any>(...params: import("./types").Create
  *     );
  * ```
  */
-export declare const PICTURE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLPictureElement, P>) => HTMLPictureElement;
+export declare const PICTURE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLPictureElement, P>) => HTMLPictureElement;
 /**
  * #### HTMLPreElement
  * ```html
@@ -1099,7 +1100,7 @@ export declare const PICTURE: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const PRE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLPreElement, P>) => HTMLPreElement;
+export declare const PRE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLPreElement, P>) => HTMLPreElement;
 /**
  * #### HTMLProgressElement
  * ```html
@@ -1116,7 +1117,7 @@ export declare const PRE: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const PROGRESS: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLProgressElement, P>) => HTMLProgressElement;
+export declare const PROGRESS: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLProgressElement, P>) => HTMLProgressElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1133,7 +1134,7 @@ export declare const PROGRESS: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const RT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const RT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1150,7 +1151,7 @@ export declare const RT: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const RP: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const RP: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1167,7 +1168,7 @@ export declare const RP: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const RUBY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const RUBY: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1184,7 +1185,7 @@ export declare const RUBY: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const SMALL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const SMALL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLQuoteElement
  * ```html
@@ -1201,7 +1202,7 @@ export declare const SMALL: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const Q: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLQuoteElement, P>) => HTMLQuoteElement;
+export declare const Q: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLQuoteElement, P>) => HTMLQuoteElement;
 /**
  * #### HTMLQuoteElement
  * ```html
@@ -1218,7 +1219,7 @@ export declare const Q: <P extends {} = any>(...params: import("./types").Create
  *     );
  * ```
  */
-export declare const BLOCKQUOTE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLQuoteElement, P>) => HTMLQuoteElement;
+export declare const BLOCKQUOTE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLQuoteElement, P>) => HTMLQuoteElement;
 /**
  * #### HTMLScriptElement
  * ```html
@@ -1235,7 +1236,7 @@ export declare const BLOCKQUOTE: <P extends {} = any>(...params: import("./types
  *     );
  * ```
  */
-export declare const SCRIPT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLScriptElement, P>) => HTMLScriptElement;
+export declare const SCRIPT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLScriptElement, P>) => HTMLScriptElement;
 /**
  * #### HTMLSelectElement
  * ```html
@@ -1252,7 +1253,7 @@ export declare const SCRIPT: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const SELECT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSelectElement, P>) => HTMLSelectElement;
+export declare const SELECT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLSelectElement, P>) => HTMLSelectElement;
 /**
  * #### HTMLSlotElement
  * ```html
@@ -1269,7 +1270,7 @@ export declare const SELECT: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const SLOT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSlotElement, P>) => HTMLSlotElement;
+export declare const SLOT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLSlotElement, P>) => HTMLSlotElement;
 /**
  * #### HTMLSourceElement
  * ```html
@@ -1280,7 +1281,7 @@ export declare const SLOT: <P extends {} = any>(...params: import("./types").Cre
  * const sourceElement = SOURCE({className: 'source'});
  * ```
  */
-export declare const SOURCE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSourceElement, P>) => HTMLSourceElement;
+export declare const SOURCE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLSourceElement, P>) => HTMLSourceElement;
 /**
  * #### HTMLSpanElement
  * ```html
@@ -1297,7 +1298,7 @@ export declare const SOURCE: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const SPAN: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLSpanElement, P>) => HTMLSpanElement;
+export declare const SPAN: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLSpanElement, P>) => HTMLSpanElement;
 /**
  * #### HTMLStyleElement
  * ```html
@@ -1315,7 +1316,7 @@ export declare const SPAN: <P extends {} = any>(...params: import("./types").Cre
  * document.head.append(stylesheet)
  * ```
  */
-export declare const STYLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLStyleElement, P>) => HTMLStyleElement;
+export declare const STYLE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLStyleElement, P>) => HTMLStyleElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1332,7 +1333,7 @@ export declare const STYLE: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const SUB: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const SUB: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1349,7 +1350,7 @@ export declare const SUB: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const SUMMARY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const SUMMARY: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1366,7 +1367,7 @@ export declare const SUMMARY: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const SEARCH: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const SEARCH: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1383,7 +1384,7 @@ export declare const SEARCH: <P extends {} = any>(...params: import("./types").C
  *     );
  * ```
  */
-export declare const SECTION: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const SECTION: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLTableCaptionElement
  * ```html
@@ -1400,7 +1401,7 @@ export declare const SECTION: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const CAPTION: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableCaptionElement, P>) => HTMLTableCaptionElement;
+export declare const CAPTION: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableCaptionElement, P>) => HTMLTableCaptionElement;
 /**
  * #### HTMLTableCellElement
  * ```html
@@ -1417,7 +1418,7 @@ export declare const CAPTION: <P extends {} = any>(...params: import("./types").
  *     );
  * ```
  */
-export declare const TH: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableCellElement, P>) => HTMLTableCellElement;
+export declare const TH: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableCellElement, P>) => HTMLTableCellElement;
 /**
  * #### HTMLTableCellElement
  * ```html
@@ -1434,7 +1435,7 @@ export declare const TH: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const TD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableCellElement, P>) => HTMLTableCellElement;
+export declare const TD: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableCellElement, P>) => HTMLTableCellElement;
 /**
  * #### HTMLTableColElement
  * ```html
@@ -1445,7 +1446,7 @@ export declare const TD: <P extends {} = any>(...params: import("./types").Creat
  * const colElement = COL({className: 'col'});
  * ```
  */
-export declare const COL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableColElement, P>) => HTMLTableColElement;
+export declare const COL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableColElement, P>) => HTMLTableColElement;
 /**
  * #### HTMLTableElement
  * ```html
@@ -1462,7 +1463,7 @@ export declare const COL: <P extends {} = any>(...params: import("./types").Crea
  *     );
  * ```
  */
-export declare const TABLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableElement, P>) => HTMLTableElement;
+export declare const TABLE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableElement, P>) => HTMLTableElement;
 /**
  * #### HTMLTableRowElement
  * ```html
@@ -1479,7 +1480,7 @@ export declare const TABLE: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const TR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableRowElement, P>) => HTMLTableRowElement;
+export declare const TR: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableRowElement, P>) => HTMLTableRowElement;
 /**
  * #### HTMLTableSectionElement
  * ```html
@@ -1496,7 +1497,7 @@ export declare const TR: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const THEAD: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
+export declare const THEAD: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
 /**
  * #### HTMLTableSectionElement
  * ```html
@@ -1513,7 +1514,7 @@ export declare const THEAD: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const TFOOT: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
+export declare const TFOOT: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
 /**
  * #### HTMLTableSectionElement
  * ```html
@@ -1530,7 +1531,7 @@ export declare const TFOOT: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const TBODY: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
+export declare const TBODY: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTableSectionElement, P>) => HTMLTableSectionElement;
 /**
  * #### HTMLTemplateElement
  * ```html
@@ -1547,7 +1548,7 @@ export declare const TBODY: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const TEMPLATE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTemplateElement, P>) => HTMLTemplateElement;
+export declare const TEMPLATE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTemplateElement, P>) => HTMLTemplateElement;
 /**
  * #### HTMLTextAreaElement
  * ```html
@@ -1564,7 +1565,7 @@ export declare const TEMPLATE: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const TEXTAREA: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTextAreaElement, P>) => HTMLTextAreaElement;
+export declare const TEXTAREA: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTextAreaElement, P>) => HTMLTextAreaElement;
 /**
  * #### HTMLTimeElement
  * ```html
@@ -1581,7 +1582,7 @@ export declare const TEXTAREA: <P extends {} = any>(...params: import("./types")
  *     );
  * ```
  */
-export declare const TIME: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTimeElement, P>) => HTMLTimeElement;
+export declare const TIME: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTimeElement, P>) => HTMLTimeElement;
 /**
  * #### HTMLTitleElement
  * ```html
@@ -1598,7 +1599,7 @@ export declare const TIME: <P extends {} = any>(...params: import("./types").Cre
  *     );
  * ```
  */
-export declare const TITLE: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTitleElement, P>) => HTMLTitleElement;
+export declare const TITLE: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTitleElement, P>) => HTMLTitleElement;
 /**
  * #### HTMLTrackElement
  * ```html
@@ -1609,7 +1610,7 @@ export declare const TITLE: <P extends {} = any>(...params: import("./types").Cr
  * const trackElement = TRACK({className: 'track'});
  * ```
  */
-export declare const TRACK: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLTrackElement, P>) => HTMLTrackElement;
+export declare const TRACK: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLTrackElement, P>) => HTMLTrackElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1626,7 +1627,7 @@ export declare const TRACK: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const U: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const U: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLUListElement
  * ```html
@@ -1643,7 +1644,7 @@ export declare const U: <P extends {} = any>(...params: import("./types").Create
  *     );
  * ```
  */
-export declare const UL: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLUListElement, P>) => HTMLUListElement;
+export declare const UL: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLUListElement, P>) => HTMLUListElement;
 /**
  * #### HTMLVideoElement
  * ```html
@@ -1660,7 +1661,7 @@ export declare const UL: <P extends {} = any>(...params: import("./types").Creat
  *     );
  * ```
  */
-export declare const VIDEO: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLVideoElement, P>) => HTMLVideoElement;
+export declare const VIDEO: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLVideoElement, P>) => HTMLVideoElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1677,7 +1678,7 @@ export declare const VIDEO: <P extends {} = any>(...params: import("./types").Cr
  *     );
  * ```
  */
-export declare const VAR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const VAR: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
 /**
  * #### HTMLElement
  * ```html
@@ -1688,4 +1689,5 @@ export declare const VAR: <P extends {} = any>(...params: import("./types").Crea
  * const wbrElement = WBR({className: 'wbr'});
  * ```
  */
-export declare const WBR: <P extends {} = any>(...params: import("./types").CreateIntrinsicParameters<HTMLElement, P>) => HTMLElement;
+export declare const WBR: <P extends import("..").Props = any>(...params: import("./types").RenderParameters<HTMLElement, P>) => HTMLElement;
+export declare const FRAGMENT: typeof createFragment;

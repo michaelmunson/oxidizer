@@ -1,4 +1,5 @@
-export declare class Effect<T extends {}> {
+import { Props } from "./types";
+export declare class Effect<T extends Props> {
     callback: (props: T) => Partial<T> | void;
     dependencies: (keyof T)[];
     constructor(dependencies: (keyof T)[] | keyof T, callback: (props: T) => Partial<T> | void);
@@ -29,4 +30,4 @@ export declare class Effect<T extends {}> {
     props.count = 110;
 ```
  */
-export declare function createEffect<T extends {}>(...params: ConstructorParameters<typeof Effect<T>>): Effect<T>;
+export declare function createEffect<T extends Props>(...params: ConstructorParameters<typeof Effect<T>>): Effect<T>;
