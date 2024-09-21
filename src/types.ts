@@ -18,3 +18,5 @@ export type {
 export type {CSSProperties} from './utils/types';
 
 export type {Props} from './props/types';
+
+export {isProps} from './props/utils';
