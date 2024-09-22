@@ -8,5 +8,7 @@ describe('Utils App', () => {
   it('should have correct header', async () => {
     const header = await ((await page.$('#utils-app-header')).evaluate(e => e.innerHTML));
     expect(header).toEqual('Utils App')
+    const subheader = await ((await page.$('#utils-app-subheader')).evaluate(e => e.innerHTML));
+    expect(subheader).toEqual('Utils Subheader')
   });
 });

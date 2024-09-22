@@ -1,4 +1,4 @@
-import {createEffect, createProps, DIV, P, BUTTON, ox, H1, HR, html} from "oxidizer"
+import {createEffect, createProps, DIV, P, BUTTON, ox, H1, HR, html, H2} from "oxidizer"
 
 
 const Counter = () => {
@@ -31,8 +31,13 @@ const UtilsApp = () => {
     const div = DIV({id: 'utils-app'});
     const render = ox(div);
 
-    return render(
-        H1({id: 'utils-app-header'}, 'Utils App'),
+    return (
+        DIV(
+            render(
+                H1({id: 'utils-app-header'}, 'Utils App'),
+            ),
+            DIV({id: 'utils-append-here'})
+        )
     )
 }
 

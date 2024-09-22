@@ -585,12 +585,16 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"h7u1C":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _oxidizer = require("oxidizer");
 var _app = require("./App");
 var _appDefault = parcelHelpers.interopDefault(_app);
 const app = (0, _appDefault.default)();
 document.body.append(app);
+(0, _oxidizer.ox)("#utils-append-here")((0, _oxidizer.H2)({
+    id: "utils-app-subheader"
+}, "Utils Subheader"));
 
-},{"./App":"lyqAI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lyqAI":[function(require,module,exports) {
+},{"./App":"lyqAI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","oxidizer":"8bItu"}],"lyqAI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>App);
@@ -633,9 +637,11 @@ const UtilsApp = ()=>{
         id: "utils-app"
     });
     const render = (0, _oxidizer.ox)(div);
-    return render((0, _oxidizer.H1)({
+    return (0, _oxidizer.DIV)(render((0, _oxidizer.H1)({
         id: "utils-app-header"
-    }, "Utils App"));
+    }, "Utils App")), (0, _oxidizer.DIV)({
+        id: "utils-append-here"
+    }));
 };
 const FragmentApp = ()=>{
     const props = (0, _oxidizer.createProps)({
@@ -959,7 +965,8 @@ function createShadowElement(tagName, options, ...params) {
 function createElementFactory(tagName) {
     return (...params)=>createIntrinsicElement(tagName, ...params);
 }
-/** LIB EXPORTS */ function ox(element) {
+/** LIB EXPORTS */ function ox(elem) {
+    const element = typeof elem === "string" ? (0, _helpers_1.strictQuery)(elem) : elem;
     return (...params)=>{
         if ((0, utils_1.isProps)(params[0]) && typeof params[1] === "function") {
             const [props, renderFn] = params;
@@ -978,11 +985,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.camelToDashed = camelToDashed;
 exports.dashedToCamel = dashedToCamel;
+exports.strictQuery = strictQuery;
 function camelToDashed(input) {
     return input.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 }
 function dashedToCamel(input) {
     return input.replace(/-([a-z])/g, (match, group)=>group.toUpperCase());
+}
+function strictQuery(selector) {
+    if (typeof selector !== "string") throw new TypeError("Selector must be of type string");
+    const element = document.querySelector(selector);
+    if (!element) throw new ReferenceError(`No element found matching selector "${selector}"`);
+    return element;
 }
 
 },{}],"lFyY0":[function(require,module,exports) {
@@ -2854,8 +2868,16 @@ exports.FRAGMENT = utils_1.createFragment;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.isProps = void 0;
+var utils_1 = require("c775d0cb4f8a2784");
+Object.defineProperty(exports, "isProps", {
+    enumerable: true,
+    get: function() {
+        return utils_1.isProps;
+    }
+});
 
-},{}],"gkKU3":[function(require,module,exports) {
+},{"c775d0cb4f8a2784":"8wktb"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
