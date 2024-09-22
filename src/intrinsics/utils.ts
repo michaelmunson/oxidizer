@@ -1,4 +1,4 @@
-import { camelToDashed } from "../utils/_helpers";
+import { camelToDashed, strictQuery } from "../utils/_helpers";
 import {
     type RenderStaticElementParameters,
     type RenderParameters,
@@ -30,6 +30,7 @@ class RenderError extends TypeError {
         this.name = "RenderError";
     }
 }
+
 /** GENERAL EXPORTED UTILITIES */
 
 /****** HTML ELEMENTS */
@@ -175,7 +176,14 @@ export function createElementFactory<T extends HTMLTagName>(tagName: T) {
 }
 
 /** LIB EXPORTS */
-export function ox<T extends HTMLElement>(element:T){
+
+export function ox<T extends HTMLElement>(elem:T | string){
+    const element:T = typeof elem === "string" ? (
+        strictQuery<T>(elem)
+    ) : (
+        elem
+    );
+
     return <P extends Props>(...params:RenderParameters<T,P>) => {
         if (isProps<P>(params[0]) && typeof params[1] === "function") {
             const [props, renderFn] = params;

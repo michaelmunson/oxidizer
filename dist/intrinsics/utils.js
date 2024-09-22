@@ -146,7 +146,8 @@ function createElementFactory(tagName) {
     return (...params) => createIntrinsicElement(tagName, ...params);
 }
 /** LIB EXPORTS */
-function ox(element) {
+function ox(elem) {
+    const element = typeof elem === "string" ? ((0, _helpers_1.strictQuery)(elem)) : (elem);
     return (...params) => {
         if ((0, utils_1.isProps)(params[0]) && typeof params[1] === "function") {
             const [props, renderFn] = params;

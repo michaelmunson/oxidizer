@@ -30,6 +30,7 @@ const Counter = () => {
 const UtilsApp = () => {
     const div = DIV({id: 'utils-app'});
     const render = ox(div);
+
     return render(
         H1({id: 'utils-app-header'}, 'Utils App'),
     )

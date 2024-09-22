@@ -15,4 +15,4 @@ export declare function createIntrinsicElementComponent<T extends HTMLTagName, C
 export declare function createShadowElement<T extends HTMLTagName, P extends Props = any>(tagName: T, options: ShadowRootInit, ...params: RenderParameters<HTMLElementFromTagName<T>, P>): HTMLElementFromTagName<T>;
 export declare function createElementFactory<T extends HTMLTagName>(tagName: T): <P extends Props = any>(...params: RenderParameters<HTMLElementFromTagName<T>, P>) => HTMLElementFromTagName<T>;
 /** LIB EXPORTS */
-export declare function ox<T extends HTMLElement>(element: T): <P extends Props>(...params: RenderParameters<T, P>) => T;
+export declare function ox<T extends HTMLElement>(elem: T | string): <P extends Props>(...params: RenderParameters<T, P>) => T;
